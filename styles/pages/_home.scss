@@ -1,0 +1,472 @@
+.home {
+  &__hero {
+    margin: auto;
+    width: 100%;
+    height: 936px;
+
+    background: url("/assets/Rectangle 10.png");
+    background-size: cover;
+    background-position: center;
+
+    &__hero-inner {
+      width: 100%;
+      height: 100%;
+      max-width: 1440px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      &__navigation {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding: 0 48px;
+      }
+
+      &__card {
+        color: rgba(255, 255, 255, 1);
+        width: 100%;
+        max-width: 435px;
+        height: fit-content;
+        padding: 20px 40px;
+        margin-left: 150px;
+        margin-bottom: 4.8rem;
+        background: rgba(0, 0, 0, 0.1);
+        &__title {
+          font-size: 4rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        &__subtitle {
+          font-size: 2.4rem;
+          font-weight: 500;
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        &__subsubtitle {
+          font-size: 2.4rem;
+          font-weight: 500;
+          margin-bottom: 4rem;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        &__button {
+          @extend %primary-button;
+          width: 186px;
+          font-size: 14px;
+        }
+      }
+
+      &__book {
+        background: rgba(126, 149, 149, 0.05);
+        backdrop-filter: blur(25px);
+
+        padding: 40px 80px 20px 80px;
+        &__book-inner {
+          width: 100%;
+          max-width: 1440px;
+          margin: auto;
+          &__title {
+            font-size: 3.2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 1);
+          }
+
+          &__search {
+            @extend %title-16;
+            width: 100%;
+            height: 100px;
+            border-radius: 80px;
+            background: rgba(255, 255, 255, 1);
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.4fr 136px;
+            gap: 15px;
+            align-items: center;
+            padding: 0 20px;
+
+            &__input {
+              @extend %title-16;
+              width: 100%;
+              height: 65px;
+              border: none;
+              outline: none;
+              font-weight: 400;
+              color: rgba(128, 128, 128, 1);
+              border-right: 1px solid rgba(153, 153, 153, 1);
+            }
+
+            &__div {
+              width: 100%;
+              height: 65px;
+              display: flex;
+              align-items: center;
+              border-right: 1px solid rgba(153, 153, 153, 1);
+              gap: 6px;
+              color: rgba(36, 35, 35, 1);
+            }
+
+            & > :nth-child(4) {
+              border-right: none;
+            }
+
+            &__button {
+              @extend %primary-button;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__category {
+    width: 100%;
+    max-width: 1440px;
+    margin: 100px auto;
+
+    &__title {
+      @extend %title-40;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    &__categories {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 15px;
+      flex-wrap: wrap;
+
+      & > h3 {
+        @extend %title-18;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: fit-content;
+        height: 56px;
+        border-radius: 24px;
+        padding: 0 40px;
+        background: rgba(255, 255, 245, 1);
+        color: rgba(36, 35, 35, 1);
+      }
+    }
+  }
+
+  &__events {
+    width: 100%;
+    max-width: 1440px;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: 1fr 348px;
+    gap: 20px;
+
+    &__featured {
+      width: 100%;
+      //   height: 400px;
+      &__title {
+        @extend %title-40;
+      }
+      &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px 20px;
+        margin-top: 40px;
+        &__card {
+          width: 100%;
+          height: 340px;
+          border-radius: 0px 0px 12px 12px;
+          border: 1.5px 0px 0px 0px;
+          background: #bbb;
+
+          &__img {
+            width: 100%;
+            height: 224px;
+            position: relative;
+            background: yellow;
+          }
+
+          &__card-inner {
+            width: 100%;
+            // height: 100%;
+            padding: 12px 20px;
+            color: rgba(128, 128, 128, 1);
+
+            &__title {
+              @extend %title-18;
+              margin-bottom: 1.5rem;
+              color: rgba(36, 35, 35, 1);
+            }
+            &__subtitle {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              @extend %title-12;
+              margin-bottom: 2rem;
+            }
+            &__subsubtitle {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              @extend %title-12;
+            }
+          }
+        }
+      }
+
+      &__button {
+        @extend %primary-button;
+        margin-top: 6rem;
+      }
+    }
+
+    &__advert {
+      width: 100%;
+      padding: 14px;
+      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
+      position: relative;
+      padding-bottom: 20px;
+
+      &__title {
+        @extend %title-18;
+        text-align: center;
+        margin-bottom: 4rem;
+        color: rgba(36, 35, 35, 1);
+      }
+      &__subtitle {
+        @extend %title-24;
+        color: rgba(36, 35, 35, 1);
+        margin-bottom: 2rem;
+      }
+
+      &__card {
+        position: relative;
+        width: 100%;
+        height: 224px;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        margin-top: 2rem;
+
+        &__card-inner {
+          z-index: 1;
+          background: rgba(252, 252, 252, 0.95);
+
+          width: fit-content;
+          border-radius: 16px 0px 0px 16px;
+          padding: 8px;
+
+          &__title {
+            @extend %title-16;
+            font-weight: 700;
+            color: rgba(36, 35, 35, 1);
+            margin-bottom: 1.2rem;
+          }
+
+          &__subtitle {
+            @extend %title-12;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 1.4rem;
+          }
+          &__subsubtitle {
+            @extend %title-12;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          }
+        }
+      }
+
+      &__button {
+        @extend %primary-button;
+        @extend %title-18;
+        background: rgba(255, 255, 245, 1);
+        width: 165px;
+        color: rgba(255, 215, 0, 1);
+        margin-top: 6rem;
+      }
+    }
+  }
+
+  &__popular {
+    width: 100%;
+    max-width: 1440px;
+    margin: 100px auto;
+
+    &__title {
+      @extend %title-40;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    &__flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(36, 35, 35, 1);
+      padding: 0 60px;
+      margin-bottom: 3.2rem;
+
+      & > :first-child {
+        font-size: 2.4rem;
+        font-weight: 700;
+      }
+      & > :last-child {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+    }
+
+    &__slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 6rem;
+
+      &__slide-inner {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        overflow-x: auto;
+
+        &__card {
+          min-width: 396px;
+          height: 176px;
+          display: grid;
+          grid-template-columns: 1fr 1.4fr;
+          border-radius: 8px;
+          border: 1px solid rgba(250, 250, 250, 1);
+
+          &__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+          }
+
+          &__card-inner {
+            padding: 20px 12px 10px 12px;
+            &__title {
+              font-size: 1.8rem;
+              font-weight: 700;
+              color: rgba(36, 35, 35, 1);
+              margin-bottom: 2rem;
+              width: 100%;
+            }
+
+            &__subtitle {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 1.4rem;
+            }
+
+            &__button {
+              @extend %primary-button;
+              width: 103px;
+              height: 32px;
+              background: rgba(255, 255, 245, 1);
+              margin: unset;
+              color: #ffd700;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+    &__button {
+      @extend %primary-button;
+    }
+  }
+
+  &__sponsored-advert {
+    width: 100%;
+    max-width: 1440px;
+    margin: 100px auto;
+
+    &__label {
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: rgba(36, 35, 35, 1);
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    &__title {
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(36, 35, 35, 1);
+      margin-bottom: 2rem;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+
+      &__card {
+        position: relative;
+        width: 100%;
+        height: 224px;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        margin-top: 2rem;
+
+        &__card-inner {
+          z-index: 1;
+          background: rgba(252, 252, 252, 0.95);
+
+          width: fit-content;
+          border-radius: 16px 0px 0px 16px;
+          padding: 8px;
+
+          &__title {
+            @extend %title-16;
+            font-weight: 700;
+            color: rgba(36, 35, 35, 1);
+            margin-bottom: 1.2rem;
+          }
+
+          &__subtitle {
+            @extend %title-12;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 1.4rem;
+          }
+          &__subsubtitle {
+            @extend %title-12;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  &__feedback {
+    width: 100%;
+    max-width: 1440px;
+    margin: 100px auto;
+
+    &__title {
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+}

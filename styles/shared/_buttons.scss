@@ -1,0 +1,50 @@
+.primary-button {
+  width: 214px;
+  height: 60px;
+  background: rgba(255, 215, 0, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 40px;
+    margin: auto;
+}
+
+%primary-button {
+  width: 214px;
+  height: 60px;
+  background: rgba(255, 215, 0, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 40px;
+    margin: auto;
+}
+
+
+.trans-button {
+  
+}
+
+%trans-button {
+  
+}
+
+.grey-button {
+ 
+}
+
+%grey-button {
+ 
+}
+
+.bottom-button {
+  
+}
