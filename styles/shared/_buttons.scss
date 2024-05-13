@@ -37,13 +37,21 @@
   
 }
 
-.grey-button {
- 
+.button-green, %button-green {
+ min-width: 150px;
+ height: 40px;
+ border-radius: 24px;
+ background: #008D48;
+ border: none;
+ outline: none;
+ color: #FFF;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px;
 }
 
-%grey-button {
- 
-}
+
 
 .bottom-button {
   

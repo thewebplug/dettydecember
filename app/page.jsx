@@ -1,7 +1,18 @@
+"use client";
+
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export default function Home() {
+  const auth = useSelector((state) => state.auth);
+
+
+  useEffect(() => {
+    console.log('auth', auth);
+      }, [auth])
   return (
     <main className="home">
       <div className="home__hero">
@@ -2546,7 +2557,7 @@ export default function Home() {
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -2648,13 +2659,37 @@ export default function Home() {
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -2663,7 +2698,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -2765,13 +2800,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -2780,7 +2839,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -2882,13 +2941,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -2897,7 +2980,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -2999,13 +3082,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -3014,7 +3121,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -3116,13 +3223,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -3131,7 +3262,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -3233,13 +3364,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
           </div>
@@ -3322,7 +3477,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -3424,13 +3579,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -3439,7 +3618,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -3541,13 +3720,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -3556,7 +3759,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -3658,13 +3861,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -3673,7 +3900,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -3775,13 +4002,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -3790,7 +4041,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -3892,13 +4143,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -3907,7 +4182,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -4009,13 +4284,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
           </div>
@@ -4098,7 +4397,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -4200,13 +4499,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -4215,7 +4538,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -4317,13 +4640,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -4332,7 +4679,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -4434,13 +4781,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -4449,7 +4820,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -4551,13 +4922,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -4566,7 +4961,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -4668,13 +5063,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
             <div className="home__popular__slide__slide-inner__card">
@@ -4683,7 +5102,7 @@ Harrow Park, wuse
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
-                  style={{borderRadius: "8px 0 0 8px"}}
+                  style={{ borderRadius: "8px 0 0 8px" }}
                 />
               </div>
 
@@ -4785,13 +5204,37 @@ Harrow Park, wuse
                   7:00 PM
                 </div>
                 <div className="home__popular__slide__slide-inner__card__card-inner__subtitle">
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-Harrow Park, wuse
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.0832 9.25042C12.0832 8.09936 11.1505 7.16667 10.0003 7.16667C8.8492 7.16667 7.9165 8.09936 7.9165 9.25042C7.9165 10.4006 8.8492 11.3333 10.0003 11.3333C11.1505 11.3333 12.0832 10.4006 12.0832 9.25042Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99959 18C9.00086 18 3.75 13.7486 3.75 9.30274C3.75 5.8222 6.54758 3 9.99959 3C13.4516 3 16.25 5.8222 16.25 9.30274C16.25 13.7486 10.9983 18 9.99959 18Z"
+                      stroke="#999999"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Harrow Park, wuse
                 </div>
-                <div className="home__popular__slide__slide-inner__card__card-inner__button">Book ticket</div>
+                <div className="home__popular__slide__slide-inner__card__card-inner__button">
+                  Book ticket
+                </div>
               </div>
             </div>
           </div>
@@ -4821,9 +5264,7 @@ Harrow Park, wuse
           </svg>
         </div>
 
-        <button className="home__popular__button">
-            Discover more
-          </button>
+        <button className="home__popular__button">Discover more</button>
       </div>
 
       <div className="home__sponsored-advert">
@@ -4831,7 +5272,7 @@ Harrow Park, wuse
         <div className="home__sponsored-advert__title">Sponsored Offers</div>
 
         <div className="home__sponsored-advert__grid">
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -4966,7 +5407,7 @@ Harrow Park, wuse
               </div>
             </div>
           </div>
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -5101,7 +5542,7 @@ Harrow Park, wuse
               </div>
             </div>
           </div>
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -5236,7 +5677,7 @@ Harrow Park, wuse
               </div>
             </div>
           </div>
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -5371,7 +5812,7 @@ Harrow Park, wuse
               </div>
             </div>
           </div>
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -5506,7 +5947,7 @@ Harrow Park, wuse
               </div>
             </div>
           </div>
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -5641,7 +6082,7 @@ Harrow Park, wuse
               </div>
             </div>
           </div>
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -5776,7 +6217,7 @@ Harrow Park, wuse
               </div>
             </div>
           </div>
-        <div className="home__sponsored-advert__grid__card">
+          <div className="home__sponsored-advert__grid__card">
             <Image
               src="/assets/card img.png"
               layout="fill"
@@ -5915,10 +6356,393 @@ Harrow Park, wuse
       </div>
 
       <div className="home__feedback">
+        <svg
+          className="home__feedback__svg-right"
+          width="165"
+          height="245"
+          viewBox="0 0 165 245"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M169.753 56.5801C170.025 54.9287 172.399 54.9287 172.671 56.5801L173.513 61.6881L178.621 62.5294C180.272 62.8015 180.272 65.1758 178.621 65.4478L173.513 66.2892L172.671 71.3972C172.399 73.0486 170.025 73.0486 169.753 71.3972L168.911 66.2892L163.803 65.4478C162.152 65.1758 162.152 62.8015 163.803 62.5294L168.911 61.6881L169.753 56.5801Z"
+            fill="#7E9595"
+          />
+          <path
+            d="M65.9877 56.5801C66.2597 54.9287 68.6341 54.9287 68.9061 56.5801L69.7475 61.6881L74.8555 62.5294C76.5068 62.8015 76.5068 65.1758 74.8555 65.4478L69.7475 66.2892L68.9061 71.3972C68.6341 73.0486 66.2597 73.0486 65.9877 71.3972L65.1463 66.2892L60.0383 65.4478C58.387 65.1758 58.387 62.8015 60.0383 62.5294L65.1463 61.6881L65.9877 56.5801Z"
+            fill="#7E9595"
+          />
+          <path
+            d="M65.9877 151.698C66.2597 150.047 68.6341 150.047 68.9061 151.698L69.7475 156.806L74.8555 157.647C76.5068 157.919 76.5068 160.294 74.8555 160.566L69.7475 161.407L68.9061 166.515C68.6341 168.167 66.2597 168.167 65.9877 166.515L65.1463 161.407L60.0383 160.566C58.387 160.294 58.387 157.919 60.0383 157.647L65.1463 156.806L65.9877 151.698Z"
+            fill="#7E9595"
+          />
+          <path
+            d="M169.753 151.698C170.025 150.047 172.399 150.047 172.671 151.698L173.513 156.806L178.621 157.647C180.272 157.919 180.272 160.294 178.621 160.566L173.513 161.407L172.671 166.515C172.399 168.167 170.025 168.167 169.753 166.515L168.911 161.407L163.803 160.566C162.152 160.294 162.152 157.919 163.803 157.647L168.911 156.806L169.753 151.698Z"
+            fill="#7E9595"
+          />
+          <line
+            x1="67.3361"
+            y1="0.00012207"
+            x2="67.3361"
+            y2="244.586"
+            stroke="#7E9595"
+            stroke-width="1.12539"
+          />
+          <line
+            x1="-0.00168977"
+            y1="63.9601"
+            x2="241.452"
+            y2="63.235"
+            stroke="#7E9595"
+            stroke-width="1.12539"
+          />
+          <line
+            x1="-0.00168977"
+            y1="159.244"
+            x2="241.452"
+            y2="158.518"
+            stroke="#7E9595"
+            stroke-width="1.12539"
+          />
+        </svg>
+        <svg
+          className="home__feedback__svg-left"
+          width="169"
+          height="245"
+          viewBox="0 0 169 245"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M88.7528 56.5801C89.0248 54.9287 91.3992 54.9287 91.6712 56.5801L92.5126 61.6881L97.6206 62.5294C99.272 62.8015 99.272 65.1758 97.6206 65.4478L92.5126 66.2892L91.6712 71.3972C91.3992 73.0486 89.0248 73.0486 88.7528 71.3972L87.9115 66.2892L82.8034 65.4478C81.1521 65.1758 81.1521 62.8015 82.8035 62.5294L87.9115 61.6881L88.7528 56.5801Z"
+            fill="#7E9595"
+          />
+          <path
+            d="M88.7528 151.698C89.0248 150.047 91.3992 150.047 91.6712 151.698L92.5126 156.806L97.6206 157.647C99.272 157.919 99.272 160.294 97.6206 160.566L92.5126 161.407L91.6712 166.515C91.3992 168.167 89.0248 168.167 88.7528 166.515L87.9115 161.407L82.8034 160.566C81.1521 160.294 81.1521 157.919 82.8035 157.647L87.9115 156.806L88.7528 151.698Z"
+            fill="#7E9595"
+          />
+          <line
+            x1="89.8723"
+            y1="0.000244141"
+            x2="89.8723"
+            y2="244.586"
+            stroke="#7E9595"
+            stroke-width="1.12539"
+          />
+          <line
+            x1="-81.0017"
+            y1="63.96"
+            x2="160.452"
+            y2="63.2349"
+            stroke="#7E9595"
+            stroke-width="1.12539"
+          />
+          <line
+            x1="-81.0017"
+            y1="159.244"
+            x2="160.452"
+            y2="158.519"
+            stroke="#7E9595"
+            stroke-width="1.12539"
+          />
+        </svg>
+
         <div className="home__feedback__title">
-        What Our Customers Are Saying
+          <svg
+            width="305"
+            height="65"
+            viewBox="0 0 305 65"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.637695"
+              y="8.06592"
+              width="302.678"
+              height="56.3636"
+              transform="rotate(-1.46782 0.637695 8.06592)"
+              fill="#FFD700"
+            />
+          </svg>
+          What Our Customers Are Saying
         </div>
+        <div className="home__feedback__subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+          purus sit amet luctus venenatis, lectus
+        </div>
+
+        <div className="home__feedback__grid">
+          <div className="home__feedback__grid__card">
+            <div className="home__feedback__grid__card__review">
+              Creating events and selling tickets has never been easier. This
+              platform offers a seamless experience from start to finish,
+              allowing me to focus on what matters – delivering exceptional
+              experiences to my attendees." - Sarah, Event Creator
+            </div>
+            <div className="home__feedback__grid__card__rating-group">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+            </div>
+
+            <div className="home__feedback__grid__card__user-group">
+              <div className="home__feedback__grid__card__user-group__img">
+                <Image
+                  src="/assets/card img.png"
+                  layout="fill"
+                  objectFit="cover"
+                  style={{borderRadius: "50%"}}
+                />
+              </div>
+              <div>
+                <div>David James</div>
+                <div>Event Organizer</div>
+              </div>
+            </div>
+          </div>
+          <div className="home__feedback__grid__card">
+            <div className="home__feedback__grid__card__review">
+              Creating events and selling tickets has never been easier. This
+              platform offers a seamless experience from start to finish,
+              allowing me to focus on what matters – delivering exceptional
+              experiences to my attendees." - Sarah, Event Creator
+            </div>
+            <div className="home__feedback__grid__card__rating-group">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+            </div>
+
+            <div className="home__feedback__grid__card__user-group">
+              <div className="home__feedback__grid__card__user-group__img">
+                <Image
+                  src="/assets/card img.png"
+                  layout="fill"
+                  objectFit="cover"
+                  style={{borderRadius: "50%"}}
+                />
+              </div>
+              <div>
+                <div>David James</div>
+                <div>Event Organizer</div>
+              </div>
+            </div>
+          </div>
+          <div className="home__feedback__grid__card">
+            <div className="home__feedback__grid__card__review">
+              Creating events and selling tickets has never been easier. This
+              platform offers a seamless experience from start to finish,
+              allowing me to focus on what matters – delivering exceptional
+              experiences to my attendees." - Sarah, Event Creator
+            </div>
+            <div className="home__feedback__grid__card__rating-group">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.633 2.59902L11.8767 5.15554C12.0471 5.50644 12.5025 5.85518 12.8887 5.91933L15.1861 6.33122C16.6573 6.59175 16.984 7.66261 15.9186 8.7105L14.1041 10.4852C13.8011 10.7827 13.6211 11.371 13.7148 11.7863L14.2013 14.0131C14.5836 15.7712 13.6462 16.4424 12.1096 15.5082L9.96304 14.2029C9.57214 13.9644 8.93147 13.9626 8.54073 14.1869L6.36665 15.4377C4.81037 16.3317 3.88608 15.6411 4.30886 13.8937L4.84887 11.6825C4.94972 11.2692 4.79092 10.6767 4.49346 10.3737L2.70864 8.55586C1.66743 7.48707 2.01826 6.42448 3.49237 6.19527L5.794 5.83902C6.18261 5.77569 6.64635 5.44682 6.82146 5.09665L8.12379 2.5644C8.83459 1.20056 9.96171 1.21548 10.633 2.59902Z"
+                  fill="#F7AD1B"
+                />
+              </svg>
+            </div>
+
+            <div className="home__feedback__grid__card__user-group">
+              <div className="home__feedback__grid__card__user-group__img">
+                <Image
+                  src="/assets/card img.png"
+                  layout="fill"
+                  objectFit="cover"
+                  style={{borderRadius: "50%"}}
+                />
+              </div>
+              <div>
+                <div>David James</div>
+                <div>Event Organizer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button className="home__feedback__button">
+        See all reviews
+          </button>
       </div>
+
+      <div className="home__sub">
+        <div className="home__sub__title">Subscribe to our Events Newsletter</div>
+        <div className="home__sub__subtitle">Receive email notifications to stay updated on upcoming events.</div>
+      <form className="home__sub__form">
+<input className="home__sub__form__input" type="text" placeholder="Enter your email" />
+<button className="home__sub__form__button">Notify me</button>
+      </form>
+      </div>
+
     </main>
   );
 }

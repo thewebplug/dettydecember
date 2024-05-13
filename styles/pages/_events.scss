@@ -1,0 +1,175 @@
+.events {
+    &__hero {
+      margin: auto;
+      width: 100%;
+      height: 539px;
+  
+      background: url("/assets/Rectangle 7.png");
+      background-size: cover;
+      background-position: center;
+  
+      &__hero-inner {
+        width: 100%;
+        height: 100%;
+        max-width: 1440px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+       
+  
+        &__link{
+font-size: 1.8rem;
+font-weight: 500;
+margin-bottom: 3.2rem;
+span {
+    color: rgba(255, 215, 0, 1);
+
+}
+        }
+
+        &__title {
+            font-size: 5.6rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 1);
+margin-bottom: 6rem;
+            
+        }
+
+  
+        &__book {
+          background: rgba(126, 149, 149, 0.05);
+          backdrop-filter: blur(25px);
+  
+          padding: 40px 80px 20px 80px;
+          &__book-inner {
+            width: 100%;
+            max-width: 1440px;
+            margin: auto;
+            &__title {
+              font-size: 3.2rem;
+              font-weight: 500;
+              margin-bottom: 2rem;
+              color: rgba(255, 255, 255, 1);
+            }
+  
+            &__search {
+              @extend %title-16;
+              width: 100%;
+              height: 100px;
+              border-radius: 80px;
+              background: rgba(255, 255, 255, 1);
+              display: grid;
+              grid-template-columns: 1.4fr 1fr 1fr 1.4fr 136px;
+              gap: 15px;
+              align-items: center;
+              padding: 0 20px;
+  
+              &__input {
+                @extend %title-16;
+                width: 100%;
+                height: 65px;
+                border: none;
+                outline: none;
+                font-weight: 400;
+                color: rgba(128, 128, 128, 1);
+                border-right: 1px solid rgba(153, 153, 153, 1);
+              }
+  
+              &__div {
+                width: 100%;
+                height: 65px;
+                display: flex;
+                align-items: center;
+                border-right: 1px solid rgba(153, 153, 153, 1);
+                gap: 6px;
+                color: rgba(36, 35, 35, 1);
+              }
+  
+              & > :nth-child(4) {
+                border-right: none;
+              }
+  
+              &__button {
+                @extend %primary-button;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+  
+    &__events {
+      width: 100%;
+      max-width: 1440px;
+      margin: 100px auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+  
+      &__featured {
+        width: 100%;
+        //   height: 400px;
+        &__title {
+          @extend %title-40;
+        }
+        &__grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 32px 20px;
+          margin-top: 40px;
+          &__card {
+            width: 100%;
+            // height: 340px;
+            border-radius: 0px 0px 12px 12px;
+            border: 1.5px solid rgba(250, 250, 250, 1);
+  
+            &__img {
+              width: 100%;
+              height: 300px;
+              position: relative;
+              background: yellow;
+            }
+  
+            &__card-inner {
+              width: 100%;
+              // height: 100%;
+              padding: 12px 20px;
+              color: rgba(128, 128, 128, 1);
+  
+              &__title {
+                @extend %title-18;
+                margin-bottom: 1.5rem;
+                color: rgba(36, 35, 35, 1);
+              }
+              &__subtitle {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                @extend %title-12;
+                margin-bottom: 2rem;
+              }
+              &__subsubtitle {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                @extend %title-12;
+              }
+            }
+          }
+        }
+  
+       
+      }
+  
+    
+    }
+  
+  
+
+   
+
+  }
+  

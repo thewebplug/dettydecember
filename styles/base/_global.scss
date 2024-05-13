@@ -13,10 +13,13 @@ html {
 }
 }
 
+* {
+  font-family: "Sarabun", arial;
+}
+
 body {
     font-size: $text-normal;
     color: $text-color;
-    font-family: "Satoshi", arial;
 
   }
 

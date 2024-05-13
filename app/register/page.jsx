@@ -1,10 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "next/link";
+import { signUp } from "../apis/auth";
+import { toast } from "react-toastify";
+
 
 export default function Register() {
   const [selected, setSelected] = useState(false);
-  const [stage, setStage] = useState(3);
+  const [stage, setStage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
+  const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    const otpInputs = document.querySelectorAll(".register__card-grid__box2__otp__input");
+
+    otpInputs.forEach((input, index) => {
+      input.addEventListener("input", (event) => {
+        const inputValue = event.target.value;
+
+        if (inputValue && index < otpInputs.length - 1) {
+          otpInputs[index + 1].focus();
+        }
+      });
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Backspace" && index > 0 && !input.value) {
+          otpInputs[index - 1].focus();
+          event.preventDefault();
+        }
+      });
+    });
+  }, [stage === 3]);
+
+
+  const handlePersonalDetailsSubmit = (e) => {
+    e.preventDefault();
+    // toast.success("response?.data?.message")
+
+    setStage(2)
+  }
+
+  const handlePhoneSubmit = async (e) => {
+    setLoading(true)
+    e.preventDefault();
+
+    const response = await signUp(
+      email, phone, password, firstName, lastName, country, state,
+    );
+
+    console.log('response', response);
+    console.log('hannibal');
+    if(response?.status === 201) {
+      toast.success(response?.data?.message)
+      setStage(3);
+    }
+    setLoading(false)
+
+  }
+
   return (
     <main className="register">
       {stage === 0 && (
@@ -74,7 +134,9 @@ export default function Register() {
               )}
             </div>
 
-            <button className="primary-button">
+            <button className="primary-button"
+            onClick={() => setStage(1)}
+            >
               Continue
               <svg
                 width="19"
@@ -115,7 +177,7 @@ export default function Register() {
               ticketing.
             </h2>
           </div>
-          <div className="register__card-grid__box2">
+          <form className="register__card-grid__box2" onSubmit={handlePersonalDetailsSubmit}>
             <h2 className="register__card-grid__box2__step">Step 1 of 3</h2>
             <h1 className="register__card-grid__box2__title">Sign Up</h1>
             <h2 className="register__card-grid__box2__subtitle">
@@ -124,30 +186,49 @@ export default function Register() {
             <label className="register__card-grid__box2__label" htmlFor="email">
               Email Address
             </label>
-            <input className="register__card-grid__box2__input" type="email" />
-            <label className="register__card-grid__box2__label" htmlFor="email">
+            <input className="register__card-grid__box2__input" type="email" 
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            />
+            <label className="register__card-grid__box2__label" htmlFor="password">
               Password
             </label>
             <input
               className="register__card-grid__box2__input"
               type="password"
-            />
+              value={password}
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              />
             <div className="register__card-grid__box2__input-grid">
               <div>
-                <label className="" htmlFor="email">
+                <label className="" htmlFor="firstName">
                   First Name
                 </label>
                 <input
                   className=""
                   type="text"
                   placeholder="Enter First Name"
-                />
+                  value={firstName}
+                  id="firstName"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                      />
               </div>
               <div>
-                <label className="" htmlFor="email">
+                <label className="" htmlFor="lastName">
                   Last Name
                 </label>
-                <input className="" type="text" placeholder="Enter Last Name" />
+                <input className="" type="text" placeholder="Enter Last
+                 Name" 
+                 id="lastName"
+                 value={lastName}
+                 onChange={(e) => setLastName(e.target.value)}
+                 required
+                 />
               </div>
             </div>
             <div className="register__card-grid__box2__input-grid">
@@ -155,16 +236,26 @@ export default function Register() {
                 <label className="" htmlFor="email">
                   Country of Residence
                 </label>
-                <select name="" id="">
+                <select name="" id=""
+                 value={country}
+                 onChange={(e) => setCountry(e.target.value)}
+                 required
+                >
                   <option value="">Country</option>
+                  <option value="Nigeria">Nigeria</option>
                 </select>
               </div>
               <div>
                 <label className="" htmlFor="email">
                   State
                 </label>
-                <select name="" id="">
-                  <option value="">Country</option>
+                <select name="" id=""
+                 value={state}
+                 onChange={(e) => setState(e.target.value)}
+                 required
+                >
+                  <option value="">Select state</option>
+                  <option value="F.C.T">F.C.T</option>
                 </select>
               </div>
             </div>
@@ -175,7 +266,9 @@ export default function Register() {
               used as described in our <span>Privacy Policy</span>.
             </h3>
 
-            <button className="register__card-grid__box2__button">
+            <button className="register__card-grid__box2__button"
+            type="submit"
+            >
               Next
               <svg
                 width="19"
@@ -200,7 +293,7 @@ export default function Register() {
                 />
               </svg>
             </button>
-          </div>
+          </form>
         </div>
       )}
       {stage === 2 && (
@@ -215,7 +308,9 @@ export default function Register() {
               ticketing.
             </h2>
           </div>
-          <div className="register__card-grid__box2">
+          <form className="register__card-grid__box2" 
+          onSubmit={handlePhoneSubmit}
+          >
             <h2 className="register__card-grid__box2__step">Step 2 of 3</h2>
             <h1 className="register__card-grid__box2__title">Enter Your Phone Number</h1>
             <h2 className="register__card-grid__box2__subtitle">
@@ -227,18 +322,24 @@ export default function Register() {
             <label className="register__card-grid__box2__label" htmlFor="email">
             Phone Number
             </label>
-            <input className="register__card-grid__box2__input" type="text" placeholder="+234"/>
+            <input className="register__card-grid__box2__input" type="text" placeholder="+234"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+            />
             
            
 
             <div className="register__card-grid__box2__terms-group">
-              <input type="checkbox" name="" id="" />
+              <input type="checkbox" name="" id="" required />
             <h3>I consent to receive notifications about upcoming events and special offers via text message. Applies to mobile numbers only <span>Privacy Policy</span></h3>
             </div>
 
-            <button className="register__card-grid__box2__button">
-              Next
-              <svg
+            <button className="register__card-grid__box2__button"
+            type="submit"
+            >
+              {loading ? "Loading..." : "Next"}
+              {!loading && <svg
                 width="19"
                 height="20"
                 viewBox="0 0 19 20"
@@ -259,9 +360,9 @@ export default function Register() {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
-              </svg>
+              </svg>}
             </button>
-          </div>
+          </form>
         </div>
       )}
       {stage === 3 && (
@@ -280,7 +381,7 @@ export default function Register() {
             <h2 className="register__card-grid__box2__step">Step 3 of 3</h2>
             <h1 className="register__card-grid__box2__title">Enter Code</h1>
             <h2 className="register__card-grid__box2__subtitle">
-            We sent a verification code to your phone number <br /> +234 7047 4281 53
+            We sent a verification code to your phone number <br /> {phone}
             </h2>
             
             <div className="register__card-grid__box2__otp">
@@ -298,7 +399,9 @@ export default function Register() {
             <h3>I consent to receive notifications about upcoming events and special offers via text message. Applies to mobile numbers only <span>Privacy Policy</span></h3>
             </div>
 
-            <button className="register__card-grid__box2__button">
+            <button className="register__card-grid__box2__button"
+            onClick={() => window.location.href = "/login"}
+            >
             Sign Up
             </button>
           </div>

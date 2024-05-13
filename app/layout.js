@@ -1,5 +1,8 @@
 import '../styles/index.scss'
+import Footer from './components/footer';
 import Header from "./components/header";
+import ReduxProvider from './store/ReduxProvider';
+import { Toast } from './toast';
 
 
 
@@ -14,8 +17,12 @@ export default function RootLayout({ children }) {
     <html lang="en" 
     >
       <body>
-        <Header />
+      <ReduxProvider>
+        {/* <Header /> */}
         {children}
+        {/* <Footer /> */}
+        <Toast />
+        </ReduxProvider>
         </body>
     </html>
   );
