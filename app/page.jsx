@@ -10,6 +10,7 @@ export default function Home() {
   const auth = useSelector((state) => state.auth);
 
 
+
   useEffect(() => {
     console.log('auth', auth);
       }, [auth])
@@ -582,7 +583,7 @@ export default function Home() {
           <div className="home__events__featured__grid">
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -719,7 +720,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -856,7 +857,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -993,7 +994,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1130,7 +1131,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1267,7 +1268,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1404,7 +1405,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1541,7 +1542,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1678,7 +1679,7 @@ export default function Home() {
             </div>
             <div className="home__events__featured__grid__card">
               <div className="home__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1822,7 +1823,7 @@ export default function Home() {
           <div className="home__events__advert__title">Advertisements</div>
           <div className="home__events__advert__subtitle">Hot Deals</div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -1957,7 +1958,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__events__advert__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -2092,7 +2093,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__events__advert__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -2227,7 +2228,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__events__advert__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -2362,7 +2363,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__events__advert__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -2553,7 +2554,7 @@ export default function Home() {
           <div className="home__popular__slide__slide-inner">
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -2694,7 +2695,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -2835,7 +2836,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -2976,7 +2977,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -3117,7 +3118,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -3258,7 +3259,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -3473,7 +3474,7 @@ export default function Home() {
           <div className="home__popular__slide__slide-inner">
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -3614,7 +3615,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -3755,7 +3756,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -3896,7 +3897,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -4037,7 +4038,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -4178,7 +4179,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -4393,7 +4394,7 @@ export default function Home() {
           <div className="home__popular__slide__slide-inner">
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -4534,7 +4535,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -4675,7 +4676,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -4816,7 +4817,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -4957,7 +4958,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -5098,7 +5099,7 @@ export default function Home() {
             </div>
             <div className="home__popular__slide__slide-inner__card">
               <div className="home__popular__slide__slide-inner__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/Rectangle 11.png"
                   layout="fill"
                   objectFit="cover"
@@ -5273,7 +5274,7 @@ export default function Home() {
 
         <div className="home__sponsored-advert__grid">
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -5408,7 +5409,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -5543,7 +5544,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -5678,7 +5679,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -5813,7 +5814,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -5948,7 +5949,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -6083,7 +6084,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -6218,7 +6219,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home__sponsored-advert__grid__card">
-            <Image
+            <Image alt=""
               src="/assets/card img.png"
               layout="fill"
               objectFit="cover"
@@ -6477,7 +6478,7 @@ export default function Home() {
               Creating events and selling tickets has never been easier. This
               platform offers a seamless experience from start to finish,
               allowing me to focus on what matters – delivering exceptional
-              experiences to my attendees." - Sarah, Event Creator
+              experiences to my attendees.&quot; - Sarah, Event Creator
             </div>
             <div className="home__feedback__grid__card__rating-group">
               <svg
@@ -6544,7 +6545,7 @@ export default function Home() {
 
             <div className="home__feedback__grid__card__user-group">
               <div className="home__feedback__grid__card__user-group__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -6562,7 +6563,7 @@ export default function Home() {
               Creating events and selling tickets has never been easier. This
               platform offers a seamless experience from start to finish,
               allowing me to focus on what matters – delivering exceptional
-              experiences to my attendees." - Sarah, Event Creator
+              experiences to my attendees.&quot; - Sarah, Event Creator
             </div>
             <div className="home__feedback__grid__card__rating-group">
               <svg
@@ -6629,7 +6630,7 @@ export default function Home() {
 
             <div className="home__feedback__grid__card__user-group">
               <div className="home__feedback__grid__card__user-group__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -6647,7 +6648,7 @@ export default function Home() {
               Creating events and selling tickets has never been easier. This
               platform offers a seamless experience from start to finish,
               allowing me to focus on what matters – delivering exceptional
-              experiences to my attendees." - Sarah, Event Creator
+              experiences to my attendees.&quot; - Sarah, Event Creator
             </div>
             <div className="home__feedback__grid__card__rating-group">
               <svg
@@ -6714,7 +6715,7 @@ export default function Home() {
 
             <div className="home__feedback__grid__card__user-group">
               <div className="home__feedback__grid__card__user-group__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"

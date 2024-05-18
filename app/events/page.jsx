@@ -169,7 +169,7 @@ export default function Events() {
           <div className="events__events__featured__grid">
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -306,7 +306,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -443,7 +443,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -580,7 +580,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -717,7 +717,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -854,7 +854,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -991,7 +991,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1128,7 +1128,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"
@@ -1265,7 +1265,7 @@ export default function Events() {
             </div>
             <div className="events__events__featured__grid__card">
               <div className="events__events__featured__grid__card__img">
-                <Image
+                <Image alt=""
                   src="/assets/card img.png"
                   layout="fill"
                   objectFit="cover"

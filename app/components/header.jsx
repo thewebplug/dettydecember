@@ -56,7 +56,7 @@ export default function Header() {
             stroke-miterlimit="10"
           />
         </svg>
-        <Image src="/assets/Rectangle.png" width={28} height={28} />
+        <Image alt="" src="/assets/Rectangle.png" width={28} height={28} />
         <svg
           width="20"
           height="20"
