@@ -4,11 +4,21 @@
     color: #FFF;
     font-family: Ojuju;
     line-height: 72px;
+
+    @media (max-width: 565px) {
+        font-size: 36px;
+        line-height: 48px;
+       }
 }
 %title-48 {
     font-size: 4.8rem;
     font-weight: 700;
     font-family: Ojuju;
+    @media (max-width: 565px) {
+        font-size: 32px;
+       }
+    
+
 }
 %title-40 {
     font-size: 4rem;
@@ -20,6 +30,10 @@
     font-size: 3.6rem;
     font-weight: 700;
     font-family: Ojuju;
+
+    @media (max-width: 565px) {
+        font-size: 26px;
+       }
 }
 %title-32 {
     font-size: 3.2rem;
@@ -36,12 +50,20 @@
     font-size: 2rem;
     font-weight: 400;
     color: #FFF;
+
+    @media (max-width: 565px) {
+        font-size: 16px;
+       }
 }
 
 %title-18 {
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 28px;
+
+    @media (max-width: 565px) {
+        font-size: 16px;
+       }
 }
 %title-16 {
     font-size: 1.6rem;

@@ -318,6 +318,7 @@ export default function Landing() {
               src="/assets/_About Us Card.png"
               layout="fill"
               objectFit="cover"
+              style={{borderRadius: "16px"}}
             />
 
             <div className="landing__about__inner__card2__border-animation"></div>
@@ -402,7 +403,7 @@ export default function Landing() {
                 </div>
               </div>
             </div>
-            <div className="landing__range__inner__card2__innerlanding__range__inner__card2__inner-middle">
+            <div className="landing__range__inner__card2__inner landing__range__inner__card2__inner-middle">
               <div className="landing__range__inner__card2__inner__slider landing__range__inner__card2__inner-middle__slider">
                 <div className="landing__range__inner__card2__inner__slider__card">
                   <Image alt=""
