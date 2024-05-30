@@ -55,7 +55,6 @@
         grid-template-columns: 1fr;
         height: fit-content;
         gap: 80px;
-
       }
 
       &__card1 {
@@ -73,7 +72,7 @@
           @media (max-width: 565px) {
             line-height: 24px;
             margin-bottom: 3.2rem;
-           }
+          }
         }
 
         &__form {
@@ -91,7 +90,7 @@
 
           @media (max-width: 565px) {
             margin-bottom: 3.2rem;
-           }
+          }
           &__input {
             width: 100%;
             height: 100%;
@@ -277,7 +276,7 @@
 
           @media (max-width: 565px) {
             margin-bottom: 1.6rem;
-           }
+          }
         }
         &__subtitle {
           @extend %title-18;
@@ -291,6 +290,10 @@
         width: 100%;
         position: relative;
         height: 400px;
+
+        @media (max-width: 565px) {
+          height: 240px;
+        }
 
         &__border-animation {
           position: absolute;
@@ -320,14 +323,14 @@
     }
 
     @media (max-width: 565px) {
-      height: 552px;
+      height: fit-content;
     }
 
     &__inner {
       max-width: 1440px;
       width: 100%;
       height: 100%;
-      margin: auto;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1.86fr;
       gap: 80px;
@@ -360,7 +363,7 @@
 
           @media (max-width: 768px) {
             max-width: 100%;
-           }
+          }
         }
       }
       &__card2 {
@@ -371,12 +374,16 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: 16px;
 
+        @media (max-width: 565px) {
+          height: fit-content;
+        }
+
         &__inner {
           height: 800px;
           overflow-y: hidden;
 
           @media (max-width: 565px) {
-           height: 345px;
+            height: 32rem;
           }
 
           &::-webkit-scrollbar {
@@ -387,6 +394,10 @@
             flex-direction: column;
             gap: 16px;
             animation: marquee 12s infinite linear;
+
+            @media (max-width: 565px) {
+              animation-name: minMarquee;
+            }
 
             &__card {
               position: relative;
@@ -418,11 +429,15 @@
 
         &__inner-middle {
           @media (max-width: 565px) {
-            height: 345px;
-           }
+            height: 32rem;
+          }
           &__slider {
-            transform: translate(0, -1128px);
+            transform: translate(0, -1880px);
             animation: marqueeReverse 12s infinite linear;
+
+            @media (max-width: 565px) {
+              transform: translate(0, -855px);
+            }
           }
         }
       }
@@ -462,8 +477,6 @@
         height: 100%;
       }
 
-      
-
       &__card1 {
         position: relative;
         height: 100%;
@@ -473,11 +486,9 @@
         transition: 0.7s;
         padding: 32px 48px;
 
-        
         @media (max-width: 768px) {
           height: 288px;
         }
-  
 
         &__title {
           @extend %title-48;
@@ -513,7 +524,6 @@
           width: 100%;
           height: 288px;
         }
-  
 
         &__title {
           @extend %title-48;
@@ -553,13 +563,10 @@
         .landing__who__inner__card1__title {
           transform: translate(180%, 268px);
 
-  
-
           @media (max-width: 1024px) {
             transform: translate(140%, 268px);
           }
 
-          
           @media (max-width: 768px) {
             transform: translate(0, 200px);
           }
@@ -599,7 +606,7 @@
 
       @media (max-width: 565px) {
         padding: 0 16px;
-       }
+      }
 
       &__title {
         @extend %title-48;
@@ -652,7 +659,7 @@
 
           @media (max-width: 565px) {
             min-width: 314px;
-           }
+          }
 
           &__title {
             position: absolute;
@@ -666,74 +673,7 @@
     }
   }
 
-  &__faq {
-    max-width: 1440px;
-    width: 100%;
-    height: 1268px;
-    padding: 96px;
 
-    @media (max-width: 565px) {
-      padding: 96px 16px;
-     }
-
-    &__title {
-      @extend %title-48;
-      text-align: center;
-      margin: auto;
-      color: #050f0d;
-      margin-bottom: 3.2rem;
-    }
-
-    &__subtitle {
-      @extend %title-20;
-      text-align: center;
-      color: #565d5b;
-      margin-bottom: 6.4rem;
-    }
-
-    &__card {
-      max-width: 768px;
-      width: 100%;
-      padding: 24px;
-      background: #ebfff5;
-      margin: 0 auto;
-      transition: 1s;
-      margin-bottom: 3.2rem;
-
-      &__flex {
-        //   height: 76px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #050f0d;
-
-        & > svg {
-          transition: 1s;
-          cursor: pointer;
-        }
-      }
-
-      &__answer {
-        font-size: 0.2px;
-      }
-    }
-
-    &__card-active {
-      background: #fef7ec;
-      .landing__faq__card__flex {
-        & > svg {
-          transform: rotate(45deg);
-        }
-      }
-      .landing__faq__card__answer {
-        margin-top: 2rem;
-        @extend %title-16;
-      }
-    }
-  }
 
   &__discover {
     width: 100%;
@@ -857,83 +797,17 @@
     }
   }
 
-  &__footer {
-    background: #000;
-
-    @media (max-width: 565px) {
-      display: none;
-    }
-
-    &__inner {
-      width: 100%;
-      max-width: 1440px;
-      padding: 96px;
-      &__flex {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        &__logo {
-          & > :first-child {
-            margin-bottom: 32px;
-          }
-        }
-
-        &__links {
-          display: flex;
-          gap: 100px;
-
-          &__group {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            &__title {
-              font-size: 14px;
-              font-weight: 600;
-              margin-bottom: 4px;
-            }
-            &__subtitle {
-              font-size: 16px;
-              font-weight: 600;
-              color: #fff;
-            }
-
-            &__social-group {
-              display: flex;
-              gap: 16px;
-            }
-          }
-        }
-      }
-
-      &__divider {
-        width: 100%;
-        background: #94969c;
-        height: 0.5px;
-        margin: 60px auto 40px auto;
-      }
-
-      &__rights {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: #94969c;
-
-        font-size: 16px;
-        font-weight: 400;
-
-        & > :last-child {
-          display: flex;
-          gap: 16px;
-        }
-      }
-    }
-  }
+ 
 }
 
 @keyframes marquee {
   100% {
-    transform: translate(0, -1128px);
+    transform: translate(0, -1880px);
+  }
+}
+@keyframes minMarquee {
+  100% {
+    transform: translate(0, -855px);
   }
 }
 @keyframes marqueeReverse {

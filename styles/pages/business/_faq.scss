@@ -1,0 +1,103 @@
+.business-faq {
+    overflow: hidden;
+    background: #fff;
+    &__hero {
+      padding-top: 200px;
+      height: 444px;
+      background: url("/assets/Desktop.png");
+      // background: tomato;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      // background: blue;
+      overflow: hidden;
+      &__title {
+        @extend %title-60;
+        width: 100%;
+        max-width: 23ch;
+        text-align: center;
+        font-weight: 700;
+        line-height: 72px; /* 120% */
+        letter-spacing: -1.2px;
+        font-family: unset;
+        margin: auto;
+        margin-bottom: 16px;
+      }
+  
+      &__subtitle {
+        @extend %title-20;
+        width: 100%;
+        max-width: 53ch;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 48px;
+      }
+  
+      &__button-group {
+        width: fit-content;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 80px;
+  
+        & > button {
+          @extend %button-green;
+          min-width: 139px;
+          height: 48px;
+        }
+      }
+    }
+
+    &__still {
+        width: 100%;
+        padding: 96px;
+
+        &__inner {
+            width: 100%;
+            max-width: 1440px;
+            height: 304px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            background: #F9FAFA;
+            border-radius: 16px;
+
+            &__title {
+                @extend %title-36;
+                font-weight: 600;
+                font-family: unset;
+                color: #232423;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            &__subtitle {
+                text-align: center;
+
+@extend %title-20;
+color: #7A7C79;
+margin-bottom: 32px;
+            }
+
+            &__button-group {
+                width: fit-content;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                
+                & >:last-child {
+                    @extend %button-green;
+                    min-width: 127px;
+                    height: 48px;
+                }
+                & >:first-child {
+                    @extend %button-bland;
+                    min-width: 127px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.org {
+    background: url('/assets/Social proof section.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 296px;
+    width: 100%;
+    
+
+    &__inner {
+        width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        @extend %title-16;
+        margin-bottom: 32px;
+        color: #FFF;
+    }
+
+    &__icons {
+        width: 100%;
+        max-width: 1248px;
+        overflow: auto;
+        display: flex;
+        align-items: center;
+        gap: 64px;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        & > svg {
+            min-width: 198px;
+        }
+    }
+    }
+}

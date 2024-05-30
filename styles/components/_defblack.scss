@@ -1,0 +1,63 @@
+.discover {
+    width: 100%;
+    height: 576px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 96px;
+    background: #FFF;
+
+    @media (max-width: 565px) {
+      display: none;
+    }
+
+    &__inner {
+      max-width: 1440px;
+      width: 100%;
+      margin: auto;
+      height: 328px;
+      background: url("/assets/Container (2).png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &__title {
+        @extend %title-48;
+        text-align: center;
+        color: #FFF;
+        margin-bottom: 1.6rem;
+        line-height: 60px;
+      }
+
+      &__subtitle {
+        @extend %title-20;
+        margin-bottom: 3.2rem;
+        width: 45ch;
+        line-height: 32px;
+        color: #fff;
+        text-align: center;
+      }
+      
+      &__button-group {
+        width: fit-content;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        
+        & >:first-child {
+            @extend %button-green;
+            min-width: 139px;
+            height: 48px;
+        }
+        & >:last-child {
+            @extend %button-bland;
+        }
+    }
+
+    }
+  }

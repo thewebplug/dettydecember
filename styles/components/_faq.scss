@@ -1,0 +1,69 @@
+.faq{
+    max-width: 1440px;
+    width: 100%;
+    height: 1268px;
+    padding: 96px;
+    margin: auto;
+
+    @media (max-width: 565px) {
+      padding: 96px 16px;
+    }
+
+    &__title {
+      @extend %title-48;
+      text-align: center;
+      margin: auto;
+      color: #050f0d;
+      margin-bottom: 3.2rem;
+    }
+
+    &__subtitle {
+      @extend %title-20;
+      text-align: center;
+      color: #565d5b;
+      margin-bottom: 6.4rem;
+    }
+
+    &__card {
+      max-width: 768px;
+      width: 100%;
+      padding: 24px;
+      background: #ebfff5;
+      margin: 0 auto;
+      transition: 1s;
+      margin-bottom: 3.2rem;
+
+      &__flex {
+        //   height: 76px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #050f0d;
+
+        & > svg {
+          transition: 1s;
+          cursor: pointer;
+        }
+      }
+
+      &__answer {
+        font-size: 0.2px;
+      }
+    }
+
+    &__card-active {
+      background: #fef7ec;
+      .faq__card__flex {
+        & > svg {
+          transform: rotate(45deg);
+        }
+      }
+      .faq__card__answer {
+        margin-top: 2rem;
+        @extend %title-16;
+      }
+    }
+  }

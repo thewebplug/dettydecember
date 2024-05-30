@@ -13,8 +13,19 @@
 @import 'components/sidebar';
 @import 'components/header';
 @import 'components/footer';
+@import 'components/faq';
+@import 'components/org';
+@import 'components/defblack';
+@import 'components/partners';
 
 @import 'pages/home';
-@import 'pages/register';
-@import 'pages/login';
 @import 'pages/events';
+@import 'pages/business/layout';
+@import 'pages/business/home';
+@import 'pages/business/why';
+@import 'pages/business/partners';
+@import 'pages/business/solutions';
+@import 'pages/business/support';
+@import 'pages/business/faq';
+@import 'pages/business/legal';
+

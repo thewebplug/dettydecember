@@ -1,0 +1,129 @@
+.partners {
+    background: #FEF8ED;
+    width: 100%;
+    padding: 96px 0;
+
+    &__inner {
+        width: 100%;
+    height: 100%;
+    margin: auto;
+
+    &__title {
+        width: 100%;
+        max-width: 1440px;
+        margin: auto;
+        @extend %title-32;
+        color: #232423;
+        margin-bottom: 16px;
+        padding: 0 96px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__button-group {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            
+            & >:first-child {
+                @extend %button-green;
+                min-width: 139px;
+                height: 48px;
+            }
+            & >:last-child {
+                @extend %button-bland;
+            }
+        }
+    }
+
+    &__subtitle {
+        @extend %title-20;
+        color: #7A7C79;
+        margin-bottom: 64px;
+        width: 100%;
+        max-width: 67ch;
+        margin-left: 136px;
+        line-height: 28px;
+
+
+
+    }
+
+    &__cards {
+        width: 100%;
+        overflow-x: auto;
+        display: flex;
+        align-items: start;
+        gap: 32px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &__card  {
+            min-width: 384px;
+            max-width: 384px;
+            height: 504px;
+            border-radius: 16px;
+            background: #E88209;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+           
+            &:nth-child(even) {
+                background: #1570EF;
+            }
+            &:nth-child(odd) {
+                background: #028C4B;
+            }
+            &:first-child {
+                background: #E88209;
+            }
+
+            &__inner {
+                width: 100%;
+                height: 234px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.20);
+                backdrop-filter: blur(12px);
+                padding: 32px 24px;
+                color: #FFF;
+
+                &__quote {
+                    @extend %title-18;
+                    font-weight: 500;
+                    margin-bottom: 24px;
+                }
+
+                &__title {
+                    @extend %title-16;
+                    line-height: 24px;
+                    font-weight: 600;
+                    margin-bottom: 2px;
+                }
+                &__subtitle {
+                    @extend %title-12;
+                    font-weight: 500;
+                }
+            }
+            
+            
+        }
+    }
+
+    &__navigation {
+        width: 100%;
+        max-width: 1440px;
+        margin: auto;
+        display: flex;
+        justify-content: end;
+        gap: 32px;
+        margin-top: 32px;
+        padding: 0 96px;
+        float: right;
+    }
+    }
+}
