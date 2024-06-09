@@ -1,4 +1,5 @@
 
+"use client";
 import React from "react";
 
 const BusinessLayout = ({ children }) => {
@@ -11,6 +12,8 @@ const BusinessLayout = ({ children }) => {
               viewBox="0 0 134 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="pointer"
+              onClick={ () => window.location.href = "/business"}
             >
               <g clip-path="url(#clip0_180_636)">
                 <path
@@ -214,14 +217,14 @@ const BusinessLayout = ({ children }) => {
             </svg>
 
 <nav className="business__header__links">
-  <a>Company</a>
-<a>Solutions</a>
-<a>Resources</a>
-<a>Partners</a>
+  <a href="/business/why">Company</a>
+<a href="/business/solutions">Solutions</a>
+<a href="/business/support">Resources</a>
+<a href="/business/partners">Partners</a>
 </nav>
 <div className="business__header__buttons">
   <button>Sign in</button>
-<button className="">
+<button className="" onClick={ () => window.location.href = "/events"}>
               Work with us
             </button>
 </div>

@@ -11,16 +11,21 @@ label {
 
 %normal-input {
     width: 100%;
-  max-width: 480px;
-  height: 55px;
-  border-radius: 10px;
-  border: 2px solid rgba(250, 250, 250, 1);
-  padding-left: 14px;
+  max-width: 400px;
+  height: 40px;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--Colors-Border-border-primary, #D5D8D5);
+  background: var(--Colors-Background-bg-primary, #FFF);
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding-left: 12px;
   font-size: 1.6rem;
-
+  color: #232423;
+  
   &::placeholder {
-    color: rgba(153, 153, 153, 1);
+    color: #ACAFAC;
   }
+
+ 
 }
 
 %otp-input {

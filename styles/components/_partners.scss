@@ -2,6 +2,7 @@
     background: #FEF8ED;
     width: 100%;
     padding: 96px 0;
+    padding-bottom: 192px;
 
     &__inner {
         width: 100%;
@@ -53,6 +54,7 @@
     &__cards {
         width: 100%;
         overflow-x: auto;
+        scroll-behavior: smooth;
         display: flex;
         align-items: start;
         gap: 32px;
@@ -124,6 +126,10 @@
         margin-top: 32px;
         padding: 0 96px;
         float: right;
+
+        & > svg {
+            cursor: pointer;
+        }
     }
     }
 }
