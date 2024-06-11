@@ -21,7 +21,9 @@ export default function BusinessHome() {
             Discover how our world-class solutions and local teams can work with you to maximize your event potential.
             </h2>
             <div className="home__hero__button-group">
-                <button>Work with us</button>
+                <button
+                 onClick={() => window.location.href = "/events"}
+                >Work with us</button>
                 <button>Sign in</button>
             </div>
 

@@ -1,3 +1,5 @@
+"use client";
+
 import DefBlack from "@/app/components/DefBlack";
 import Footer from "@/app/components/footer";
 import Image from "next/image";
@@ -14,7 +16,9 @@ export default function Solutions() {
             <h2 className="solutions__hero__subtitle">
             Discover all the ways DettyDecember is there for you through the entire ticketing process, from everything behind-the-scenes to backstage on the big day.        </h2>
             <div className="solutions__hero__button-group">
-                <button>Work with us</button>
+                <button
+                onClick={() => window.location.href = "/events"}
+                >Work with us</button>
                 <button>Sign in</button>
             </div>
     

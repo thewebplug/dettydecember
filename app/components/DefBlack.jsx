@@ -1,3 +1,5 @@
+"use client";
+
 export default function DefBlack() {
     return (
         <div className="discover">
@@ -9,7 +11,9 @@ export default function DefBlack() {
           Discover how our world-class solutions and local teams can work with you to maximize your event potential.          </div>
 
           <div className="discover__inner__button-group">
-                <button>Work with us</button>
+                <button
+                onClick={() => window.location.href = "/events"}
+                >Work with us</button>
                 <button>Sign in</button>
             </div>
           

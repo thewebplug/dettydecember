@@ -1,3 +1,5 @@
+"use client";
+
 import DefBlack from "@/app/components/DefBlack";
 import Org from "@/app/components/Orgs";
 import PartnersComp from '@/app/components/PartnersCmp';
@@ -13,7 +15,9 @@ export default function Partners() {
         <h2 className="dd-partners__hero__subtitle">
         We’re trusted by the most recognized clients in sports, festivals, venues and brands around the world.        </h2>
         <div className="dd-partners__hero__button-group">
-            <button>Work with us</button>
+            <button
+            onClick={() => window.location.href = "/events"}
+            >Work with us</button>
             <button>Sign in</button>
         </div>
 

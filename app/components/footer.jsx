@@ -254,22 +254,22 @@ export default function Footer() {
        
         <div className="footer__inner__flex__links__group">
           <div className="footer__inner__flex__links__group__title">Company</div>
-          <div className="footer__inner__flex__links__group__subtitle">Why DettyDecember</div>
-          <div className="footer__inner__flex__links__group__subtitle">Our Partners</div>
+          <a className="footer__inner__flex__links__group__subtitle" href="/business/why">Why DettyDecember</a>
+          <a className="footer__inner__flex__links__group__subtitle" href="/business/partners">Our Partners</a>
         </div>
         <div className="footer__inner__flex__links__group">
           <div className="footer__inner__flex__links__group__title">Solutions</div>
-          <div className="footer__inner__flex__links__group__subtitle">Event Creation & Management</div>
+          <a className="footer__inner__flex__links__group__subtitle" href="/events">Event Creation & Management</a>
           <div className="footer__inner__flex__links__group__subtitle">Ticket Sales</div>
           <div className="footer__inner__flex__links__group__subtitle">Marketing and Measurement</div>
-          <div className="footer__inner__flex__links__group__subtitle">Expert Partnership</div>
+          <a className="footer__inner__flex__links__group__subtitle" href="/business/partners">Expert Partnership</a>
        
         </div>
         <div className="footer__inner__flex__links__group">
           <div className="footer__inner__flex__links__group__title">Resources</div>
           <div className="footer__inner__flex__links__group__subtitle">Blog</div>
-          <div className="footer__inner__flex__links__group__subtitle">Support</div>
-          <div className="footer__inner__flex__links__group__subtitle">FAQs</div>
+          <a className="footer__inner__flex__links__group__subtitle" href="/business/support">Support</a>
+          <a className="footer__inner__flex__links__group__subtitle" href="/business/faq">FAQs</a>
        
         </div>
         <div className="footer__inner__flex__links__group">
@@ -287,9 +287,9 @@ export default function Footer() {
       <div className="footer__inner__rights">
       <div>© 2024 DettyDecember. All rights reserved.</div>
       <div>
-        <div>Terms of Use</div>
-        <div>Privacy Policy</div>
-        <div>Cookie Policy</div>
+        <a href="/business/terms">Terms of Use</a>
+        <a href="/business/privacy">Privacy Policy</a>
+        <a href="/business/cookies">Cookie Policy</a>
       </div>
       </div>
     </div>

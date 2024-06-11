@@ -1,3 +1,5 @@
+"use client";
+
 import DefBlack from "@/app/components/DefBlack";
 import Org from "@/app/components/Orgs";
 import Footer from "@/app/components/footer";
@@ -14,7 +16,9 @@ export default function Businesswhy() {
         Our mission is to ensure events are created, discovered and booked on our platform, no matter their size or budget. There’s an event for you to create, discover or book.
         </h2>
         <div className="why__hero__button-group">
-            <button>Work with us</button>
+            <button
+            onClick={() => window.location.href = "/events"}
+            >Work with us</button>
             <button>Sign in</button>
         </div>
 
