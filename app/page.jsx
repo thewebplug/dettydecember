@@ -961,7 +961,9 @@ export default function Landing() {
             ticketing platform that will revolutionize how tickets are sold and
             bought with DettyDecember.
           </h3>
-          <button className="landing__call__inner__button">
+          <button className="landing__call__inner__button"
+          onClick={() => window.location.href = "/events"}
+          >
             Apply as an event organizer
           </button>
         </div>
