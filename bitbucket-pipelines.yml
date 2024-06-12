@@ -21,11 +21,10 @@ pipelines:
           <<: *deploy
           script:
             - echo "Deploying to production"
-            # Use Bitbucket Pipelines secrets management for credentials
             - pipe: atlassian/ftp-deploy:0.3.1
               variables:
-                USERNAME: 'tomasosho'
-                PASSWORD: 'Teledensity25'
+                USERNAME: $FTP_USERNAME
+                PASSWORD: $FTP_PASSWORD
                 SERVER: ftp.thebulb.africa
                 REMOTE_PATH: /
                 LOCAL_PATH: .next/standalone
