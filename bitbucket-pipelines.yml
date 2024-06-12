@@ -24,12 +24,12 @@ pipelines:
             # Use Bitbucket Pipelines secrets management for credentials
             - pipe: atlassian/ftp-deploy:0.3.1
               variables:
-                USERNAME: $BITBUCKET_USERNAME
-                PASSWORD: $FTP_PASSWORD
+                USERNAME: 'tomasosho'
+                PASSWORD: 'Teledensity25'
                 SERVER: ftp.thebulb.africa
                 REMOTE_PATH: /
                 LOCAL_PATH: .next/standalone
 
   definitions:
     caches:
-      node: ~/.npm  # Caching npm modules
+      node: ~/.npm
