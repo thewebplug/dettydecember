@@ -22,7 +22,7 @@ export default function BusinessHome() {
             </h2>
             <div className="home__hero__button-group">
                 <button
-                 onClick={() => window.location.href = "/events"}
+                 onClick={() => window.location.href = "https://docs.google.com/forms/d/1_MFXEajDoFMAWkYKWEkUrnfa8Qn0WscFjqJT1_voQCE/viewform?edit_requested=true"}
                 >Work with us</button>
                 <button>Sign in</button>
             </div>

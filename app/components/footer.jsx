@@ -259,7 +259,7 @@ export default function Footer() {
         </div>
         <div className="footer__inner__flex__links__group">
           <div className="footer__inner__flex__links__group__title">Solutions</div>
-          <a className="footer__inner__flex__links__group__subtitle" href="/events">Event Creation & Management</a>
+          <a className="footer__inner__flex__links__group__subtitle" href="https://docs.google.com/forms/d/1_MFXEajDoFMAWkYKWEkUrnfa8Qn0WscFjqJT1_voQCE/viewform?edit_requested=true">Event Creation & Management</a>
           <div className="footer__inner__flex__links__group__subtitle">Ticket Sales</div>
           <div className="footer__inner__flex__links__group__subtitle">Marketing and Measurement</div>
           <a className="footer__inner__flex__links__group__subtitle" href="/business/partners">Expert Partnership</a>

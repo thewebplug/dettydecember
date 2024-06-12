@@ -962,7 +962,7 @@ export default function Landing() {
             bought with DettyDecember.
           </h3>
           <button className="landing__call__inner__button"
-          onClick={() => window.location.href = "/events"}
+          onClick={() => window.location.href = "https://docs.google.com/forms/d/1_MFXEajDoFMAWkYKWEkUrnfa8Qn0WscFjqJT1_voQCE/viewform?edit_requested=true"}
           >
             Apply as an event organizer
           </button>
