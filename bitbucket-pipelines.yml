@@ -28,7 +28,7 @@ pipelines:
                 PASSWORD: $FTP_PASSWORD
                 SERVER: ftp.thebulb.africa
                 REMOTE_PATH: /
-                LOCAL_PATH: dist/
+                LOCAL_PATH: .next/standalone
 
   definitions:
     caches:
