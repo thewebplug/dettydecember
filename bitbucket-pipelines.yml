@@ -5,7 +5,7 @@ pipelines:
     main:
       - step:
           name: Build and Package
-          image: node:16
+          image: node:18.17.0
           caches:
             - node
           script:
