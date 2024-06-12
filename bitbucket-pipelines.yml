@@ -1,0 +1,35 @@
+# bitbucket-pipelines.yml
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Build and Package
+          image: node:16
+          caches:
+            - node
+          script:
+            - echo "Starting the build process"
+            - npm ci
+            - CI=false npm run build
+          artifacts:
+            - dist/**
+
+      - step: &deploy
+          name: Deploy to Production
+          deployment: production
+          <<: *deploy
+          script:
+            - echo "Deploying to production"
+            # Use Bitbucket Pipelines secrets management for credentials
+            - pipe: atlassian/ftp-deploy:0.3.1
+              variables:
+                USERNAME: $BITBUCKET_USERNAME
+                PASSWORD: $FTP_PASSWORD
+                SERVER: ftp.thebulb.africa
+                REMOTE_PATH: /
+                LOCAL_PATH: dist/
+
+  definitions:
+    caches:
+      node: ~/.npm  # Caching npm modules
