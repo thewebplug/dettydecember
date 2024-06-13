@@ -1,0 +1,45 @@
+# bitbucket-pipelines.yml
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Build and Package
+          image: node:18.17.0
+          caches:
+            - node
+          script:
+            - echo "Starting the build process"
+            - npm ci
+            - npm run build
+            - echo "Build completed. Checking .next/standalone directory..."
+            - ls -l .next
+          artifacts:
+            - /
+
+      - step: &deploy
+          name: Deploy to Production
+          deployment: production
+          <<: *deploy
+          script:
+            - echo "Deploying to production"
+            - ls -l .next/server/app
+            - ls -l .next/server/app/**
+            - pipe: atlassian/ftp-deploy:0.3.1
+              variables:
+                USERNAME: $BITBUCKET_USERNAME
+                PASSWORD: $FTP_PASSWORD
+                SERVER: ftp.thebulb.africa
+                REMOTE_PATH: /
+                LOCAL_PATH: ./
+           
+                USER: $BITBUCKET_USERNAME
+                PASSWORD: $FTP_PASSWORD
+                SERVER: $SSH_JUMP_HOST
+                
+                MODE: "script"
+                COMMAND: "./ansible/deploy-dev.sh"
+
+  definitions:
+    caches:
+      node: ~/.npm
