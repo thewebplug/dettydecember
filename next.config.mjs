@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    distDir: "_next",
-    // output: 'standalone',
-    // target: 'serverless'
+    output: 'export',
+    images: {
+        unoptimized: true,
+    },
+    basePath: '/build',
 };
 
 export default nextConfig;
