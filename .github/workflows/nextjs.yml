@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build Next.js site
-        run: npm run build && npm run export
+        run: npm run build
 
       - name: Prepare build artifacts
         run: mv out public_html
@@ -31,9 +30,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: nextjs-export
-          path: /
+          path: public_html
 
-  # Deploy job
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -46,8 +44,8 @@ jobs:
       - name: Deploy to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ftp.thebulb.africa
+          server: ftp://ftp.your-cpanel-domain.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: /
+          local-dir: public_html
           server-dir: /
