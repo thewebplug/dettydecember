@@ -39,9 +39,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          DettyDecember.xyz is your go-to platform for curated events across Nigeria, offering seamless ticketing and exclusive access to the best concerts, parties, tours, and more from December 1st to January 15th.
           </div>
         </div>
         <div
@@ -72,9 +70,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          Simply click the "Join the Waitlist" button on our coming soon page and enter your email address. You'll receive updates and early access to event booking.
           </div>
         </div>
         <div
@@ -105,9 +101,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          We're working hard to launch the platform soon! Stay tuned for updates on our official launch date.
           </div>
         </div>
         <div
@@ -138,9 +132,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          We offer a curated selection of concerts, parties, art shows, guided tours, and more. Expect a range of events that cater to different tastes and interests.
           </div>
         </div>
         <div
@@ -171,9 +163,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          By joining our waitlist, you’ll receive email updates on new events and exclusive experiences. You can also follow us on social media for the latest news.
           </div>
         </div>
         <div
@@ -204,9 +194,8 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          Yes! Once the platform launches, you can purchase tickets directly on DettyDecember.xyz with a seamless and secure checkout process.
+
           </div>
         </div>
         <div
@@ -237,9 +226,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          Yes, our platform allows you to safely resell tickets. Details and guidelines will be available upon launch.
           </div>
         </div>
         <div
@@ -270,9 +257,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          Absolutely! We prioritise your privacy and security. Your data is protected using industry-standard measures.
           </div>
         </div>
         <div
@@ -303,9 +288,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          You can reach out to us at admin@dettydecember.xyz for any questions or assistance. We're here to help!
           </div>
         </div>
         <div
@@ -336,9 +319,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-            Placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text placeholder text placeholder text
-            placeholder text placeholder text.
+          Yes, we plan to offer exclusive deals and discounts to our users. Keep an eye on your inbox and our social media for updates!
           </div>
         </div>
       </div>
