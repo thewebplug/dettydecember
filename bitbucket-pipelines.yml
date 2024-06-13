@@ -23,12 +23,17 @@ pipelines:
             - echo "Deploying to production"
             - pipe: atlassian/ftp-deploy:0.3.1
               variables:
-                SSH_USER: $BITBUCKET_USERNAME
                 USERNAME: $BITBUCKET_USERNAME
                 PASSWORD: $FTP_PASSWORD
                 SERVER: ftp.thebulb.africa
                 REMOTE_PATH: /
                 LOCAL_PATH: .next/standalone
+           
+                SSH_USER: $BITBUCKET_USERNAME
+                SERVER: $SSH_JUMP_HOST
+                SSH_KEY: $FTP_PASSWORD
+                MODE: "script"
+                COMMAND: "./ansible/deploy-dev.sh"
 
   definitions:
     caches:
