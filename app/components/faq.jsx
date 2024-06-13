@@ -52,7 +52,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          How can I join the waitlist?
             <svg
               width="24"
               height="24"
@@ -85,7 +85,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          When will the platform launch?
             <svg
               width="24"
               height="24"
@@ -118,7 +118,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          What types of events will be available on DettyDecember.xyz?
             <svg
               width="24"
               height="24"
@@ -151,7 +151,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          How can I stay updated on new events and experiences?
             <svg
               width="24"
               height="24"
@@ -184,7 +184,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          Will I be able to buy tickets directly on the platform?
             <svg
               width="24"
               height="24"
@@ -217,7 +217,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          Can I resell tickets on DettyDecember.xyz?
             <svg
               width="24"
               height="24"
@@ -250,7 +250,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          Is my information safe with DettyDecember.xyz?
             <svg
               width="24"
               height="24"
@@ -283,7 +283,7 @@ export default function Faq() {
           }
         >
           <div className="faq__card__flex">
-            What is DettyDecember.xyz?
+          How can I contact DettyDecember.xyz for support or inquiries?
             <svg
               width="24"
               height="24"
@@ -291,6 +291,39 @@ export default function Faq() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               onClick={() => setFaq(faq === 0 ? 9 : 0)}
+            >
+              <path
+                d="M19 12L5 12M12 5L12 19"
+                stroke="#9DA09F"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div className="faq__card__answer">
+            Placeholder text placeholder text placeholder text placeholder text
+            placeholder text placeholder text placeholder text placeholder text
+            placeholder text placeholder text.
+          </div>
+        </div>
+        <div
+          className={
+            faq === 10
+              ? "faq__card faq__card-active"
+              : "faq__card"
+          }
+        >
+          <div className="faq__card__flex">
+          Will there be any special deals or offers?
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={() => setFaq(faq === 0 ? 10 : 0)}
             >
               <path
                 d="M19 12L5 12M12 5L12 19"

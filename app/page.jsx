@@ -370,6 +370,39 @@ export default function Landing() {
                 </div>
                 <div className="landing__range__inner__card2__inner__slider__card">
                   <Image alt=""
+                    src="/assets/_Gradient Cards (6).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Comedy <br /> Shows
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (7).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Music <br /> Concerts
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (5).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Movie <br /> Screenings
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
                     src="/assets/_Gradient Cards (4).png"
                     layout="fill"
                     objectFit="cover"
@@ -421,6 +454,39 @@ export default function Landing() {
                   />
                   <h3 className="landing__range__inner__card2__inner__slider__card__title">
                     Live DJ <br /> Parties
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (6).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Comedy <br /> Shows
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (7).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Music <br /> Concerts
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (5).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Movie <br /> Screenings
                   </h3>
                 </div>
                 <div className="landing__range__inner__card2__inner__slider__card">
@@ -485,6 +551,39 @@ export default function Landing() {
                 </div>
                 <div className="landing__range__inner__card2__inner__slider__card">
                   <Image alt=""
+                    src="/assets/_Gradient Cards (6).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Comedy <br /> Shows
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (7).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Music <br /> Concerts
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (5).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Movie <br /> Screenings
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
                     src="/assets/_Gradient Cards (4).png"
                     layout="fill"
                     objectFit="cover"
@@ -536,6 +635,39 @@ export default function Landing() {
                   />
                   <h3 className="landing__range__inner__card2__inner__slider__card__title">
                     Live DJ <br /> Parties
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (6).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Comedy <br /> Shows
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (7).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Music <br /> Concerts
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (5).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Movie <br /> Screenings
                   </h3>
                 </div>
                 <div className="landing__range__inner__card2__inner__slider__card">
@@ -599,6 +731,39 @@ export default function Landing() {
                 </div>
                 <div className="landing__range__inner__card2__inner__slider__card">
                   <Image alt=""
+                    src="/assets/_Gradient Cards (6).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Comedy <br /> Shows
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (7).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Music <br /> Concerts
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (5).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Movie <br /> Screenings
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
                     src="/assets/_Gradient Cards (4).png"
                     layout="fill"
                     objectFit="cover"
@@ -654,6 +819,39 @@ export default function Landing() {
                 </div>
                 <div className="landing__range__inner__card2__inner__slider__card">
                   <Image alt=""
+                    src="/assets/_Gradient Cards (6).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Comedy <br /> Shows
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (7).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Music <br /> Concerts
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
+                    src="/assets/_Gradient Cards (5).png"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "16px" }}
+                  />
+                  <h3 className="landing__range__inner__card2__inner__slider__card__title">
+                  Movie <br /> Screenings
+                  </h3>
+                </div>
+                <div className="landing__range__inner__card2__inner__slider__card">
+                  <Image alt=""
                     src="/assets/_Gradient Cards (4).png"
                     layout="fill"
                     objectFit="cover"
@@ -690,7 +888,7 @@ export default function Landing() {
           }
         >
           <div className="landing__who__inner__card1">
-            <h3 className="landing__who__inner__card1__title">Fun Seekers</h3>
+            <h3 className="landing__who__inner__card1__title">Fun Lovers</h3>
             <div className="landing__who__inner__card1__group">
               <svg
                 width="24"
@@ -730,7 +928,7 @@ export default function Landing() {
                 </defs>
               </svg>
 
-              <h4>Placeholder text</h4>
+              <h4>⁠Event Discovery</h4>
             </div>
             <div className="landing__who__inner__card1__group">
               <svg
@@ -771,7 +969,7 @@ export default function Landing() {
                 </defs>
               </svg>
 
-              <h4>Placeholder text</h4>
+              <h4>Exclusive Offers and Packages</h4>
             </div>
             <div className="landing__who__inner__card1__group">
               <svg
@@ -812,7 +1010,48 @@ export default function Landing() {
                 </defs>
               </svg>
 
-              <h4>Placeholder text</h4>
+              <h4>⁠Guided Tours</h4>
+            </div>
+            <div className="landing__who__inner__card1__group">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_194_740)">
+                  <path
+                    d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                    fill="#007A3F"
+                  />
+                  <path
+                    d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                    stroke="white"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17.0964 7.39016L9.93638 14.3002L8.03638 12.2702C7.68638 11.9402 7.13638 11.9202 6.73638 12.2002C6.34638 12.4902 6.23638 13.0002 6.47638 13.4102L8.72638 17.0702C8.94638 17.4102 9.32638 17.6202 9.75638 17.6202C10.1664 17.6202 10.5564 17.4102 10.7764 17.0702C11.1364 16.6002 18.0064 8.41016 18.0064 8.41016C18.9064 7.49016 17.8164 6.68016 17.0964 7.38016V7.39016Z"
+                    fill="#007A3F"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_194_740">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="white"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <h4>Ticket Resale</h4>
             </div>
           </div>
           <div
@@ -862,7 +1101,7 @@ export default function Landing() {
                 </defs>
               </svg>
 
-              <h4>Placeholder text</h4>
+              <h4>Event Creation and Management</h4>
             </div>
             <div className="landing__who__inner__card2__group">
               <svg
@@ -903,7 +1142,7 @@ export default function Landing() {
                 </defs>
               </svg>
 
-              <h4>Placeholder text</h4>
+              <h4>Event Promotion and Marketing </h4>
             </div>
             <div className="landing__who__inner__card2__group">
               <svg
@@ -944,7 +1183,48 @@ export default function Landing() {
                 </defs>
               </svg>
 
-              <h4>Placeholder text</h4>
+              <h4>⁠⁠Ticket Sales</h4>
+            </div>
+            <div className="landing__who__inner__card2__group">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_194_740)">
+                  <path
+                    d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                    fill="#007A3F"
+                  />
+                  <path
+                    d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                    stroke="white"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17.0964 7.39016L9.93638 14.3002L8.03638 12.2702C7.68638 11.9402 7.13638 11.9202 6.73638 12.2002C6.34638 12.4902 6.23638 13.0002 6.47638 13.4102L8.72638 17.0702C8.94638 17.4102 9.32638 17.6202 9.75638 17.6202C10.1664 17.6202 10.5564 17.4102 10.7764 17.0702C11.1364 16.6002 18.0064 8.41016 18.0064 8.41016C18.9064 7.49016 17.8164 6.68016 17.0964 7.38016V7.39016Z"
+                    fill="#007A3F"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_194_740">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="white"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <h4>Fan Experiences</h4>
             </div>
           </div>
         </div>
@@ -964,7 +1244,7 @@ export default function Landing() {
           <button className="landing__call__inner__button"
           onClick={() => window.location.href = "https://docs.google.com/forms/d/1_MFXEajDoFMAWkYKWEkUrnfa8Qn0WscFjqJT1_voQCE/viewform?edit_requested=true"}
           >
-            Apply as an event organizer
+            Work with us
           </button>
         </div>
         <div className="landing__call__group">
@@ -999,7 +1279,7 @@ export default function Landing() {
                 style={{ borderRadius: "16px" }}
               />
               <h4 className="landing__call__group__slider__card__title">
-                The ORÍKÌ Spa
+              Terra Kulture
               </h4>
             </div>
             <div className="landing__call__group__slider__card">
@@ -1010,7 +1290,62 @@ export default function Landing() {
                 style={{ borderRadius: "16px" }}
               />
               <h4 className="landing__call__group__slider__card__title">
-                The ORÍKÌ Spa
+              Eko Atlantic City
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (8).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Nike Art Gallery
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards 10.png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Landmark Centre
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (9).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Giwa Gardens
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (10).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Upbeat Centre
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (11).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Funturf
               </h4>
             </div>
             <div className="landing__call__group__slider__card">
@@ -1043,7 +1378,7 @@ export default function Landing() {
                 style={{ borderRadius: "16px" }}
               />
               <h4 className="landing__call__group__slider__card__title">
-                The ORÍKÌ Spa
+              Terra Kulture
               </h4>
             </div>
             <div className="landing__call__group__slider__card">
@@ -1054,7 +1389,62 @@ export default function Landing() {
                 style={{ borderRadius: "16px" }}
               />
               <h4 className="landing__call__group__slider__card__title">
-                The ORÍKÌ Spa
+              Eko Atlantic City
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (8).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Nike Art Gallery
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards 10.png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Landmark Centre
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (9).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Giwa Gardens
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (10).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Upbeat Centre
+              </h4>
+            </div>
+            <div className="landing__call__group__slider__card">
+              <Image alt=""
+                src="/assets/_Gradient Cards (11).png"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "16px" }}
+              />
+              <h4 className="landing__call__group__slider__card__title">
+              Funturf
               </h4>
             </div>
           </div>
