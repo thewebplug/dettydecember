@@ -21,6 +21,7 @@ pipelines:
           <<: *deploy
           script:
             - echo "Deploying to production"
+            - ls -l .next/standalone
             - pipe: atlassian/ftp-deploy:0.3.1
               variables:
                 USERNAME: $BITBUCKET_USERNAME
