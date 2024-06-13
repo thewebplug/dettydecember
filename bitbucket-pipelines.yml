@@ -29,9 +29,10 @@ pipelines:
                 REMOTE_PATH: /
                 LOCAL_PATH: .next/standalone
            
-                SSH_USER: $BITBUCKET_USERNAME
+                USER: $BITBUCKET_USERNAME
+                PASSWORD: $FTP_PASSWORD
                 SERVER: $SSH_JUMP_HOST
-                SSH_KEY: $FTP_PASSWORD
+                
                 MODE: "script"
                 COMMAND: "./ansible/deploy-dev.sh"
 
