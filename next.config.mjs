@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'standalone',
+    distDir: "_next",
+    // output: 'standalone',
     // target: 'serverless'
 };
 
