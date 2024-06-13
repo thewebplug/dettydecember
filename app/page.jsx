@@ -18,10 +18,11 @@ export default function Landing() {
     setLoading(true);
     const response = await joinWaitList(email);
     console.log("response", response);
-    if (response?.status === 201) {
+    if (response?.data?.message === "Email saved to waitlist successfully") {
       setModalOpen(true);
+      setEmail("")
     } else {
-      toast.error("Something went wrong");
+      alert("Email is already added to the waitlist");
     }
     setLoading(false);
   };
