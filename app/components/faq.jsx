@@ -8,7 +8,7 @@ export default function Faq() {
         <div className="faq">
         <h2 className="faq__title">Frequently asked questions</h2>
         <h3 className="faq__subtitle">
-          Here’s everything you need to know about DettyDecember.
+          Here&rsquo;s everything you need to know about DettyDecember.
         </h3>
 
         <div
@@ -70,7 +70,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-          Simply click the "Join the Waitlist" button on our coming soon page and enter your email address. You'll receive updates and early access to event booking.
+          Simply click the &quot;Join the Waitlist&quot; button on our coming soon page and enter your email address. You&rsquo;ll receive updates and early access to event booking.
           </div>
         </div>
         <div
@@ -101,7 +101,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-          We're working hard to launch the platform soon! Stay tuned for updates on our official launch date.
+          We&rsquo;re working hard to launch the platform soon! Stay tuned for updates on our official launch date.
           </div>
         </div>
         <div
@@ -163,7 +163,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-          By joining our waitlist, you’ll receive email updates on new events and exclusive experiences. You can also follow us on social media for the latest news.
+          By joining our waitlist, you&rsquo;ll receive email updates on new events and exclusive experiences. You can also follow us on social media for the latest news.
           </div>
         </div>
         <div
@@ -288,7 +288,7 @@ export default function Faq() {
           </div>
 
           <div className="faq__card__answer">
-          You can reach out to us at admin@dettydecember.xyz for any questions or assistance. We're here to help!
+          You can reach out to us at admin@dettydecember.xyz for any questions or assistance. We&rsquo;re here to help!
           </div>
         </div>
         <div
