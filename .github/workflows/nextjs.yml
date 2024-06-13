@@ -24,7 +24,10 @@ jobs:
         run: npm run build
 
       - name: Verify build output
-        run: ls -la out
+        run: |
+          echo "Contents of the out directory:"
+          ls -la out || echo "Directory 'out' does not exist."
+          ls -la . # List the current directory to check if 'out' is elsewhere
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -47,5 +50,6 @@ jobs:
           server: ftp://ftp.your-cpanel-domain.com
           username: tomasosho@thebulb.africa
           password: Teledensity25
-          local-dir: out/
-          server-dir: /build/
+          local-dir: out
+          server-dir: /build
+
