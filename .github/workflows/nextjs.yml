@@ -50,6 +50,6 @@ jobs:
           server: ftp.thebulb.africa
           username: tomasosho@thebulb.africa
           password: Teledensity25
-          local-dir: /out/
+          local-dir: /
           server-dir: /build/
 
