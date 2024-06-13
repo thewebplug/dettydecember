@@ -45,7 +45,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ftp://ftp.your-cpanel-domain.com
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          username: tomasosho@thebulb.africa
+          password: Teledensity25
           local-dir: public_html
           server-dir: /
