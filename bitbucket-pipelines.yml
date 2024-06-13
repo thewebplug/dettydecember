@@ -12,7 +12,6 @@ pipelines:
             - echo "Starting the build process"
             - npm ci
             - npm run build
-            - next build
           artifacts:
             - .next/standalone/**
 
