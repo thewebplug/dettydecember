@@ -13,7 +13,7 @@ pipelines:
             - npm ci
             - CI=false npm run build
           artifacts:
-            - dist/**
+            - .next/standalone/**
 
       - step: &deploy
           name: Deploy to Production
@@ -23,6 +23,7 @@ pipelines:
             - echo "Deploying to production"
             - pipe: atlassian/ftp-deploy:0.3.1
               variables:
+                USER: $FTP_USERNAME
                 USERNAME: $FTP_USERNAME
                 PASSWORD: $FTP_PASSWORD
                 SERVER: ftp.thebulb.africa
