@@ -15,7 +15,7 @@ pipelines:
             - echo "Build completed. Checking .next/standalone directory..."
             - ls -l .next
           artifacts:
-            - .next/**
+            - .next/server/app/**
 
       - step: &deploy
           name: Deploy to Production
@@ -23,15 +23,15 @@ pipelines:
           <<: *deploy
           script:
             - echo "Deploying to production"
-            - ls -l .next/standalone
-            - ls -l .next/standalone/**
+            - ls -l .next/server/app
+            - ls -l .next/server/app/**
             - pipe: atlassian/ftp-deploy:0.3.1
               variables:
                 USERNAME: $BITBUCKET_USERNAME
                 PASSWORD: $FTP_PASSWORD
                 SERVER: ftp.thebulb.africa
                 REMOTE_PATH: /
-                LOCAL_PATH: .next
+                LOCAL_PATH: .next/server/app
            
                 USER: $BITBUCKET_USERNAME
                 PASSWORD: $FTP_PASSWORD
