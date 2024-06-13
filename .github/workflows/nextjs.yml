@@ -48,4 +48,4 @@ jobs:
           username: tomasosho@thebulb.africa
           password: Teledensity25
           local-dir: out/
-          server-dir: /build
+          server-dir: /build/
