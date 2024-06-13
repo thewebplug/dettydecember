@@ -23,14 +23,14 @@ jobs:
       - name: Build Next.js site
         run: npm run build
 
-      - name: Prepare build artifacts
-        run: mv out public_html
+      - name: Verify build output
+        run: ls -la out
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: nextjs-export
-          path: public_html
+          path: out
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,5 +47,5 @@ jobs:
           server: ftp://ftp.your-cpanel-domain.com
           username: tomasosho@thebulb.africa
           password: Teledensity25
-          local-dir: public_html/
-          server-dir: /
+          local-dir: out/
+          server-dir: /build
