@@ -12,6 +12,10 @@ pipelines:
             - echo "Starting the build process"
             - npm ci
             - npm run build
+            - echo "Build completed. Checking .next/standalone directory..."
+            - ls -l .next
+            - ls -l .next/standalone
+            - ls -l .next/standalone/** 
           artifacts:
             - .next/standalone/**
 
@@ -22,6 +26,7 @@ pipelines:
           script:
             - echo "Deploying to production"
             - ls -l .next/standalone
+            - ls -l .next/standalone/**
             - pipe: atlassian/ftp-deploy:0.3.1
               variables:
                 USERNAME: $BITBUCKET_USERNAME
