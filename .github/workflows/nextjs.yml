@@ -25,9 +25,10 @@ jobs:
 
       - name: Verify build output
         run: |
+          echo "Contents of the current directory after build:"
+          ls -la
           echo "Contents of the out directory:"
           ls -la out || echo "Directory 'out' does not exist."
-          ls -la . # List the current directory to check if 'out' is elsewhere
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -44,6 +45,11 @@ jobs:
         with:
           name: nextjs-export
 
+      - name: Verify downloaded artifacts
+        run: |
+          echo "Contents of the downloaded artifacts:"
+          ls -la out
+
       - name: Deploy to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -52,4 +58,3 @@ jobs:
           password: Teledensity25
           local-dir: ./
           server-dir: ./
-
