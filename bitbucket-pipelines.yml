@@ -34,8 +34,8 @@ pipelines:
                 LOCAL_PATH: ./
            
                 USER: $BITBUCKET_USERNAME
-                PASSWORD: $FTP_PASSWORD
-                SERVER: $SSH_JUMP_HOST
+                # PASSWORD: $FTP_PASSWORD
+                # SERVER: $SSH_JUMP_HOST
                 
                 MODE: "script"
                 COMMAND: "./ansible/deploy-dev.sh"
