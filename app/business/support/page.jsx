@@ -1,8 +1,22 @@
+"use client"
 import DefBlack from "@/app/components/DefBlack";
 import Footer from "@/app/components/footer";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Support() {
+const [loading, setLoading] = useState(false);
+const [modalOpen, setModalOpen] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true)
+
+    setTimeout(() => {
+      setLoading(false)
+      setModalOpen(true)
+    }, 3000);
+  }
   return (
     <div className="support">
       <div className="support__hero">
@@ -77,42 +91,42 @@ Our help centre provides intelligent search with the most relevant answers, driv
       </div>
 
       <div className="support__form">
-        <div className="support__form__inner">
+        <form className="support__form__inner" onSubmit={handleSubmit}>
             <div className="support__form__inner__title">Get in touch</div>
             <div className="support__form__inner__subtitle">Our friendly team would love to hear from you.</div>
 
             <div className="support__form__inner__input-flex">
                 <div>
                     <label className="support__form__inner__label">First name</label>
-                    <input type="text" className="support__form__inner__input" placeholder="First name" />
+                    <input type="text" className="support__form__inner__input" placeholder="First name" required/>
                 </div>
                 <div>
                     <label className="support__form__inner__label">Last name</label>
-                    <input type="text" className="support__form__inner__input" placeholder="Last name" />
+                    <input type="text" className="support__form__inner__input" placeholder="Last name" required />
                 </div>
             </div>
 
             <label className="support__form__inner__label">Email</label>
-                    <input type="email" className="support__form__inner__input" placeholder="you@company.com" />
+                    <input type="email" className="support__form__inner__input" placeholder="you@company.com" required />
             <label className="support__form__inner__label">Phone number</label>
             <div className="support__form__inner__select-flex">
                 <select name="" id="">
                     <option value="">NGN</option>
                 </select>
 
-                <input type="text" placeholder="+234 (555) 000-0000" />
+                <input type="text" placeholder="+234 (555) 000-0000" required />
             </div>
 
             <label className="support__form__inner__label">Message</label>
                     <textarea type="email" className="support__form__inner__textarea" placeholder="Leave us a message..." />
 <div className="support__form__inner__privacy">
-    <input type="checkbox" name="" id="" />
+    <input type="checkbox" name="" id="" required />
     You agree to our friendly <a href="">privacy policy</a>.
 </div>
-<button className="support__form__inner__button">
-Send message
+<button className="support__form__inner__button" type="submit">
+{loading ? "Loading..." : "Send message"}
     </button>
-        </div>
+        </form>
         <div className="support__form__img">
         <div className="support__form__img__inner">
             </div>
@@ -122,6 +136,78 @@ Send message
 
       <DefBlack />
       <Footer />
+
+      {modalOpen && (
+        <div className="support__modal">
+          <div className="support__modal__inner">
+            <div className="support__modal__inner__flex">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_76_36689)">
+                  <path
+                    d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+                    fill="#02A056"
+                  />
+                  <path
+                    d="M1.5 24C1.5 11.5736 11.5736 1.5 24 1.5C36.4264 1.5 46.5 11.5736 46.5 24C46.5 36.4264 36.4264 46.5 24 46.5C11.5736 46.5 1.5 36.4264 1.5 24Z"
+                    fill="#02A056"
+                  />
+                  <path
+                    d="M1.5 24C1.5 11.5736 11.5736 1.5 24 1.5C36.4264 1.5 46.5 11.5736 46.5 24C46.5 36.4264 36.4264 46.5 24 46.5C11.5736 46.5 1.5 36.4264 1.5 24Z"
+                    stroke="#02A056"
+                    stroke-width="3"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M34.1925 14.7803L19.8725 28.6003L16.0725 24.5403C15.3725 23.8803 14.2725 23.8403 13.4725 24.4003C12.6925 24.9803 12.4725 26.0003 12.9525 26.8203L17.4525 34.1403C17.8925 34.8203 18.6525 35.2403 19.5125 35.2403C20.3325 35.2403 21.1125 34.8203 21.5525 34.1403C22.2725 33.2003 36.0125 16.8203 36.0125 16.8203C37.8125 14.9803 35.6325 13.3603 34.1925 14.7603V14.7803Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_76_36689">
+                    <path
+                      d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+                      fill="white"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+              <svg
+                className="pointer"
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={() => setModalOpen(false)}
+              >
+                <rect width="30" height="30" rx="15" fill="#EFF0F0" />
+                <path
+                  d="M20 10L10 20M10 10L20 20"
+                  stroke="#9DA09F"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* <div className="support__modal__inner__title">
+              Congratulations! 🎉
+            </div> */}
+            <div className="support__modal__inner__subtitle">
+              Thank you for reaching out. Our team will be in touch soon
+            </div>
+            <button className="support__modal__inner__button" onClick={() => setModalOpen(false)}>Okay</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
