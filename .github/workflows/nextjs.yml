@@ -47,7 +47,8 @@ jobs:
       - name: Deploy to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ftp.thebulb.africa
+          server: ftpes://premium258.web-hosting.com
+          port: 21
           username: tomasosho@thebulb.africa
           password: Teledensity@25
           local-dir: ./
