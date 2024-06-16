@@ -49,7 +49,7 @@ jobs:
         with:
           server: 67.223.118.103
           port: 21
-          username: tomasosho@thebulb.africa
+          username: tomasosho@dettydecember.xyz
           password: Teledensity@25
           local-dir: ./
           server-dir: ./
