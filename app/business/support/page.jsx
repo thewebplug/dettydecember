@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Support() {
 const [loading, setLoading] = useState(false);
 const [modalOpen, setModalOpen] = useState(false);
+// const [modalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
