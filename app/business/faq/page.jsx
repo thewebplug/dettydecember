@@ -1,5 +1,5 @@
 import DefBlack from "@/app/components/DefBlack";
-import Faq from "@/app/components/faq";
+import BusinessFaqComp from "@/app/components/businessfaq";
 import Footer from "@/app/components/footer";
 
 export default function BusinessFaq() {
@@ -12,8 +12,7 @@ export default function BusinessFaq() {
         <div className="business-faq__hero__button-group">
         </div>
       </div>
-      <Faq /> 
-
+<BusinessFaqComp />
       <div className="business-faq__still">
       <div className="business-faq__still__inner">
       <h2 className="business-faq__still__inner__title">Still have questions?</h2>

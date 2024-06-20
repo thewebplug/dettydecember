@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import Faq from "../components/faq";
 import Footer from "../components/footer";
 import Org from "../components/Orgs";
 import DefBlack from "../components/DefBlack";
 import Partners from "../components/PartnersCmp";
+import BusinessFaqComp from "../components/businessfaq";
 
 export default function BusinessHome() {
     const [nav, setNav] = useState(0);
@@ -22,7 +22,7 @@ export default function BusinessHome() {
             </h2>
             <div className="home__hero__button-group">
                 <button
-                 onClick={() => window.location.href = "https://docs.google.com/forms/d/1_MFXEajDoFMAWkYKWEkUrnfa8Qn0WscFjqJT1_voQCE/viewform?edit_requested=true"}
+                 onClick={() => window.location.href = "/events"}
                 >Work with us</button>
                 <button>Sign in</button>
             </div>
@@ -118,7 +118,7 @@ Dedicated Account Team of Industry Experts
             </div>
         </div>
 
-        <Faq />
+        <BusinessFaqComp />
 
         <DefBlack />
 

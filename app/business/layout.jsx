@@ -13,7 +13,7 @@ const BusinessLayout = ({ children }) => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="pointer"
-              onClick={ () => window.location.href = "https://docs.google.com/forms/d/1_MFXEajDoFMAWkYKWEkUrnfa8Qn0WscFjqJT1_voQCE/viewform?edit_requested=true"}
+              onClick={ () => window.location.href = "/events"}
             >
               <g clip-path="url(#clip0_180_636)">
                 <path
@@ -224,7 +224,7 @@ const BusinessLayout = ({ children }) => {
 </nav>
 <div className="business__header__buttons">
   <button>Sign in</button>
-<button className="" onClick={ () => window.location.href = "https://docs.google.com/forms/d/1_MFXEajDoFMAWkYKWEkUrnfa8Qn0WscFjqJT1_voQCE/viewform?edit_requested=true"}>
+<button className="" onClick={ () => window.location.href = "/events"}>
               Work with us
             </button>
 </div>
