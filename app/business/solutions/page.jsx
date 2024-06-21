@@ -42,7 +42,7 @@ export default function Solutions() {
     Event Creation and Management
 </h2>
 <h3 className="solutions__features__inner__subtitle">
-Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.
+List your events to reach potential clients looking for unique experiences and offerings.
 </h3>
 <div className="solutions__features__inner__grid">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,26 +50,26 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
 </svg>
 
-<div>Key features</div>
+<div>Effortless listing configuration</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
 </svg>
 
-<div>Key features</div>
+<div>Manage inventory and revenue</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
 </svg>
 
-<div>Key features</div>
+<div>Collaborate in real time</div>
 
 </div>
 </div>
 
  
         <div className="solutions__features__img">
-<button className="solutions__features__img__button">Work with us
+<button className="solutions__features__img__button" onClick={() => window.location.href = "/events"}>Work with us
 </button>
 <div className="solutions__features__img__img">
 <Image alt=""
@@ -82,11 +82,11 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
 </div>
 </div>
         <div className="solutions__features__img">
-<button className="solutions__features__img__button">Work with us
+<button className="solutions__features__img__button" onClick={() => window.location.href = "/events"}>Work with us
 </button>
 <div className="solutions__features__img__img">
 <Image alt=""
-                  src="/assets/Content (2).png"
+                  src="/assets/bgty.png"
                   layout="fill"
                 //   objectFit="cover"
                 />
@@ -97,8 +97,8 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
 
         <div className="solutions__features__inner">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#D5F6E6"/>
-<path d="M21 29.5H15.5M18.5 24H14M21 18.5H16M29 15L22.4036 24.235C22.1116 24.6438 21.9656 24.8481 21.9719 25.0185C21.9774 25.1669 22.0486 25.3051 22.1661 25.3958C22.3011 25.5 22.5522 25.5 23.0546 25.5H28L27 33L33.5964 23.765C33.8884 23.3562 34.0344 23.1519 34.0281 22.9815C34.0226 22.8331 33.9514 22.6949 33.8339 22.6042C33.6989 22.5 33.4478 22.5 32.9454 22.5H28L29 15Z" stroke="#028C4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#FCECCF"/>
+<path d="M21 29.5H15.5M18.5 24H14M21 18.5H16M29 15L22.4036 24.235C22.1116 24.6438 21.9656 24.8481 21.9719 25.0185C21.9774 25.1669 22.0486 25.3051 22.1661 25.3958C22.3011 25.5 22.5522 25.5 23.0546 25.5H28L27 33L33.5964 23.765C33.8884 23.3562 34.0344 23.1519 34.0281 22.9815C34.0226 22.8331 33.9514 22.6949 33.8339 22.6042C33.6989 22.5 33.4478 22.5 32.9454 22.5H28L29 15Z" stroke="#F6931E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
 
@@ -106,27 +106,30 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
     Event Promotion and Marketing 
 </h2>
 <h3 className="solutions__features__inner__subtitle">
-Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.
+With detailed listings, engaging visuals, and strategic marketing support, we’ll help you understand and connect with your fans.
 </h3>
 <div className="solutions__features__inner__grid">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
+<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#FEF8ED"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#F6931E"/>
 </svg>
 
-<div>Key features</div>
+
+<div>Find new fans</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
+<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#FEF8ED"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#F6931E"/>
 </svg>
 
-<div>Key features</div>
+
+<div>Create and manage campaigns</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
+<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#FEF8ED"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#F6931E"/>
 </svg>
 
-<div>Key features</div>
+
+<div>Get Insights at scale</div>
 
 </div>
 </div>
@@ -142,7 +145,7 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
     Ticket Sales
 </h2>
 <h3 className="solutions__features__inner__subtitle">
-Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.
+Simplify ticket sales with our secure, integrated platform, and track your sales in real-time.
 </h3>
 <div className="solutions__features__inner__grid">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -150,28 +153,28 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
 </svg>
 
-<div>Key features</div>
+<div>Unmatched fan reach</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
 </svg>
 
-<div>Key features</div>
+<div>Secure platform and checkout</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
 </svg>
 
-<div>Key features</div>
+<div>Fan to Fan resale</div>
 
 </div>
 </div>
 <div className="solutions__features__img">
-<button className="solutions__features__img__button">Work with us
+<button className="solutions__features__img__button" onClick={() => window.location.href = "/events"}>Work with us
 </button>
 <div className="solutions__features__img__img">
 <Image alt=""
-                  src="/assets/Content.png"
+                  src="/assets/bggb.png"
                   layout="fill"
                 //   objectFit="cover"
                 />
@@ -180,7 +183,7 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
 </div>
 </div>
 <div className="solutions__features__img">
-<button className="solutions__features__img__button">Work with us
+<button className="solutions__features__img__button" onClick={() => window.location.href = "/events"}>Work with us
 </button>
 <div className="solutions__features__img__img">
 <Image alt=""
@@ -195,9 +198,10 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
 
 <div className="solutions__features__inner">
 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#D5F6E6"/>
-<path d="M21 29.5H15.5M18.5 24H14M21 18.5H16M29 15L22.4036 24.235C22.1116 24.6438 21.9656 24.8481 21.9719 25.0185C21.9774 25.1669 22.0486 25.3051 22.1661 25.3958C22.3011 25.5 22.5522 25.5 23.0546 25.5H28L27 33L33.5964 23.765C33.8884 23.3562 34.0344 23.1519 34.0281 22.9815C34.0226 22.8331 33.9514 22.6949 33.8339 22.6042C33.6989 22.5 33.4478 22.5 32.9454 22.5H28L29 15Z" stroke="#028C4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#FCECCF"/>
+<path d="M21 29.5H15.5M18.5 24H14M21 18.5H16M29 15L22.4036 24.235C22.1116 24.6438 21.9656 24.8481 21.9719 25.0185C21.9774 25.1669 22.0486 25.3051 22.1661 25.3958C22.3011 25.5 22.5522 25.5 23.0546 25.5H28L27 33L33.5964 23.765C33.8884 23.3562 34.0344 23.1519 34.0281 22.9815C34.0226 22.8331 33.9514 22.6949 33.8339 22.6042C33.6989 22.5 33.4478 22.5 32.9454 22.5H28L29 15Z" stroke="#F6931E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
+
 
 
 
@@ -206,27 +210,30 @@ Placeholder text, placeholder text, placeholder text, placeholder text, placehol
     Fan Experiences
 </h2>
 <h3 className="solutions__features__inner__subtitle">
-Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.
+Connect with your fans, and help fans make more memories live.
 </h3>
 <div className="solutions__features__inner__grid">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
+<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#FEF8ED"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#F6931E"/>
 </svg>
 
-<div>Key features</div>
+
+<div>Travel & Experience Packages</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
+<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#FEF8ED"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#F6931E"/>
 </svg>
 
-<div>Key features</div>
+
+<div>Flexible Payment Options</div>
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#EEFCF5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#028C4B"/>
+<path d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z" fill="#FEF8ED"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9457 8.62193L11.5923 16.6836L9.37568 14.3153C8.96734 13.9303 8.32568 13.9069 7.85901 14.2336C7.40401 14.5719 7.27568 15.1669 7.55568 15.6453L10.1807 19.9153C10.4373 20.3119 10.8807 20.5569 11.3823 20.5569C11.8607 20.5569 12.3157 20.3119 12.5723 19.9153C12.9923 19.3669 21.0073 9.81193 21.0073 9.81193C22.0573 8.7386 20.7857 7.7936 19.9457 8.61027V8.62193Z" fill="#F6931E"/>
 </svg>
 
-<div>Key features</div>
+
+<div>Intuitive Fan Tools</div>
 
 </div>
 </div>

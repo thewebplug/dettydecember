@@ -152,10 +152,11 @@ margin-bottom: 48px;
                 margin-bottom: 12px;
             }
             &__subtitle {
-                @extend %title-36;
+                @extend %title-20;
                 color: #232423;
                 font-family: unset;
                 margin-bottom: 24px;
+                line-height: 24px;
             }
             
             &__subsubtitle {

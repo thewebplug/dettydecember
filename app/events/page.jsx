@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getEvenCategories } from "../apis/general";
 
 export default function Events() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -36,6 +37,15 @@ export default function Events() {
     e.preventDefault();
     setModalOpen(true)
   }
+
+  const handlegetEventCateg = async () => {
+const res = await getEvenCategories();
+console.log('live from the mecenary', res);
+  }
+
+  useEffect(() => {
+    handlegetEventCateg();
+  }, [])
 
   return (
     <main className="events">

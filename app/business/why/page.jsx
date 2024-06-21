@@ -34,19 +34,19 @@ export default function Businesswhy() {
     Create event better, get discovered and sellout faster!
 </h2>
 <h3 className="why__journey__inner__subtitle">
-We’re only just getting started on our journey
+We are only just getting started!
 </h3>
 <div className="why__journey__inner__grid">
+<div>
+    <div>400k+</div>
+    <div>Yearly visitors</div>
+</div>
 <div>
     <div>4k+</div>
     <div>Event created</div>
 </div>
 <div>
-    <div>50k+</div>
-    <div>Fun lovers (users)</div>
-</div>
-<div>
-    <div>10k+</div>
+    <div>100k+</div>
     <div>Tickets sold</div>
 </div>
 <div>
@@ -62,16 +62,16 @@ We’re only just getting started on our journey
     <div className="why__story__inner">
         <h2 className="why__story__inner__title">Our story</h2>
             <h3 className="why__story__inner__subtitle">
-            We’re just getting started
+            We founded dettydecember.xyz to provide seamless access to the December festivities in Nigeria we love, by offering unparalleled convenience and support to travellers from across the globe.
                 </h3>
             <h3 className="why__story__inner__subsubtitle">
-            Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam.
-            <br />
-Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum, nulla odio nisl vitae. In aliquet pellentesque aenean hac vestibulum turpis mi bibendum diam. Tempor integer aliquam in vitae malesuada.
+            DettyDecember’s platform and content are free to access. For this model to work, we’ve received support from people who believe in our vision, alongside brand partnerships. This has allowed us to curate unforgettable experiences, whilst celebrating and contributing to the culture we love.
 <br />
-Elit nisi in eleifend sed nisi. Pulvinar at orci, proin imperdiet commodo consectetur convallis risus. Sed condimentum enim dignissim adipiscing faucibus consequat, urna. Viverra purus et erat auctor aliquam. Risus, volutpat vulputate posuere purus sit congue convallis aliquet.
 <br />
-Ipsum sit mattis nulla quam nulla. Gravida id gravida ac enim mauris id. Non pellentesque congue eget consectetur turpis. Sapien, dictum molestie sem tempor. Diam elit, orci, tincidunt aenean.
+Just like Cancun and Miami is to Spring Break, or Vegas and Mykonos is to summer, Detty December has become synonymous with unforgettable end-of-year celebrations.
+<br />
+<br />
+Our vision is bringing the spirit of Detty December to even more communities around the world.
             </h3>
 
         </div>

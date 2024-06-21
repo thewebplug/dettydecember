@@ -40,14 +40,18 @@ export default function BusinessHome() {
                 <div className="home__solutions__navigation__nav">
                     <div className={nav === 0 ? "home__solutions__navigation__nav__item" : " home__solutions__navigation__nav__item-inactive"} onClick={() => setNav(0)}>
                         <div>Event Creation and Management</div>
-                        <div>Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.</div>
+                        <div>Our user-friendly platform makes creating your event a breeze. Upload details, manage ticket tiers, and track sales – all in one place.</div>
                     </div>
                     <div className={nav === 1 ? "home__solutions__navigation__nav__item" : " home__solutions__navigation__nav__item-inactive"} onClick={() => setNav(1)}> 
-                        <div>Event Creation and Management</div>
+                        <div>Event Promotion and Marketing </div>
                         <div>Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.</div>
                     </div>
                     <div className={nav === 2 ? "home__solutions__navigation__nav__item" : " home__solutions__navigation__nav__item-inactive"} onClick={() => setNav(2)}>
-                        <div>Event Creation and Management</div>
+                        <div>Ticket Sales</div>
+                        <div>Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.</div>
+                    </div>
+                    <div className={nav === 3 ? "home__solutions__navigation__nav__item" : " home__solutions__navigation__nav__item-inactive"} onClick={() => setNav(3)}>
+                        <div>Fan Experiences</div>
                         <div>Placeholder text, placeholder text, placeholder text, placeholder text, placeholder text, placeholder text.</div>
                     </div>
                 </div>
