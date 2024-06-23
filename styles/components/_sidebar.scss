@@ -1,0 +1,26 @@
+@layer utilities {
+  .sidebar {
+    @apply transition-all duration-500 py-2;
+    &.active {
+      @apply bg-[#EEFCF5] text-[#028C4B] w-full text-left pl-4 border-l-[2px] border-l-[#FDCE4E];
+    }
+  }
+  .cart-btn {
+    @apply text-[#989CB4] px-[15px] text-[16px] py-[10px]  ;
+  }
+  .active-cart-btn {
+    @apply border-b-[#02A056] border-b-2 text-[#028C4B] font-medium transition-all duration-100;
+  }
+}
+.clipped-card {
+  position: relative;
+  overflow: hidden;
+  // clip-path: polygon(
+  //   0% 0%, 10% 0%, 10% 100%, 0% 100%, /* left ellipse */
+  //    90% 0%, 100% 0%, 100% 100%, 90% 100% /* right ellipse */
+  // );
+  
+  clip-path: circle(50px at 0, 0);
+}
+
+
