@@ -11,6 +11,9 @@
   .active-cart-btn {
     @apply border-b-[#02A056] border-b-2 text-[#028C4B] font-medium transition-all duration-100;
   }
+  .prev-next-btn{
+    @apply px-[12px] py-[6px] text-[14px] border-[1px] rounded-full border-[#EAEBEA] bg-[#F9FAFA];
+  }
 }
 .clipped-card {
   position: relative;

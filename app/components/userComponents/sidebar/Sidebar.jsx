@@ -27,8 +27,8 @@ export const Sidebar = () => {
           <p className="text-[#ACAFAC] text-[16px]">Good afternoon!😎</p>
         </div>
         <div>
-          <div className="  w-full   px-4 py-4">
-            <div className=" flex flex-col text-xl font-bold  text-[#13162D]  gap-2 transition-all">
+          <div className="  w-full px-[8px] pt-[16px] pb-[24px] ">
+            <div className=" flex flex-col text-xl font-bold  text-[#13162D]  gap-2 transition-all ">
               {navItems.map((d, i) => (
                 <SingleNavItem
                   key={i}
@@ -47,7 +47,7 @@ export const Sidebar = () => {
   );
 };
 function SingleNavItem(d) {
-  const { Status } = useStatus();
+  const { Status, setStatus, listStatus } = useStatus();
   const [animationParent] = useAutoAnimate();
   const [isItemOpen, setItem] = useState(false);
 
@@ -78,9 +78,9 @@ function SingleNavItem(d) {
         href={d.link ?? "#"}
         className="flex  cursor-pointer items-center justify-between gap-2 text-[#13162D]  group-hover:text-black "
       >
-        <p className="flex gap-4 items-center">
+        <p  className="flex gap-4 items-center">
           <Image src={d.icon} />
-          <span className="text-[16px] text-textPrimary font-medium">
+          <span    className="text-[16px] text-textPrimary font-medium">
             {d.label}
           </span>
         </p>
@@ -103,7 +103,7 @@ function SingleNavItem(d) {
         //       //   isActive(d.paths) ? "active" : ""
         //       // }`}
 
-        <div className="w-auto flex-col gap-1 rounded-lg bg-white py-3 text-[#7A7C79] text-[14px] transition-all flex">
+        <div className="w-auto flex-col gap-1 rounded-lg bg-white py-3 text-[#7A7C79] text-[14px] transition-all flex ">
           {d.children.map((ch, i) => (
             <Link key={i} href={ch.link ?? "#"} passHref>
               <div
@@ -111,7 +111,11 @@ function SingleNavItem(d) {
                   ch.label === Status ? "bg-[#EEFCF5]" : ""
                 }  rounded-lg py-4  w-full gap-4 pl-3 relative`}
               >
-                <span className={`w-4 h-4 rounded-full z-[3] ${ch.label === Status? "bg-[#02A056]":""}  bg-[#EFF0EF] `}></span>
+                <span
+                  className={`w-4 h-4 rounded-full z-[3] ${
+                    ch.label === Status ? "bg-[#02A056]" : "bg-[#EFF0EF] "
+                  }  `}
+                ></span>
                 <span className="whitespace-nowrap ml-2">{ch.label}</span>
                 {i !== d.children.length - 1 && (
                   <div className="absolute z-[2] top-[14px] left-[11px] h-[50px] w-[2px] bg-[#EFF0EF] border-[#000] "></div>
@@ -121,6 +125,7 @@ function SingleNavItem(d) {
           ))}
         </div>
       )}
+
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function MyTickets() {
     <div className="bg-[#fff] p-6 w-full rounded-lg border-[1px] shadow-sm font-inter  border-[#EAEBEA]">
       <main className="pt-4 pb-0 px-2 border-b-[1px] border-b-[#EAEBEA]">
         <h1 className="text-[36px] text-[#13162D] syne">My Tickets</h1>
-        <div className="flex pt-24 font-semibold items-center text-[16px]">
+        <div className="flex pt-24 font-semibold items-center text-[16px] font-inter">
           {statuses.map((status) => (
             <button
               onClick={() => setStatus(status)}
@@ -31,19 +31,19 @@ export default function MyTickets() {
           ))}
         </div>
       </main>
-      <main className="border-[1px] relative border-borderSecondary  rounded-lg mt-10 py-6 px-4  ">
-        <div className="circle absolute left-[-10px]"></div>
-        <section className="flex justify-between px-6 ">
+      <main className="border-[1px]  border-borderSecondary  rounded-lg mt-10 font-inter  ">
+        {/* <div className="circle absolute left-[-10px]"></div> */}
+        <section className="flex justify-between  p-[24px] ">
           <div className="flex gap-6 text-center text-textPrimary ">
-            <div className="flex flex-col justify-between bg-[#F9FAFA] p-2">
-              <span className="text-[#028C4B] bg-[#ECFDF3] p-2 text-[10px]">
+            <div className="flex flex-col justify-between bg-[#F9FAFA] border-[2px] border-[#F9FAFA] ">
+              <span className="text-[#028C4B] bg-[#ECFDF3] px-[8px] py-[4px] font-medium text-[10px]">
                 2 days to go
               </span>
-              <p className="text-md">AUG</p>
-              <h1 className="text-[32px]">10</h1>
+              <p className="text-[16px] font-normal leading-[24px]"> AUG</p>
+              <h1 className="text-[32px] font-medium syne leading-[40px]">10</h1>
             </div>
             <div className="flex gap-6 ">
-              <div className="w-[80px] h-[80px]">
+              <div className="w-[100px] h-[100px] ">
                 <Image src={image} alt="Description" />
               </div>
 
@@ -75,13 +75,13 @@ export default function MyTickets() {
             </p>
             <button
               onClick={() => setopenModal(!openModal)}
-              className="bg-[#F9FAFA] text-sm px-6 leading-[20px] py-2 rounded-full text-buttonSecondary"
+              className="bg-[#F9FAFA] text-[14px] font-medium px-6 border-[1px] border-borderSecondary  leading-[20px] py-2 rounded-full text-buttonSecondary"
             >
               Resell ticket
             </button>
           </div>
         </section>
-        -
+        
       </main>
 
       {/* <FindEvent /> */}

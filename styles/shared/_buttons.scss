@@ -101,3 +101,15 @@ transition: 0.4s;
   border-radius: 5px;
   
 }
+@layer utilities {
+
+  .pag-btn {
+    @apply p-4 text-[#7A7C79] font-medium text-[14px] ;
+  }
+  .active-pag-btn {
+    @apply bg-[#F4F5F4] w-[40px] h-[40px] rounded-full  text-[#3D3E3D] transition-all duration-100;
+  }
+  .prev-next-btn{
+    @apply px-[12px] py-[6px] text-[14px] border-[1px] rounded-full border-[#EAEBEA] bg-[#F9FAFA];
+  }
+}
