@@ -11,39 +11,8 @@ export default function Events() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalStage, setModalStage] = useState(1);
   const [password, setPassword] = useState("");
-  const [inst1, setInst1] = useState(false);
-  const [inst2, setInst2] = useState(false);
-  const [inst3, setInst3] = useState(false);
-  const [inst4, setInst4] = useState(false);
 
-  const passwordRegex1 = /^.{8,}/
-  const passwordRegex2 = /(?=.*[a-z])(?=.*[A-Z])/
-  const passwordRegex3 = /(?=.*\d)/
-  const passwordRegex4 = /(?=.*[!@#$%^&*])/
 
-  useEffect(() => {
-    if(passwordRegex1.test(password)) {
-      setInst1(true)
-    }else {
-      setInst1(false)
-    }
-    if(passwordRegex2.test(password)) {
-      setInst2(true)
-    }else {
-      setInst2(false)
-    }
-    if(passwordRegex3.test(password)) {
-      setInst3(true)
-    }else {
-      setInst3(false)
-    }
-    if(passwordRegex4.test(password)) {
-      setInst4(true)
-    }else {
-      setInst4(false)
-    }
-    
-  }, [password])
 
   const handleModalOpen = (e) => {
     e.preventDefault();
@@ -269,10 +238,9 @@ export default function Events() {
           </defs>
         </svg>
 
-        <h1 className="user-register__card1__title">Hey Fun Lovers!</h1>
+        <h1 className="user-register__card1__title">Welcome Back Fun Lovers!</h1>
         <h2 className="user-register__card1__subtitle">
-          Here are what you stand to enjoy when you use DettyDecember as your go
-          to ticketing platform.
+        Here are what you stand to enjoy when you use DettyDecember as your go to ticketing platform.
         </h2>
 
         <div className="user-register__card1__group">
@@ -353,43 +321,16 @@ support@dettydecember.xyz</h4>
         </div>
       </div>
       <div className="user-register__card2">
-        <h2 className="user-register__card2__title">About the venue</h2>
+        <h2 className="user-register__card2__title">Sign In</h2>
 
         <h3 className="user-register__card2__subtitle">
-          Tell us what kind of event you offer so we can determine which
-          solutions will work best for you.
+        Please fill in the information below
         </h3>
 
         <form
           className="user-register__card2__form"
           onSubmit={handleModalOpen}
         >
-          <div className="user-register__card2__form__input-group">
-            <div>
-              <label htmlFor="firstName">First name</label>
-              <input
-                type="text"
-                placeholder="Enter your first name"
-                name="firstName"
-                id="firstName"
-                required
-                // value={firstName}
-                // onChange={(e) => setFirstName(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="lastName">Last name</label>
-              <input
-                type="text"
-                placeholder="Enter your last name"
-                name="lastName"
-                id="lastName"
-                required
-                // value={lastName}
-                // onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
-          </div>
 
           <label htmlFor="eventName">Email address</label>
           <input
@@ -402,181 +343,35 @@ support@dettydecember.xyz</h4>
             // onChange={(e) => setEventName(e.target.value)}
           />
 
-          <label htmlFor="dateOfNextEvent">Country of residence</label>
-          <select name="" id="">
-            {countries?.map((country) => <option value="">{country?.label}</option>)}
-          </select>
+        
           <label htmlFor="user-registerPerYear">Password</label>
           <input type="password" value={password} onChange={((e) => setPassword(e.target.value))} />
-          <div className="user-register__card2__form__instructions">
+   
+          <div className="user-register__card2__form__remember">
             <div>
-           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>
-{/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg> */}
-
-
-At least 1 uppercase letter
-            </div>
-            <div>
-            {!inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 lowercase letter
-            </div>
-            <div>
-            {!inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 special character
-            </div>
-            <div>
-            {!inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 number
-            </div>
-            <div>
-            {!inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 8 characters
-            </div>
-          </div>
-          <div className="user-register__card2__form__checkbox">
             <input type="checkbox" name="" id="" />
             <div>
-            Be the first to hear about the newest updates (Including news, exclusive pre-sales and offers, etc)
+            Remember
+            </div>
+            </div>
+            
+            <div>
+            <div className="pointer" onClick={() => window.location.href = "/user/forgot-password"}>Forgot password?</div>
             </div>
           </div>
-          <div className="user-register__card2__form__checkbox">
-            <input type="checkbox" name="" id="" required/>
-            <div>I have read and agree to the <span>Terms of use</span> and <span>Privacy policy</span>.</div>
-          </div>
           <button className="user-register__card2__form__button" type="submit">
-          Sign up
+          Sign in
           </button>
 
           <div className="user-register__card2__form__info">
-          Already have a DettyDecember account? <span
+          Don’t have a DettyDecember account? <span
           onClick={() => window.location.href = "/user/login"}
-          >Sign in</span>
+          >Sign Up</span>
           </div>
         </form>
       </div>
 
-      {modalOpen && (
-        <div className="user-register__modal">
-          {modalStage === 1 && <form className="user-register__modal__inner" onSubmit={handleSubmitOtp}>
-            <div className="user-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M14 19L22.1649 24.7154C22.8261 25.1783 23.1567 25.4097 23.5163 25.4993C23.8339 25.5785 24.1661 25.5785 24.4837 25.4993C24.8433 25.4097 25.1739 25.1783 25.8351 24.7154L34 19M18.8 32H29.2C30.8802 32 31.7202 32 32.362 31.673C32.9265 31.3854 33.3854 30.9265 33.673 30.362C34 29.7202 34 28.8802 34 27.2V20.8C34 19.1198 34 18.2798 33.673 17.638C33.3854 17.0735 32.9265 16.6146 32.362 16.327C31.7202 16 30.8802 16 29.2 16H18.8C17.1198 16 16.2798 16 15.638 16.327C15.0735 16.6146 14.6146 17.0735 14.327 17.638C14 18.2798 14 19.1198 14 20.8V27.2C14 28.8802 14 29.7202 14.327 30.362C14.6146 30.9265 15.0735 31.3854 15.638 31.673C16.2798 32 17.1198 32 18.8 32Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-           
-
-              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
-              >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-            </div>
-
-            <div className="user-register__modal__inner__title">
-            Please check your email
-            </div>
-            <div className="user-register__modal__inner__subtitle">
-            We've sent a 6-digit verification code to <br /><span>wandeadams@gmail.com</span>
-            </div>
-
-            <div className="user-register__modal__inner__otp-group">
-              <input className="user-register__modal__inner__otp-group__active" type="text" />
-              <input type="text" required maxLength={1} />
-              <input type="text" required maxLength={1} />
-              <input type="text" required maxLength={1}  />
-              <input type="text" required maxLength={1} />
-              <input type="text" required maxLength={1} />
-            </div>
-
-            <div className="user-register__modal__inner__resend">
-            Didn’t get a code? <a href="">Click to resend code</a>
-            </div>
-           <div className="user-register__modal__inner__buttons">
-            <button onClick={() => {
-              setModalOpen(false)
-              setModalStage(null)
-              }}>Cancel</button>
-            <button type="submit">Verify</button>
-           </div>
-          </form>}
-          {modalStage === 2 && <div className="user-register__modal__inner">
-            <div className="user-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-           
-
-              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
-              >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-            </div>
-
-            <div className="user-register__modal__inner__title">
-            Email verified!
-            </div>
-            <div className="user-register__modal__inner__subtitle">
-            You have successfully verified your email address, kindly click on the button below to start your DettyDecember experience.
-            </div>
-
-          
-
-          
-           <button className="user-register__modal__inner__button"
-           onClick={() => window.location.href = "/user/onboarding"}
-           >
-            Get started
-           </button>
-          </div>}
-        </div>
-       )} 
+    
     </main>
   );
 }

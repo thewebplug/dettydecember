@@ -1,0 +1,174 @@
+.onboarding {
+  padding: 48px;
+
+  &__header {
+    margin-bottom: 80px;
+  }
+
+  &__body {
+    &__form {
+        width: 100%;
+        max-width: 520px;
+        margin: auto;
+
+        &__steps-group {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 24px;
+      
+            
+            &__steps {
+              display: grid;
+              align-items: center;
+              grid-template-columns: 1fr 1fr;
+              gap: 4px;
+              height: 8px;
+              width: 100%;
+        
+              & > div {
+                width: 100%;
+                height: 100%;
+                background: #EFF0EF;
+                border-radius: 14px;
+              }
+      
+              &__active {
+                background: #028C4B !important;
+              }
+            }
+      
+           
+            &__title {
+              @extend %title-14;
+              font-weight: 500;
+              color: #7A7C79;
+              white-space: nowrap;
+            }
+          }
+    
+        &__title {
+          color: #232423;
+          @extend %title-32;
+          font-weight: 700;
+          margin-bottom: 8px;
+        }
+    
+        &__subtitle {
+            color:  #7A7C79;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 32px;
+        }
+    
+        &__card {
+            border-radius: 8px;
+    border: 1px solid #EAEBEA;
+    background: #FFF;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 18px;
+    margin-bottom: 12px;
+    cursor: pointer;
+        }
+
+        &__card-active {
+border: 1px solid #02A056;
+background: #EEFCF5;
+box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+color: #02A056;
+        }
+
+        &__select {
+            border: 1px solid  #F4F5F4;
+            border-radius: 12px;
+            margin-bottom: 12px;
+
+
+            &__inner {
+                @extend %title-18;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--colors-text-text-primary-900, #232423);
+            border-radius: 12px;
+background: #000;
+background: #F9FAFA;
+height: 58px;
+padding: 0 24px;
+cursor: pointer;
+            }
+
+            &__list {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                flex-wrap: wrap;
+                padding: 24px;
+                & > div {
+                    width: fit-content;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 24px;
+border: 1px solid #EAEBEA;
+background: #FFF;
+box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+padding: 10px 14px
+                }
+
+                &__active {
+border: 1px solid #51C891 !important;
+background: #EEFCF5 !important;
+color: #02A056;
+
+                }
+            }
+        }
+
+        &__button {
+            @extend %button-bland;
+            margin-top: 20px;
+            min-width: unset;
+            width: 100%;
+        }
+
+        &__buttons {
+            width: 100%;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+    
+            & >:first-child {
+              border-radius: 24px;
+              width: 100%;
+              height: 100%;
+              background: #F9FAFA;
+    border: 1px solid  #D5D8D5;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    color: var(--Component-colors-Components-Buttons-Secondary-button-secondary-fg, #565856);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+            }
+            & >:last-child {
+              @extend  %button-bland;
+              max-width: 100%;
+              width: 100%;
+              height: 100%;
+            }
+    
+          }
+      }
+  }
+}
