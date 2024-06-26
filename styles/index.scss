@@ -1,14 +1,17 @@
-@import 'base/reset';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "base/reset";
 
-@import 'utils/variables';
+@import "utils/variables";
 
-@import 'base/fonts';
-@import 'base/global';
+@import "base/fonts";
+@import "base/global";
 
-@import 'shared/typography';
-@import 'shared/fields';
-@import 'shared/svgs';
-@import 'shared/buttons';
+@import "shared/typography";
+@import "shared/fields";
+@import "shared/svgs";
+@import "shared/buttons";
 
 @import 'components/sidebar';
 @import 'components/header';
@@ -31,3 +34,13 @@
 @import 'pages/user/register';
 @import 'pages/user/onboarding';
 
+@import "pages/home";
+@import "pages/events";
+@import "pages/business/layout";
+@import "pages/business/home";
+@import "pages/business/why";
+@import "pages/business/partners";
+@import "pages/business/solutions";
+@import "pages/business/support";
+@import "pages/business/faq";
+@import "pages/business/legal";
