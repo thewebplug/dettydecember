@@ -69,7 +69,7 @@ export const navItems = [
   },
   {
     label: "Settings",
-    link: "/settings",
+    link: "/users/settings",
     icon: settingIcon,
     children: [
       {
@@ -93,12 +93,12 @@ export const navItems = [
         link: "",
       },
       {
-        label: "notifications",
+        label: "Notifications",
         path: "",
         link: "",
       },
       {
-        label: "preferences",
+        label: "Preferences",
         path: "",
         link: "",
       },

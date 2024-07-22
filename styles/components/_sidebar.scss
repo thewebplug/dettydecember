@@ -14,6 +14,22 @@
   .prev-next-btn{
     @apply px-[12px] py-[6px] text-[14px] border-[1px] rounded-full border-[#EAEBEA] bg-[#F9FAFA];
   }
+  .add-btn{
+    @apply bg-[#F9FAFA] py-[6px] px-[12px] text-[14px] text-[#565856] font-medium rounded-full border-borderSecondary
+  }
+}
+
+
+
+th{
+  padding: 12px 0 12px 12px;
+  text-align: left;
+}
+td{
+  padding: 16px 0 16px 12px;
+  font-size: 14px;
+  color: #565856;
+  border-top: 1px solid #EAEBEA;
 }
 .clipped-card {
   position: relative;
@@ -26,4 +42,4 @@
   clip-path: circle(50px at 0, 0);
 }
 
-
+ 
