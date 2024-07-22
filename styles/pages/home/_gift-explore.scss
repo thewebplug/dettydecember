@@ -1,0 +1,101 @@
+.gift-explore {
+  &__hero {
+    width: 100%;
+    background: url("/assets/user-home.png");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 32px;
+
+
+    &__title {
+      @extend %title-48;
+      width: 100%;
+      max-width: 1440px;
+      padding: 0 96px;
+      margin: auto;
+      color: var(--colors-text-text-primary-900, #F4F5F4);
+      font-style: none;
+      line-height: 60px;
+      /* 125% */
+      letter-spacing: -0.96px;
+      margin-top: 48px;
+    }
+
+  }
+
+  &__main {
+    width: 100%;
+    background: #F9FAFA;
+    padding: 48px 96px;
+
+    &__inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 3.3fr 1fr;
+      gap: 48px;
+
+      &__card1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px 16px;
+
+        &__card {
+          width: 100%;
+          height: 200px;
+          border-radius: 12px;
+          background: #bbb;
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          padding: 16px;
+
+          &>:first-child {
+            &>:first-child {
+              @extend %title-14;
+              font-weight: 400;
+              color: var(--colors-text-text-secondary-700, rgba(213, 216, 213, 1));
+
+
+            }
+
+            &>:last-child {
+              @extend %title-20;
+              font-weight: 700;
+              color: var(--colors-text-text-secondary-700, rgba(213, 216, 213, 1));
+
+
+            }
+          }
+
+          &>button {
+            @extend %button-green;
+          }
+        }
+
+      }
+
+      &__card2 {
+        width: 100%;
+        border-radius: 12px;
+height: 100%;
+        &__banner {
+          @extend %title-24;
+          line-height: 34px;
+          color: #fff;
+          background: url("/assets/user-home.png");
+          background-size: cover;
+          background-position: center;
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+          display: flex;
+          align-items: end;
+          padding: 24px;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}

@@ -106,7 +106,7 @@ export const navItems = [
   },
   {
     label: "Supports",
-    link: "/supports",
+    link: "/users/supports",
     icon: supportIcon,
     path: "",
   },

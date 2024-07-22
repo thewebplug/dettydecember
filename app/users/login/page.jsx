@@ -10,54 +10,18 @@ import { countries } from "@/app/utils/countries";
 export default function Events() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalStage, setModalStage] = useState(1);
-  const [stage, setStage] = useState(1);
   const [password, setPassword] = useState("");
-  const [inst1, setInst1] = useState(false);
-  const [inst2, setInst2] = useState(false);
-  const [inst3, setInst3] = useState(false);
-  const [inst4, setInst4] = useState(false);
-
-  const passwordRegex1 = /^.{8,}/
-  const passwordRegex2 = /(?=.*[a-z])(?=.*[A-Z])/
-  const passwordRegex3 = /(?=.*\d)/
-  const passwordRegex4 = /(?=.*[!@#$%^&*])/
-
-  useEffect(() => {
-    if(passwordRegex1.test(password)) {
-      setInst1(true)
-    }else {
-      setInst1(false)
-    }
-    if(passwordRegex2.test(password)) {
-      setInst2(true)
-    }else {
-      setInst2(false)
-    }
-    if(passwordRegex3.test(password)) {
-      setInst3(true)
-    }else {
-      setInst3(false)
-    }
-    if(passwordRegex4.test(password)) {
-      setInst4(true)
-    }else {
-      setInst4(false)
-    }
-    
-  }, [password])
 
 
-  const handleForgotPassword = (e) => {
+
+  const handleModalOpen = (e) => {
     e.preventDefault();
     setModalOpen(true)
             setModalStage(1);
-            setStage(2)
   }
-
-  const handleResetPassword = (e) => {
+  const handleSubmitOtp = (e) => {
     e.preventDefault();
-    setModalOpen(true)
-    setModalStage(2);
+    setModalStage(2)
   }
 
 
@@ -274,19 +238,79 @@ export default function Events() {
           </defs>
         </svg>
 
-        <h1 className="user-register__card1__title">Forgot Password?</h1>
+        <h1 className="user-register__card1__title">Welcome Back Fun Lovers!</h1>
         <h2 className="user-register__card1__subtitle">
-        Set up a new password to continue enjoying DettyDecember as your go to ticketing platform.
+        Here are what you stand to enjoy when you use DettyDecember as your go to ticketing platform.
         </h2>
 
-        <div className="user-register__card1__group"></div>
-        <div className="user-register__card1__group"></div>
-        <div className="user-register__card1__group"></div>
-        <div className="user-register__card1__group"></div>
-        <div className="user-register__card1__group"></div>
-        <div className="user-register__card1__group"></div>
-        <div className="user-register__card1__group"></div>
-        <div className="user-register__card1__group"></div>
+        <div className="user-register__card1__group">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_509_5699)">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
+</g>
+<defs>
+<clipPath id="clip0_509_5699">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+          <div>⁠Event Discovery</div>
+        </div>
+        <div className="user-register__card1__group">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_509_5699)">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
+</g>
+<defs>
+<clipPath id="clip0_509_5699">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+          <div>Exclusive Offers and Packages</div>
+        </div>
+        <div className="user-register__card1__group">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_509_5699)">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
+</g>
+<defs>
+<clipPath id="clip0_509_5699">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+          <div>⁠Guided Tours</div>
+        </div>
+        <div className="user-register__card1__group">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_509_5699)">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
+<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
+</g>
+<defs>
+<clipPath id="clip0_509_5699">
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+          <div>Ticket Resale</div>
+        </div>
 
         <div className="user-register__card1__info">
           <h4>© DettyDecember 2024</h4>
@@ -297,24 +321,18 @@ support@dettydecember.xyz</h4>
         </div>
       </div>
       <div className="user-register__card2">
-        {stage === 1 && <h2 className="user-register__card2__title">Reset Password</h2>}
+        <h2 className="user-register__card2__title">Sign In</h2>
 
-       {stage === 1 && <h3 className="user-register__card2__subtitle">
-        Forgot your password? Let's get you a new one. Enter your email below and we’ll send you password reset instructions.
-        </h3>}
+        <h3 className="user-register__card2__subtitle">
+        Please fill in the information below
+        </h3>
 
-        {stage === 2 && <h2 className="user-register__card2__title">Set A New Password</h2>}
-
-       {stage === 2 && <h3 className="user-register__card2__subtitle">
-        Your new password must be different from previously used passwords.
-        </h3>}
-
-       {stage === 1 && <form
+        <form
           className="user-register__card2__form"
-          onSubmit={handleForgotPassword}
+          onSubmit={handleModalOpen}
         >
 
-        <label htmlFor="eventName">Email address</label>
+          <label htmlFor="eventName">Email address</label>
           <input
             type="text"
             placeholder="E.g. adams@dettydecember.xyz"
@@ -325,186 +343,33 @@ support@dettydecember.xyz</h4>
             // onChange={(e) => setEventName(e.target.value)}
           />
 
-         
-         
         
-         
-           <button className="user-register__card2__form__button" type="submit">
-          Continue
-          </button>
-
-          <div className="user-register__card2__form__info">
-          Remember your password? <span>Go back to Sign In</span>
-          </div>
-        </form>}
-
-        {stage === 2 && <form
-          className="user-register__card2__form"
-          onSubmit={handleResetPassword}
-        >
-
-      
-
-        <label htmlFor="eventName">Password</label>
-          <input
-            type="password"
-            name="eventName"
-            id="eventName"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-            <div className="user-register__card2__form__instructions">
+          <label htmlFor="user-registerPerYear">Password</label>
+          <input type="password" value={password} onChange={((e) => setPassword(e.target.value))} />
+   
+          <div className="user-register__card2__form__remember">
             <div>
-           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>
-{/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg> */}
-
-
-At least 1 uppercase letter
-            </div>
+            <input type="checkbox" name="" id="" />
             <div>
-            {!inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 lowercase letter
+            Remember
             </div>
-            <div>
-            {!inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 special character
             </div>
-            <div>
-            {!inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 number
-            </div>
-            <div>
-            {!inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 8 characters
-            </div>
-          </div>
-        
-         
-         
-
-       <button className="user-register__card2__form__button" type="submit">
-          Reset password
-          </button>
-
-          <div className="user-register__card2__form__info">
-          Remember your password? <span>Go back to Sign In</span>
-          </div>
-        </form>}
-      </div>
-
-
-      {modalOpen && (
-        <div className="user-register__modal">
-          {modalStage === 1 && <div className="user-register__modal__inner">
-            <div className="user-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-           
-
-              <svg className="pointer" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
-              >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-            </div>
-
-            <div className="user-register__modal__inner__title">
-            Please check your email
-            </div>
-            <div className="user-register__modal__inner__subtitle">
-            We've sent a reset password link to <br /> <span>wandeadams@gmail.com</span>
-            <br />
-            <br />
-            Didn’t receive the email? <span className="user-register__modal__inner__subtitle__resend">Click to resend email</span>
-            </div>
-
-          
-
-          
-           <div className="user-register__modal__inner__buttons">
-            <button>Cancel</button>
-            <button>Open email app</button>
-           </div>
-          </div>}
-          {modalStage === 2 && <div className="user-register__modal__inner">
-            <div className="user-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-
-           
-
-              <svg className="pointer" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
-              >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-            </div>
-
-            <div className="user-register__modal__inner__title">
-            Password reset successful
-            </div>
-            <div className="user-register__modal__inner__subtitle">
-            You have successfully reset your password, kindly click on the button below to log in to your DettyDecember account.
-            </div>
-          
-            <button className="user-register__modal__inner__button"
-            onClick={() => setModalOpen(false)}
-            >Confirm</button>
             
-          </div>}
-        </div>
-       )} 
+            <div>
+            <div className="pointer" onClick={() => window.location.href = "/users/forgot-password"}>Forgot password?</div>
+            </div>
+          </div>
+          <button className="user-register__card2__form__button" type="submit">
+          Sign in
+          </button>
+
+          <div className="user-register__card2__form__info">
+          Don’t have a DettyDecember account? <span
+          onClick={() => window.location.href = "/users/login"}
+          >Sign Up</span>
+          </div>
+        </form>
+      </div>
 
     
     </main>
