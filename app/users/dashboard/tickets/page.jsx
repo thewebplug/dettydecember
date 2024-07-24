@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import illustrator from "/public/assets/DD/illustration.png";
-import SearchIcon from "/public/assets/DD/search.svg";
+// import illustrator from "/public/assets/DD/illustration.png";
+// import SearchIcon from "/public/assets/DD/search.svg";
 import image from "/public/assets/DD/ticket.png";
 import { Modal } from "../../../components/userComponents/Modal/Modal";
 import { useState } from "react";
@@ -90,20 +90,20 @@ export default function MyTickets() {
   );
 }
 
-export const FindEvent = () => {
-  return (
-    <div className="flex flex-col justify-center items-center gap-12 p-56">
-      <Image src={illustrator} alt="Illustration" width="152" height="118" />
-      <div className="flex flex-col items-center gap-2">
-        <p>
-          Tickets you buy will automatically appear here. Find events to buy
-          tickets.
-        </p>
-      </div>
-      <div className="button-green flex items-center justify-center gap-2">
-        <Image src={SearchIcon} alt="Search Icon" />
-        <button>Find Events</button>
-      </div>
-    </div>
-  );
-};
+// export const FindEvent = () => {
+//   return (
+//     <div className="flex flex-col justify-center items-center gap-12 p-56">
+//       <Image src={illustrator} alt="Illustration" width="152" height="118" />
+//       <div className="flex flex-col items-center gap-2">
+//         <p>
+//           Tickets you buy will automatically appear here. Find events to buy
+//           tickets.
+//         </p>
+//       </div>
+//       <div className="button-green flex items-center justify-center gap-2">
+//         <Image src={SearchIcon} alt="Search Icon" />
+//         <button>Find Events</button>
+//       </div>
+//     </div>
+//   );
+// };
