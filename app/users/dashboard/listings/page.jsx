@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import illustrator from "/public/assets/DD/illustration.png";
-import SearchIcon from "/public/assets/DD/search.svg";
 import { useState } from "react";
 import { useStatus } from "@/app/components/context/contexApi";
 import { ListingCard } from "@/app/components/userComponents/picksForMe/listing/ListingCard";
