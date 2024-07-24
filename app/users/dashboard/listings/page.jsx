@@ -27,13 +27,13 @@ export default function MyListings() {
       <main className=" border-b-[1px] border-b-[#EAEBEA]">
         <h1 className="text-[36px] text-[#13162D] syne">My Listings</h1>
         <div className="flex pt-[32px] font-semibold items-center text-[16px] font-inter">
-          {listStatus.map((status) => (
+          {listStatus.map((status, index) => (
             <button
               onClick={() => setStatus(status)}
               className={`cart-btn capitalize ${
                 status === Status ? "active-cart-btn" : ""
               }`}
-              key={status}
+              key={index}
             >
               {status}
             </button>

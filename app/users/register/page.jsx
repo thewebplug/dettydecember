@@ -425,7 +425,7 @@ support@dettydecember.xyz</h4>
 
           <label htmlFor="dateOfNextEvent">Country of residence</label>
           <select name="" id="">
-            {countries?.map((country) => <option value="">{country?.label}</option>)}
+            {countries?.map((country, index) => <option value="" key={index}>{country?.label}</option>)}
           </select>
           <label htmlFor="user-registerPerYear">Password</label>
           <input type="password" value={password} onChange={((e) => setPassword(e.target.value))} />

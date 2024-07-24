@@ -18,13 +18,13 @@ export default function MyTickets() {
       <main className="pt-4 pb-0 px-2 border-b-[1px] border-b-[#EAEBEA]">
         <h1 className="text-[36px] text-[#13162D] syne">My Tickets</h1>
         <div className="flex pt-24 font-semibold items-center text-[16px] font-inter">
-          {statuses.map((status) => (
+          {statuses.map((status, index) => (
             <button
               onClick={() => setStatus(status)}
               className={`cart-btn capitalize ${
                 status === Status ? "active-cart-btn" : ""
               }`}
-              key={status}
+              key={index}
             >
               {status}
             </button>
