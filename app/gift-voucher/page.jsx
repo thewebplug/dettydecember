@@ -20,7 +20,9 @@ export default function SellTickets() {
           entire ticketing process, from everything behind-the-scenes to
           backstage on the big day.{" "}
         </h2>
-        <button className="sell-ticket__hero__button">
+        <button className="sell-ticket__hero__button"
+        onClick={() => window.location.href="/gift-voucher/explore"}
+        >
           Explore gift voucher
         </button>
 

@@ -89,7 +89,7 @@ export default function HomePicks() {
                  <div className="user-home__grid__picks__card1__events-img">
                  <Image
                         alt=""
-                        src="/assets/Content.png"
+                        src="/assets/concert.png"
                         layout="fill"
                         objectFit="cover"
                         style={{borderRadius: "12px"}}
@@ -197,6 +197,9 @@ export default function HomePicks() {
         <div>Lorem ipsum dolor sit amet, consectetur adipiscing eli</div>
         </div>
 
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 12.5L10 7.5L5 12.5" stroke="#565856" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
     </div>
 
@@ -206,14 +209,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -223,14 +245,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -240,17 +281,37 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
+    
     
 </div>
 
@@ -261,6 +322,10 @@ export default function HomePicks() {
         <div>Lorem ipsum dolor sit amet, consectetur adipiscing eli</div>
         </div>
 
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 12.5L10 7.5L5 12.5" stroke="#565856" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
 
     </div>
 
@@ -270,14 +335,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -287,14 +371,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -304,14 +407,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -324,6 +446,10 @@ export default function HomePicks() {
         <div>Lorem ipsum dolor sit amet, consectetur adipiscing eli</div>
         </div>
 
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 12.5L10 7.5L5 12.5" stroke="#565856" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
 
     </div>
 
@@ -333,14 +459,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -350,14 +495,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -367,14 +531,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -387,6 +570,9 @@ export default function HomePicks() {
         <div>Lorem ipsum dolor sit amet, consectetur adipiscing eli</div>
         </div>
 
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 12.5L10 7.5L5 12.5" stroke="#565856" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
     </div>
 
@@ -396,14 +582,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -413,14 +618,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -430,14 +654,33 @@ export default function HomePicks() {
         <input type="radio" name="" id="" />
            <div>
            <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__title">Flex</div>
-           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus</div>
+           <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__subtitle">Placeholder text, placeholder text,  <br />placeholder text, placeholder text.</div>
            </div>
         </div>
 
-        <div>
+<div>
+<div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__price">#63,000.00</div>
             <div className="user-home__grid__picks__card1__ticket-pocket__card__inner__avlb">12,456 available</div>
         </div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M14.167 20H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<div className="user-home__grid__picks__card1__ticket-pocket__card__inner__number">0</div>
+
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+className="pointer"
+>
+<path d="M0 6C0 2.68629 2.68629 0 6 0H34C37.3137 0 40 2.68629 40 6V34C40 37.3137 37.3137 40 34 40H6C2.68629 40 0 37.3137 0 34V6Z" fill="#F4F5F4"/>
+<path d="M20.0003 14.167V25.8337M14.167 20.0003H25.8337" stroke="#D5D8D5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</div>
+       
         </div>
         
     </div>
@@ -511,9 +754,7 @@ export default function HomePicks() {
     <div>Uber</div>
 </div>
 <div className="user-home__grid__picks__card1__subtitle">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris.                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris.                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris.                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris.                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris.                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris.                  
-</div>
+To drive from Oshodi, Lagos to Victoria Island, Lagos, start by heading southeast on Agege Motor Road and continue until you reach the ramp to Apapa/Oshodi Expressway. Merge onto Apapa/Oshodi Expressway and stay on it, passing by the National Stadium on your right. Take the exit toward Eko Bridge and continue on it, which turns into Funsho Williams Avenue. Follow signs for Ozumba Mbadiwe Avenue and keep left, staying on Ozumba Mbadiwe Avenue as you pass by the Civic Centre on your right and the Radisson Blu Anchorage Hotel on your left. Continue straight, and you will arrive at Victoria Island, Lagos. Be sure to check for traffic updates, as Lagos can experience heavy traffic at various times of the day. Safe travels!</div>
                 
                   </div>
 
@@ -667,7 +908,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus
                   </svg>
                 </div>
 
-                <button>
+                <button
+                onClick={() => window.location.href = "/users/top-events"}
+                >
                   See all
                   <svg
                     width="20"
@@ -759,7 +1002,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel purus risus. Phasellus sit amet egestas enim. Nulla rhoncus tincidunt mauris
                 </div> */}
 
-                <button className="user-home__grid__card2__summary__button button-gray">
+                <button className="user-home__grid__card2__summary__button button-bland"
+                onClick={() => window.location.href = "/users/checkout"}
+                >
 Buy Tickets
                 </button>
 

@@ -1,9 +1,9 @@
 "use client";
 import React, {useState} from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import { Sidebar } from "../components/userComponents/sidebar/Sidebar";
-import { StatusProvider } from "../components/context/contexApi";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import { Sidebar } from "../../components/userComponents/sidebar/Sidebar";
+import { StatusProvider } from "../../components/context/contexApi";
 StatusProvider
 
 const UserLayout = ({ children }) => {

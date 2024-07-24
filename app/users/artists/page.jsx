@@ -139,7 +139,9 @@ export default function HomePicks() {
           
 
           <div className="user-home__grid__picks__card1__artist-grid">
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Asake</div>
 
@@ -173,7 +175,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Burna Boy</div>
 
@@ -207,7 +211,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>
                     Tiwa <br /> Savage
@@ -243,7 +249,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Wizkid</div>
 
@@ -277,7 +285,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Asake</div>
 
@@ -311,7 +321,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Burna Boy</div>
 
@@ -345,7 +357,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>
                     Tiwa <br /> Savage
@@ -381,7 +395,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Wizkid</div>
 
@@ -415,7 +431,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Asake</div>
 
@@ -449,7 +467,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Burna Boy</div>
 
@@ -483,7 +503,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>
                     Tiwa <br /> Savage
@@ -519,7 +541,9 @@ export default function HomePicks() {
                   objectFit="cover"
                 />
               </div>
-              <div>
+              <div
+              onClick={() => window.location.href = "/users/artists/1"}
+              >
                 <div>
                   <div>Wizkid</div>
 

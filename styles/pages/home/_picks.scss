@@ -61,6 +61,12 @@ font-weight: 600;
 font-weight: 400;
 color: var(--colors-foreground-fg-primary-900, rgba(255, 255, 255, 1));
 
+& > div {
+    display: flex;
+            align-items: center;
+            gap: 8px;
+}
+
         }
 
         & >:first-child {
@@ -74,6 +80,16 @@ color: var(--colors-foreground-fg-primary-900, rgba(255, 255, 255, 1));
 
             
         }
+
+        & >:last-child {
+            gap: 32px;
+            & > div {
+                display: flex;
+align-items: center;
+gap: 8px;
+cursor: pointer;
+            }
+}
     }
   }
 

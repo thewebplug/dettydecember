@@ -241,11 +241,21 @@ export default function HomeHeader() {
 
                 <nav className="user-home__hero__header1__inner__nav">
                   <div>Buy Merch</div>
-                  <div>Gift Vouchers</div>
-                  <div>Sell Tickets</div>
-                  <div>Support</div>
-                  <div>Sign in</div>
-                  <button>Sign up</button>
+                  <div
+                  onClick={() => window.location.href="/gift-voucher"}
+                  >Gift Vouchers</div>
+                  <div
+                  onClick={() => window.location.href="/sell-tickets"}
+                  >Sell Tickets</div>
+                  <div
+                  onClick={() => window.location.href = "/users/dashboard/supports"}
+                  >Support</div>
+                  <div
+                  onClick={() => window.location.href = "/users/login"}
+                  >Sign in</div>
+                  <button
+                  onClick={() => window.location.href = "/users/register"}
+                  >Sign up</button>
                 </nav>
               </div>
             </div>
@@ -254,11 +264,21 @@ export default function HomeHeader() {
               <div className="user-home__hero__header2__inner">
                 <nav className="user-home__hero__header2__inner__nav1">
                   <div>Music</div>
-                  <div>Festivals</div>
-                  <div>Categories</div>
-                  <div>Categories</div>
-                  <div>Categories</div>
-                  <div>Categories</div>
+                  <div
+                   onClick={() => window.location.href = "/users/top-events"}
+                  >Festivals</div>
+                  <div
+                  onClick={() => window.location.href = "/users/artists"}
+                  >Artists</div>
+                  <div
+                  onClick={() => window.location.href = "/users/venues"}
+                  >Venues</div>
+                  <div
+                  onClick={() => window.location.href = "/users/organizers"}
+                  >Organizers</div>
+                  <div
+                  onClick={() => window.location.href = "/users/top-events"}
+                  >Top picks</div>
                 </nav>
                 <nav className="user-home__hero__header2__inner__nav2">
                   <div>
@@ -349,8 +369,6 @@ export default function HomeHeader() {
                       />
                     </svg>
                   </div>
-                  <div>Categories</div>
-                  <div>Categories</div>
                 </nav>
               </div>
             </div>

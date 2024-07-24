@@ -8,8 +8,9 @@ import { bookEventsLearn, bookUpcomingEvents } from "../../apis/events";
 import { countries } from "@/app/utils/countries";
 
 export default function Events() {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
   const [modalStage, setModalStage] = useState(1);
+  const [email, setEmail] = useState("");
   const [stage, setStage] = useState(1);
   const [password, setPassword] = useState("");
   const [inst1, setInst1] = useState(false);
@@ -321,8 +322,8 @@ support@dettydecember.xyz</h4>
             name="eventName"
             id="eventName"
             required
-            // value={eventName}
-            // onChange={(e) => setEventName(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
          
@@ -459,7 +460,7 @@ At least 8 characters
             Please check your email
             </div>
             <div className="user-register__modal__inner__subtitle">
-            We've sent a reset password link to <br /> <span>wandeadams@gmail.com</span>
+            We've sent a reset password link to <br /> <span>{email}</span>
             <br />
             <br />
             Didn’t receive the email? <span className="user-register__modal__inner__subtitle__resend">Click to resend email</span>
@@ -499,7 +500,7 @@ At least 8 characters
             </div>
           
             <button className="user-register__modal__inner__button"
-            onClick={() => setModalOpen(false)}
+            onClick={() => window.location.href ="/users/login"}
             >Confirm</button>
             
           </div>}

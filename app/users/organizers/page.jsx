@@ -139,11 +139,13 @@ export default function HomePicks() {
           
 
           <div className="user-home__grid__picks__card1__orgs">
-              <div className="user-home__grid__picks__card1__orgs__card">
+          <div className="user-home__grid__picks__card1__orgs__card"
+          onClick={() => window.location.href ="/users/organizers/1"}
+          >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -186,11 +188,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -202,7 +206,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/toro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -233,11 +237,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -249,7 +255,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/fly.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -280,11 +286,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -296,7 +304,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/afro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -327,11 +335,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -374,11 +384,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -390,7 +402,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/toro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -421,11 +433,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -437,7 +451,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/fly.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -468,11 +482,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -484,7 +500,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/afro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -515,11 +531,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -562,11 +580,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -578,7 +598,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/toro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -609,11 +629,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -625,7 +647,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/fly.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -656,11 +678,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -672,7 +696,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/afro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -703,11 +727,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -750,11 +776,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -766,7 +794,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/toro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -797,11 +825,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -813,7 +843,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/fly.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -844,11 +874,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -860,7 +892,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/afro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -891,11 +923,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -938,11 +972,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -954,7 +990,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/toro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -985,11 +1021,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -1001,7 +1039,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/fly.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"
@@ -1032,11 +1070,13 @@ export default function HomePicks() {
                   </div>
                 </div>
               </div>
-              <div className="user-home__grid__picks__card1__orgs__card">
+              <div className="user-home__grid__picks__card1__orgs__card"
+              onClick={() => window.location.href ="/users/organizers/1"}
+              >
                 <div className="user-home__grid__picks__card1__orgs__card__img">
                   <Image
-                    // style={{borderRadius: "12px"}}
-                    src="/assets/asake.png"
+                    style={{borderRadius: "12px 12px 0 0"}}
+                    src="/assets/org.png"
                     alt="MyWishlist-img"
                     className="rounded-t-lg "
                     loading="lazy"
@@ -1048,7 +1088,7 @@ export default function HomePicks() {
                   <div className="user-home__grid__picks__card1__orgs__card__item__img">
                     <Image
                       // style={{borderRadius: "12px"}}
-                      src="/assets/Avatar.png"
+                      src="/assets/afro.png"
                       alt="MyWishlist-img"
                       className="rounded-t-lg "
                       loading="lazy"

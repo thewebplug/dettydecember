@@ -8,16 +8,15 @@ import { bookEventsLearn, bookUpcomingEvents } from "../../apis/events";
 import { countries } from "@/app/utils/countries";
 
 export default function Events() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
   const [modalStage, setModalStage] = useState(1);
   const [password, setPassword] = useState("");
 
 
 
-  const handleModalOpen = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setModalOpen(true)
-            setModalStage(1);
+    window.location.href = "/users/dashboard/tickets"
   }
   const handleSubmitOtp = (e) => {
     e.preventDefault();
@@ -329,7 +328,7 @@ support@dettydecember.xyz</h4>
 
         <form
           className="user-register__card2__form"
-          onSubmit={handleModalOpen}
+          onSubmit={handleSubmit}
         >
 
           <label htmlFor="eventName">Email address</label>
@@ -365,7 +364,7 @@ support@dettydecember.xyz</h4>
 
           <div className="user-register__card2__form__info">
           Don’t have a DettyDecember account? <span
-          onClick={() => window.location.href = "/users/login"}
+          onClick={() => window.location.href = "/users/register"}
           >Sign Up</span>
           </div>
         </form>

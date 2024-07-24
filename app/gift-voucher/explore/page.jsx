@@ -35,7 +35,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -43,7 +45,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -51,7 +55,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -59,7 +65,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -67,7 +75,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -75,7 +85,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -83,7 +95,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -91,7 +105,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
             <div className="gift-explore__main__inner__card1__card">
                 <div>
@@ -99,7 +115,9 @@ export default function HomePicks() {
                     <div>₦5,000</div>
                 </div>
 
-                <button>Gift voucher</button>
+                <button
+        onClick={() => window.location.href="/gift-voucher/checkout"}
+                >Gift voucher</button>
             </div>
         </div>
 

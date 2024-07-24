@@ -5,6 +5,21 @@ export default function Onboarding() {
     const [stage, setStage] = useState(1);
     const [select, setSelect] = useState(null);
     const [events, setEvents] = useState(null);
+    const [interests, setInterests] = useState([]);
+
+    const handleInterest = (item) => {
+        console.log('here');
+        const temp = interests;
+
+        if(!temp.includes(item)) {
+            temp.push(item);
+            setInterests([...temp])
+        }else {
+            temp.splice(temp.indexOf(item), 1)
+            setInterests([...temp])
+        }
+    }
+
     return (
         <div className="onboarding">
 <header className="onboarding__header">
@@ -121,12 +136,25 @@ onClick={() => select === 1 ? setSelect(null) : setSelect(1)}>
     {select === 1 && 
     <div className="onboarding__body__form__select__list"
     >
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
+        <div
+        className={interests?.includes("Music concerts") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Music concerts")}
+        >Music concerts</div>
+        <div
+         className={interests?.includes("Live bands") && "onboarding__body__form__select__list__active"}
+         onClick={() => handleInterest("Live bands")}
+        >Live bands</div>
+        <div
+        className={interests?.includes("Karaoke") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Karaoke")}
+        >Karaoke</div>
+        <div
+        className={interests?.includes("Music festivals") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Music festivals")}
+        >Music festivals</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
     </div>}
     
 
@@ -151,12 +179,25 @@ onClick={() => select === 2 ? setSelect(null) : setSelect(2)}>
     {select === 2 && 
     <div className="onboarding__body__form__select__list"
     >
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
+       <div
+        className={interests?.includes("Music concerts") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Music concerts")}
+        >Music concerts</div>
+        <div
+         className={interests?.includes("Live bands") && "onboarding__body__form__select__list__active"}
+         onClick={() => handleInterest("Live bands")}
+        >Live bands</div>
+        <div
+        className={interests?.includes("Karaoke") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Karaoke")}
+        >Karaoke</div>
+        <div
+        className={interests?.includes("Music festivals") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Music festivals")}
+        >Music festivals</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
     </div>}
     
 
@@ -181,12 +222,26 @@ onClick={() => select === 3 ? setSelect(null) : setSelect(3)}>
     {select === 3 && 
     <div className="onboarding__body__form__select__list"
     >
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
+        <div
+        className={interests?.includes("Musicals") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Musicals")}
+        >Musicals</div>
+        <div
+        className={interests?.includes("Drama") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Drama")}
+        >Drama</div>
+        <div
+        className={interests?.includes("Stage play") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Stage play")}
+        >Stage play</div>
+        <div
+        className={interests?.includes("Spoken words") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Spoken words")}
+        >Spoken words</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
     </div>}
     
 
@@ -211,12 +266,26 @@ onClick={() => select === 4 ? setSelect(null) : setSelect(4)}>
     {select === 4 && 
     <div className="onboarding__body__form__select__list"
     >
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
-        <div>Music concerts</div>
+        <div
+        className={interests?.includes("Musicals") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Musicals")}
+        >Musicals</div>
+        <div
+        className={interests?.includes("Drama") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Drama")}
+        >Drama</div>
+        <div
+        className={interests?.includes("Stage play") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Stage play")}
+        >Stage play</div>
+        <div
+        className={interests?.includes("Spoken words") && "onboarding__body__form__select__list__active"}
+        onClick={() => handleInterest("Spoken words")}
+        >Spoken words</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
+        <div>Placeholder</div>
     </div>}
     
 
@@ -285,7 +354,9 @@ onClick={() => select === 4 ? setSelect(null) : setSelect(4)}>
  Go back</button>
 
 
-<button>Explore DettyDecember</button>
+<button
+onClick={() => window.location.href ="/users"}
+>Explore DettyDecember</button>
 </div>}
     </div>
 </main>

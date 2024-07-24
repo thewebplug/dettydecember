@@ -65,7 +65,9 @@ export default function HomePicks() {
                                 All transactions are secure and encrypted
                             </div>
 
-                            <button className="checkout__main__inner__card1__card__body__button button-green">
+                            <button className="checkout__main__inner__card1__card__body__button button-green"
+                            onClick={() => setModalOpen(true)}
+                            >
                                 Make payment
                             </button>
 
@@ -87,7 +89,9 @@ export default function HomePicks() {
                                 All transactions are secure and encrypted
                             </div>
 
-                            <button className="checkout__main__inner__card1__card__body__button button-green">
+                            <button className="checkout__main__inner__card1__card__body__button button-green"
+                            onClick={() => setModalOpen(true)}
+                            >
                                 Make payment
                             </button>
 
@@ -109,7 +113,9 @@ export default function HomePicks() {
                                 All transactions are secure and encrypted
                             </div>
 
-                            <button className="checkout__main__inner__card1__card__body__button button-green">
+                            <button className="checkout__main__inner__card1__card__body__button button-green"
+                            onClick={() => setModalOpen(true)}
+                            >
                                 Make payment
                             </button>
 
@@ -131,7 +137,9 @@ export default function HomePicks() {
                                 All transactions are secure and encrypted
                             </div>
 
-                            <button className="checkout__main__inner__card1__card__body__button button-green">
+                            <button className="checkout__main__inner__card1__card__body__button button-green"
+                            onClick={() => setModalOpen(true)}
+                            >
                                 Make payment
                             </button>
 
@@ -186,7 +194,9 @@ export default function HomePicks() {
                                 All transactions are secure and encrypted
                             </div>
 
-                <button className="checkout__main__inner__card2__summary__button button-gray">
+                <button className="checkout__main__inner__card2__summary__button button-bland"
+                onClick={() => setModalOpen(true)}
+                >
 Make payment
                 </button>
 
@@ -225,18 +235,22 @@ Make payment
             </div>
 
             <div className="user-register__modal__inner__title">
-            Ticket purchased
+            Voucher gifted!
             </div>
             <div className="user-register__modal__inner__subtitle">
-           You have successfully purchased your ticket
+            You have successfully gifted a voucher.
             </div>
 
           
 
           
            <div className="user-register__modal__inner__buttons">
-            <button>Cancel</button>
-            <button>View ticket</button>
+            <button
+            onClick={() => setModalOpen(false)}
+            >Cancel</button>
+            <button
+            onClick={() => setModalOpen(false)}
+            >Done</button>
            </div>
           </div>
         

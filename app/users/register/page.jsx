@@ -8,7 +8,7 @@ import { bookEventsLearn, bookUpcomingEvents } from "../../apis/events";
 import { countries } from "@/app/utils/countries";
 
 export default function Events() {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
   const [modalStage, setModalStage] = useState(2);
   const [password, setPassword] = useState("");
   const [inst1, setInst1] = useState(false);
@@ -54,6 +54,27 @@ export default function Events() {
     e.preventDefault();
     setModalStage(2)
   }
+
+  useEffect(() => {
+    const otpInputs = document.querySelectorAll(".user-register__modal__inner__otp-group__otp");
+
+    otpInputs.forEach((input, index) => {
+      input.addEventListener("input", (event) => {
+        const inputValue = event.target.value;
+
+        if (inputValue && index < otpInputs.length - 1) {
+          otpInputs[index + 1].focus();
+        }
+      });
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Backspace" && index > 0 && !input.value) {
+          otpInputs[index - 1].focus();
+          event.preventDefault();
+        }
+      });
+    });
+  }, [modalStage === 1]);
 
 
   return (
@@ -523,12 +544,12 @@ At least 8 characters
             </div>
 
             <div className="user-register__modal__inner__otp-group">
-              <input className="user-register__modal__inner__otp-group__active" type="text" />
-              <input type="text" required maxLength={1} />
-              <input type="text" required maxLength={1} />
-              <input type="text" required maxLength={1}  />
-              <input type="text" required maxLength={1} />
-              <input type="text" required maxLength={1} />
+              <input className="user-register__modal__inner__otp-group__active user-register__modal__inner__otp-group__otp" type="text" />
+              <input className="user-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
+              <input className="user-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
+              <input className="user-register__modal__inner__otp-group__otp" type="text" required maxLength={1}  />
+              <input className="user-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
+              <input className="user-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
             </div>
 
             <div className="user-register__modal__inner__resend">
@@ -570,7 +591,7 @@ At least 8 characters
 
           
            <button className="user-register__modal__inner__button"
-           onClick={() => window.location.href = "/user/onboarding"}
+           onClick={() => window.location.href = "/users/onboarding"}
            >
             Get started
            </button>
