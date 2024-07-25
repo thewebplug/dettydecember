@@ -21,7 +21,9 @@ export const PicksItems = ({
   finalAmount,
 }) => {
   return (
-    <main className=" border-[1px] border-[#EAEBEA] rounded-lg  ">
+    <main className=" border-[1px] border-[#EAEBEA] rounded-lg pointer"
+    onClick={() => window.location.href ="/users/top-events/1"}
+    >
       <div className="relative h-[160px]  ">
         <Image
           src={PicksImg}

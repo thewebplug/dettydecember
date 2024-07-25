@@ -35,10 +35,10 @@ export default function HomePicks() {
                   stroke-linejoin="round"
                 />
               </svg>
-              Our Top Picks
+              Special offers
             </div>
 
-            <h1 className="home-picks__hero__title">Our top picks</h1>
+            <h1 className="home-picks__hero__title">Special offers</h1>
           </div>
           <div className="home-picks__filter">
             <div className="home-picks__filter__select">
@@ -201,7 +201,6 @@ See more
           
         </main>
       </div>
-
       <Footer />
     </>
   );

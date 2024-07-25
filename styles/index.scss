@@ -20,6 +20,7 @@
 @import 'components/org';
 @import 'components/defblack';
 @import 'components/partners';
+@import 'components/home/header';
 
 @import 'pages/home';
 @import 'pages/events';
@@ -31,8 +32,8 @@
 @import 'pages/business/support';
 @import 'pages/business/faq';
 @import 'pages/business/legal';
-@import 'pages/user/register';
-@import 'pages/user/onboarding';
+@import 'pages/users/register';
+@import 'pages/users/onboarding';
 
 @import "pages/home";
 @import "pages/events";
@@ -44,3 +45,8 @@
 @import "pages/business/support";
 @import "pages/business/faq";
 @import "pages/business/legal";
+@import "pages/home/home";
+@import "pages/home/picks";
+@import "pages/home/checkout";
+@import "pages/sell-tickets";
+@import "pages/home/gift-explore";

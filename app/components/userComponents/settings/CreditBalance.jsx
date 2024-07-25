@@ -1,9 +1,13 @@
+"use client"
 import React, {useState} from "react";
 import { CreditBalanceData } from "./CreditBalance/CreditBalanceData";
 import { PaginationSection } from "../Pagination/PaginationSection";
+import { CreditBalanceViewModal } from "./Modals/CreditbalanceView";
 
 export const CreditBalance = () => {
-
+  const [OpenViewModal, setOpenViewModal] = useState(false)
+  const [selectedData, setSelectedData] = useState(null);
+  const [modalData, setModalData] = useState({ totalAmount: 0, tax: 0, fees: 0, payoutTotal: 0 });
   // pagination section
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(8);
@@ -13,11 +17,36 @@ export const CreditBalance = () => {
 
   // format amount
   const formatAmount = (value) => {
-    return new Intl.NumberFormat('en-NG', {
-      style: 'currency',
-      currency: 'NGN',
-      minimumFractionDigits: 0,
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
     }).format(value);
+  };
+
+  // const totalAmount = CreditBalanceData.reduce((total, item) => total + item.amount, 0);
+  // const tax = 0; // Replace with actual tax calculation if needed
+  // const fees = 0; // Replace with actual fees calculation if needed
+  // const payoutTotal = totalAmount - tax - fees;
+
+  // const totalAmount = CreditBalanceData.reduce((total, item) => {
+  //   if (item.id === id) {
+  //     return total + item.amount;
+  //   }
+  //   return total;
+  // }, 0);
+  
+  // const tax = 0; // Replace with actual tax calculation if needed
+  // const fees = 0; // Replace with actual fees calculation if needed
+  
+  // const payoutTotal = totalAmount - tax - fees;
+
+  // HANDLE VIEW MODAL
+  const handleViewClick = (id) => {
+    const data = CreditBalanceData.find((item) => item.id === id);
+    setSelectedData(data);
+    setOpenViewModal(true);
   };
 
   return (
@@ -64,7 +93,7 @@ export const CreditBalance = () => {
               <tr key={data.id}>
                 <td>{data.date}</td>
                 <td>{data.description}</td>
-                <td className={`${ data.amount > 0 ? "text-green": ""}`}>{formatAmount(data.amount)}.00</td>
+                <td className={`${ data.amount > 0 ? "text-green": ""}`}>{formatAmount(data.amount)}</td>
                 <td>
                   <button
                     className={`flex items-center gap-2 py-[4px] px-[6px] text-[12px] font-medium border-[1px] border-borderSecondary rounded-lg `}
@@ -99,7 +128,7 @@ export const CreditBalance = () => {
                     {data.status}
                   </button>
                 </td>
-                <td>View</td>
+                <td onClick={()=> handleViewClick(data.id)} className="pointer">View</td>
               </tr>
             ))}
           </tbody>
@@ -111,7 +140,7 @@ export const CreditBalance = () => {
         setCurrentPage={setCurrentPage} />
         </div>
       </main>
-    
+    {OpenViewModal && <CreditBalanceViewModal OpenViewModal={OpenViewModal} setOpenViewModal={setOpenViewModal} data={selectedData} />}
     </div>
   );
 };

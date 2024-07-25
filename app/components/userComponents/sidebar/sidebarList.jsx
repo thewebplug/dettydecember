@@ -9,7 +9,7 @@ import supportIcon from "/public/assets/DD/supports.svg";
 export const navItems = [
   {
     label: "My Tickets",
-    link: "/users",
+    link: "/users/dashboard/tickets",
     icon: ticketIcon,
     paths: "",
     children: [
@@ -30,19 +30,19 @@ export const navItems = [
   },
   {
     label: "My Wishlists",
-    link: "/users/wishlist",
+    link: "/users/dashboard/wishlist",
     icon: wishlistIcon,
     path: "",
   },
   {
     label: "Picks For Me",
-    link: "/users/picks",
+    link: "/users/dashboard/picks",
     icon: picksIcon,
     path: "",
   },
   {
     label: "My Listings",
-    link: "/users/listings",
+    link: "/users/dashboard/listings",
     icon: listingIcon,
     children: [
       {
@@ -69,7 +69,7 @@ export const navItems = [
   },
   {
     label: "Settings",
-    link: "/users/settings",
+    link: "/users/dashboard/settings",
     icon: settingIcon,
     children: [
       {
@@ -106,7 +106,7 @@ export const navItems = [
   },
   {
     label: "Supports",
-    link: "/supports",
+    link: "/users/dashboard/supports",
     icon: supportIcon,
     path: "",
   },
