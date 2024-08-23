@@ -12,13 +12,17 @@
         background-position: center;
         // background: blue;
         overflow: hidden;
+
+        @media (max-width: $phone) {
+            height: fit-content;
+          }
         &__title {
             @extend %title-60;
             width: 100%;
             max-width: 23ch;
             text-align: center;
             font-weight: 700;
-            line-height: 72px; /* 120% */
+            line-height: 120%;
 letter-spacing: -1.2px;
 font-family: unset;
 margin: auto;
@@ -59,7 +63,8 @@ margin-bottom: 16px;
         }
 
         &__img {
-            width: 1024px;
+            width: 100%;
+            max-width: 1024px;
             height: 682px;
             margin: auto;
             // background: yellow;
@@ -67,6 +72,10 @@ margin-bottom: 16px;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            @media (max-width: $phone) {
+                height: 240px;
+              }
+
         }
     }
 

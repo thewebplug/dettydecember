@@ -1,4 +1,12 @@
-.user-register {
+.business-register-container {
+  width: 100%;
+  background: #FFF;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.business-register {
   width: 100%;
   max-width: 1440px;
   margin: auto;
