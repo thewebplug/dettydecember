@@ -9,7 +9,7 @@ export const eventData = [
         venue:"Eko Atlantic City, Lagos",
 
         category: "Payout",
-        status: "Upcomming",
+        status: "Upcoming",
     },
     {
         id: 2,

@@ -153,13 +153,13 @@ export default function dashboard() {
             />
           </div>
         </main>
-        {/* {OpenEventModal && (
+        {OpenEventModal && (
           <EventManagementViewModal
             OpenViewModal={OpenEventModal}
             setOpenViewModal={setOpenEventModal}
             data={selectedData}
           />
-        )} */}
+        )}
       </div>
     </main>
   );
