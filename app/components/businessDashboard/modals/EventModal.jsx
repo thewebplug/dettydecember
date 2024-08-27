@@ -35,6 +35,9 @@ export const EventManagementViewModal = ({
             viewBox="0 0 44 44"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="pointer"
+            onClick={() => setOpenViewModal(false)}
+
           >
             <path
               d="M28 16L16 28M16 16L28 28"
@@ -150,7 +153,9 @@ export const EventManagementViewModal = ({
         </div>
 
         <div className="view-event__footer">
-          <button>Close</button>
+          <button
+          onClick={() => setOpenViewModal(false)}
+          >Close</button>
         </div>
       </div>
     </div>
