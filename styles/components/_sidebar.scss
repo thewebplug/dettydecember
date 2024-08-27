@@ -11,9 +11,34 @@
   .active-cart-btn {
     @apply border-b-[#02A056] border-b-2 text-[#028C4B] font-medium transition-all duration-100;
   }
+  .active-event-btn {
+    @apply bg-[#EEFCF5] rounded-lg   text-green  font-medium transition-all duration-100;
+  }
   .prev-next-btn{
     @apply px-[12px] py-[6px] text-[14px] border-[1px] rounded-full border-[#EAEBEA] bg-[#F9FAFA];
   }
+  .add-btn{
+    @apply bg-[#F9FAFA] py-[6px] px-[12px] text-[14px] text-[#565856] font-medium rounded-full border-borderSecondary
+  }
+  .green-btn{
+    @apply bg-green py-6 px-6 text-[14px] text-white font-medium rounded-full border-none
+  }
+  .gray-btn{
+    @apply bg-[#F9FAFA] py-6 px-4 text-[14px] text-white font-medium rounded-full border-none
+  }
+}
+
+
+
+th{
+  padding: 12px 0 12px 12px;
+  text-align: left;
+}
+td{
+  padding: 16px 0 16px 12px;
+  font-size: 14px;
+  color: #565856;
+  border-top: 1px solid #EAEBEA;
 }
 .clipped-card {
   position: relative;
@@ -26,4 +51,4 @@
   clip-path: circle(50px at 0, 0);
 }
 
-
+ 

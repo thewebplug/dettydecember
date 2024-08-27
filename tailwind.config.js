@@ -14,6 +14,9 @@ module.exports = {
         green: "#3EA03B",
         buttonSecondary: "#565856",
         textTertiary:"#7A7C79",
+        borderPrimary:"#D5D8D5",
+        errorPrimary:"#D92D20",
+      
        
       },
       fontFamily: {

@@ -12,11 +12,11 @@ import { PaginationSection } from "@/app/components/userComponents/Pagination/Pa
 
 
 export default function MyListings() {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(4);
-    const lastPostIndex = currentPage * postsPerPage;
-    const firstPostIndex = lastPostIndex - postsPerPage;
-    const currentPosts = listingsData.slice(firstPostIndex, lastPostIndex);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = listingsData.slice(firstPostIndex, lastPostIndex);
   const statuses = ["All Listings", "Active", "Sold", "Unsold"];
   const { Status, setStatus, listStatus } = useStatus();
 
@@ -43,8 +43,8 @@ export default function MyListings() {
           return <ListingCard key={listData.id} {...listData} />;
         })}
       </div>
-    
-        <PaginationSection      totalPosts={listingsData.length}
+
+      <PaginationSection totalPosts={listingsData.length}
         postsPerPage={postsPerPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage} />

@@ -27,7 +27,11 @@
     border-radius: 40px;
     margin: auto;
 }
-
+.checkbox-green {
+  accent-color: #008D48;
+  width: 16px;
+  height: 26px;
+}
 
 // .trans-button {
   
@@ -56,6 +60,32 @@ line-height: 24px;
  border-radius: 24px;
  background: none;
  border: 1px solid #008D48;
+ outline: none;
+ color: #008D48;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px;
+}
+.button-red, %button-red {
+ min-width: 150px;
+ height: 40px;
+ border-radius: 24px;
+ background: #D92D20;
+ border: none;
+ outline: none;
+ color: #FFF;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px;
+}
+.button-red-trans, %button-red-trans {
+ min-width: 150px;
+ height: 40px;
+ border-radius: 24px;
+ background: none;
+ border: 1px solid #D92D20;
  outline: none;
  color: #008D48;
 font-size: 16px;
