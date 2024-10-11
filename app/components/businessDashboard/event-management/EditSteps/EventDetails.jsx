@@ -2,6 +2,7 @@ import React, {useState}  from "react";
 import Select from "react-select";
 import { TextField } from "@/app/components/userComponents/TextField";
 import countryList from "react-select-country-list";
+import Image from "next/image";
 
 export const EventDetails = () => {
   const [value, setValue] = useState(null);

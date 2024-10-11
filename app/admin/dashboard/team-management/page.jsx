@@ -10,7 +10,7 @@ import { eventData } from "../../../components/businessDashboard/event-managemen
 import { Header } from "../../../components/businessDashboard/Header";
 import FailModal from "@/app/components/failModal";
 
-export default function dashboard() {
+export default function Dashboard() {
   const [tab, setTab] = useState("All users");
   const [detailsTab, setDetailsTab] = useState("info");
   const [exportMenu, setExportMenu] = useState(false);

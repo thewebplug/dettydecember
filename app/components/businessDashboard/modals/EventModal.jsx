@@ -184,19 +184,19 @@ export const EventManagementViewModal = ({
                     Performers
                  </div>
                  <div className="user-home__grid__picks__card1__events-subsubtitle">
-                    {event?.performers?.map((performer) =><div>{performer}</div> )}
+                    {event?.performers?.map((performer, index) =><div key={index}>{performer}</div> )}
                  </div>
                  <div className="user-home__grid__picks__card1__events-title">
                     Event Organizer(s)
                  </div>
                  <div className="user-home__grid__picks__card1__events-subsubtitle">
-                 {event?.organizers?.map((organizer) =><div>{organizer}</div> )}
+                 {event?.organizers?.map((organizer, index) =><div key={index}>{organizer}</div> )}
                     </div>
                  <div className="user-home__grid__picks__card1__events-title">
                     Sponsored By
                  </div>
                  <div className="user-home__grid__picks__card1__events-subsubtitle">
-                 {event?.sponsors?.map((sponsor) =><div>{sponsor}</div> )}
+                 {event?.sponsors?.map((sponsor, index) =><div key={index}>{sponsor}</div> )}
                     </div>
                 </div>
 
