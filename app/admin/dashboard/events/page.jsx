@@ -14,6 +14,8 @@ import { useSelector } from "react-redux";
 
 export default function Dashboard() {
   const auth = useSelector((state) => state.auth);
+  console.log('auth', auth);
+  
   const [tab, setTab] = useState("All events");
   const [detailsTab, setDetailsTab] = useState("info");
   const [exportMenu, setExportMenu] = useState(false);

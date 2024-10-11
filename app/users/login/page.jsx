@@ -23,9 +23,9 @@ export default function Events() {
 
     if (response?.status === 201) {
       localStorage.setItem("token", response?.data?.accessToken);
-      document.cookie = `auth_token=${response?.data?.accessToken}; path=/; max-age=${
-        60 * 60 * 24 * 7
-      };`;
+      document.cookie = `auth_token=${
+        response?.data?.accessToken
+      }; path=/; max-age=${60 * 60 * 24 * 7};`;
       dispatch({
         type: "USER_LOGIN_SUCCESS",
         payload: {
@@ -496,7 +496,7 @@ export default function Events() {
             </div>
           </div>
           <button className="user-register__card2__form__button" type="submit">
-            {loading? "Loading..." : "Sign in"}
+            {loading ? "Loading..." : "Sign in"}
           </button>
 
           <div className="user-register__card2__form__info">

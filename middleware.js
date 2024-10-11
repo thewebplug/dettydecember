@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 
 export function middleware(request) {
   // Define paths that don't require authentication
-  const publicPaths = ['/users/register', '/users/forgot-password', '/users/login', '/business/register', '/business/login', '/_next/image', '_next/image', '/assets'];
+  const publicPaths = ['/users/register', '/users/forgot-password', '/users/login', '/admin/login', '/business/register', '/business/login', '/_next/image', '_next/image', '/assets'];
 
   // Check if the current path is in the public paths
   const isPublicPath = publicPaths.some(path => 

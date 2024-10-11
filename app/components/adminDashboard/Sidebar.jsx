@@ -13,12 +13,12 @@ import Logo from "@/public/assets/DD/Logo.svg";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import SuccessModal from "../successModal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 export const Sidebar = () => {
   const auth = useSelector((state) => state.auth);
-  
+  const dispatch = useDispatch();
     const pathname = usePathname();
     console.log('pathname', pathname.split('/')?.length);
     const [open, setOpen] = useState(false)    
