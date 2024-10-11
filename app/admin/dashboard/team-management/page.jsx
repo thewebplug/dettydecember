@@ -406,8 +406,8 @@ export default function Dashboard() {
                 status: "Upcoming",
                 department: ["Finance"],
               },
-            ]?.map((event) => (
-              <div onClick={() => setSelectedEvent(event)}>
+            ]?.map((event, index) => (
+              <div onClick={() => setSelectedEvent(event)} key={index}>
                 <div>{event?.id}</div>
 
                 <div className="admin-team-management__table__body__inner__event">
@@ -435,8 +435,9 @@ export default function Dashboard() {
                 </div>
 
                 <div className="admin-team-management__table__body__inner__statuses">
-                  {event?.department?.map((item) => (
+                  {event?.department?.map((item, index) => (
                     <div
+                    key={index}
                       className={`admin-team-management__table__body__inner__status admin-team-management__table__body__inner__status-${item
                         .toLowerCase()
                         .split(" ")
@@ -899,8 +900,8 @@ export default function Dashboard() {
                 <option value="Read-only">Read-only</option>
               </select>
               <div className="admin-team-management__add-user__inner__inner__roles">
-                {roles?.map((item) => (
-                  <div>
+                {roles?.map((item, index) => (
+                  <div key={index}>
                     {item}{" "}
                     <svg
                       className="pointer"
@@ -1054,8 +1055,9 @@ export default function Dashboard() {
               </select>
 
               {selectedDepartments?.length > 0 && <div className="admin-team-management__add-user__inner__inner__departments">
-                {selectedDepartments?.map((item) => (
+                {selectedDepartments?.map((item, index) => (
                   <div
+                  key={index}
                     className={`admin-team-management__add-user__inner__inner__departments__${item
                       ?.toLowerCase()
                       ?.split(" ")

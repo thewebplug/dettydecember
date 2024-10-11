@@ -9,7 +9,7 @@ import { ViewDropdown } from "../components/businessDashboard/modals/ViewDropdow
 import SearchIcon from "@/public/assets/DD/search.svg";
 
 
-export default function dashboard() {
+export default function Dashboard() {
   const [searchFilter, setSearchFilter] = useState("");
   const [eventStatus, seteventStatus] = useState("All events");
   const [OpenEventModal, setOpenEventModal] = useState(false);
