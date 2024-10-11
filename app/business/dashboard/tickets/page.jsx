@@ -229,8 +229,8 @@ export default function Tickets() {
                 date: "22 Jan 2024",
                 status: "refunded",
               },
-            ]?.map((event) => (
-              <div onClick={() => setSelectedEvent(event)}>
+            ]?.map((event, index) => (
+              <div onClick={() => setSelectedEvent(event)} key={index}>
                 <div>{event?.id}</div>
                 <div className="tickets__table__body__inner__ticket">
                   <div>{event?.ticket?.type}</div>

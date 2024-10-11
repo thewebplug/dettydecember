@@ -760,8 +760,8 @@ export default function CreateEvent(params) {
                   </div>
 
                   <div className="edit-event__inner__card2__form__input-group__added">
-                    {performers?.map((item) => (
-                      <div>
+                    {performers?.map((item, index) => (
+                      <div key={index}>
                         {item}{" "}
                         <svg
                           width="20"
@@ -814,8 +814,8 @@ export default function CreateEvent(params) {
                   </div>
 
                   <div className="edit-event__inner__card2__form__input-group__added">
-                    {organizers?.map((item) => (
-                      <div>
+                    {organizers?.map((item, index) => (
+                      <div key={index}>
                         {item}{" "}
                         <svg
                           width="20"
@@ -868,8 +868,8 @@ export default function CreateEvent(params) {
                   </div>
 
                   <div className="edit-event__inner__card2__form__input-group__added">
-                    {sponsors?.map((item) => (
-                      <div>
+                    {sponsors?.map((item, index) => (
+                      <div key={index}>
                         {item}{" "}
                         <svg
                           width="20"

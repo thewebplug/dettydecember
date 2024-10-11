@@ -12,7 +12,7 @@ import { getUserEvents } from "@/app/apis/events";
 import { useSelector } from "react-redux";
 
 
-export default function dashboard() {
+export default function Dashboard() {
   const auth = useSelector((state) => state.auth);
   console.log('auth', auth);
   const [searchFilter, setSearchFilter] = useState("");

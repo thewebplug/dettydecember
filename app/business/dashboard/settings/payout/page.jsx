@@ -173,8 +173,8 @@ export default function Settings() {
               amount: "- ₦40,000.00",
               status: "Failed",
             },
-          ]?.map((item) => (
-            <div className="business-settings__payout-table__inner__body"
+          ]?.map((item, index) => (
+            <div className="business-settings__payout-table__inner__body" key={index}
             
             onClick={() => {
                 setSelectedPayment(item);

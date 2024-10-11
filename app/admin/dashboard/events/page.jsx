@@ -12,7 +12,7 @@ import FailModal from "@/app/components/failModal";
 import { adminGetEvents } from "@/app/apis/events";
 import { useSelector } from "react-redux";
 
-export default function dashboard() {
+export default function Dashboard() {
   const auth = useSelector((state) => state.auth);
   const [tab, setTab] = useState("All events");
   const [detailsTab, setDetailsTab] = useState("info");
