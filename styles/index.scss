@@ -23,22 +23,14 @@
 @import 'components/home/header';
 @import 'components/eventDetailsModal';
 @import 'components/shareModal';
+@import 'components/successModal';
+@import 'components/failModal';
+@import 'components/admin/sidebar';
 
-@import 'pages/home';
-@import 'pages/events';
-@import 'pages/business/layout';
-@import 'pages/business/home';
-@import 'pages/business/why';
-@import 'pages/business/partners';
-@import 'pages/business/solutions';
-@import 'pages/business/support';
-@import 'pages/business/faq';
-@import 'pages/business/legal';
-@import 'pages/users/register';
-@import 'pages/users/onboarding';
 
 @import "pages/home";
 @import "pages/events";
+
 @import "pages/business/layout";
 @import "pages/business/home";
 @import "pages/business/why";
@@ -50,10 +42,22 @@
 @import 'pages/business/register';
 @import 'pages/business/onboarding';
 @import 'pages/business/dashboard';
+@import 'pages/business/edit-event';
+@import 'pages/business/event-draft';
 @import 'pages/business/tickets';
 @import 'pages/business/settings';
+
+@import 'pages/users/register';
+
 @import "pages/home/home";
 @import "pages/home/picks";
 @import "pages/home/checkout";
 @import "pages/sell-tickets";
 @import "pages/home/gift-explore";
+
+@import "pages/admin/login";
+@import "pages/admin/layout";
+@import "pages/admin/home";
+@import "pages/admin/users";
+@import "pages/admin/events";
+@import "pages/admin/team-management";

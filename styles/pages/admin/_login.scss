@@ -1,0 +1,369 @@
+.admin-register {
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    background: #FFF;
+  
+    height: 100vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &__card2 {
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 160px;
+      padding-bottom: 96px;
+      margin: auto;
+  
+      &__title {
+        @extend %title-32;
+        margin-bottom: 8px;
+        line-height: 40px;
+        width: 100%;
+      }
+  
+      &__subtitle {
+        @extend %title-16;
+        color: #7a7c79;
+        margin-bottom: 32px;
+        // max-width: 40ch;
+        line-height: 24px;
+        width: 100%;
+  
+        & > a {
+          color: #028c4b;
+          text-decoration: underline;
+        }
+      }
+  
+      &__subsubtitle {
+        @extend %title-20;
+        font-weight: 600;
+        color: #232423;
+        margin-bottom: 16px;
+      }
+  
+      &__button {
+        @extend %button-green;
+        max-width: 100%;
+        height: 48px;
+        margin-bottom: 32px;
+      }
+  
+      &__form {
+        width: fit-content;
+  
+        & > label {
+          width: fit-content;
+          font-size: 14px;
+          font-weight: 400;
+          color: #565856;
+          margin-bottom: 4px;
+        }
+  
+        & > select,
+        & > input {
+          @extend %normal-input;
+          margin-bottom: 16px;
+        }
+  
+        & > textarea {
+          @extend %normal-input;
+          margin-bottom: 16px;
+          height: 156px;
+          padding-top: 12px;
+        }
+  
+        &__input-group {
+          display: flex;
+          align-items: 100%;
+          gap: 16px;
+          & > div {
+            width: 100%;
+            & > label {
+              width: fit-content;
+              font-size: 14px;
+              font-weight: 400;
+              color: #565856;
+              margin-bottom: 4px;
+            }
+  
+            & > select,
+            & > input {
+              @extend %normal-input;
+              margin-bottom: 16px;
+            }
+          }
+        }
+  
+        &__checkbox {
+          @extend %title-14;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #565856;
+          margin-bottom: 16px;
+          width: fit-content;
+  
+          & > input {
+            min-width: 16px;
+            height: 16px;
+            border-radius: var(--spacing-xs, 4px);
+            border: 1px solid var(--Colors-Border-border-primary, #d5d8d5);
+          }
+  
+          & > div {
+            & > span {
+              text-decoration: underline;
+              color: #028c4b;
+            }
+          }
+        }
+  
+        &__instructions {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 9px 24px;
+          margin-bottom: 17px;
+          margin-top: -8px;
+  
+          & > div {
+            @extend %title-12;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #565856;
+          }
+        }
+  
+        &__button {
+          @extend %button-bland;
+          min-width: 400px;
+          max-width: 400px;
+          margin-top: 16px;
+          background: #eff0ef;
+        }
+        &__button-group {
+          width: 100%;
+          max-width: 400px;
+          display: flex;
+          gap: 12px;
+  
+          & > button {
+            @extend %button-bland;
+            width: 100%;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+          }
+  
+          & > :first-child {
+            &:hover {
+              background: #f9fafa;
+              color: #acafac;
+            }
+          }
+  
+          & > :last-child {
+            background: #eff0ef;
+          }
+        }
+  
+        &__info {
+          @extend %title-16;
+          color: #565856;
+          font-weight: 400;
+          margin-top: 24px;
+          text-align: center;
+  
+          & > span {
+            font-weight: 500;
+            color: #02a056;
+            cursor: pointer;
+          }
+        }
+  
+        &__remember {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+  
+          & > div {
+            @extend %title-14;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #565856;
+  
+  font-weight: 500;
+  
+            & > input {
+              min-width: 16px;
+              height: 16px;
+              border-radius: var(--spacing-xs, 4px);
+              border: 1px solid var(--Colors-Border-border-primary, #d5d8d5);
+            }
+          }
+  
+          & >:last-child {
+            color: #02A056;
+          }
+        }
+      }
+    }
+  
+    &__modal {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.24);
+  
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      &__inner {
+        width: 480px;
+        min-height: 288px;
+        background: #fff;
+        border-radius: 16px;
+        padding: 32px 24px;
+  
+        &__flex {
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+          margin-bottom: 3.2rem;
+        }
+  
+        &__title {
+          @extend %title-20;
+          color: #050f0d;
+          font-weight: 700;
+          margin-bottom: 2rem;
+        }
+        &__subtitle {
+          @extend %title-14;
+          color: var(--colors-text-text-tertiary-600, #7a7c79);
+  
+          font-weight: 400;
+          line-height: 20px;
+          margin-bottom: 32px;
+  
+          & > span {
+            color: var(--colors-text-text-secondary-700, #565856);
+            font-weight: 600;
+          }
+  
+          &__resend {
+            text-decoration: underline;
+            color: #028C4B !important;
+          }
+        }
+  
+        &__otp-group {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          align-items: center;
+          gap: 9.6px;
+          margin-bottom: 12px;
+  
+          & > input {
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+  
+            border: 1px solid var(--Colors-Border-border-primary, #d5d8d5);
+  
+            box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  
+            color: #028c4b;
+            text-align: center;
+  
+            font-size: 48px;
+            font-weight: 500;
+  
+            &:focus {
+              outline: 2px solid #028c4b !important;
+            }
+          }
+  
+          &__active {
+            border: 2px solid #028c4b !important;
+            outline: none;
+          }
+        }
+  
+        &__resend {
+          @extend %title-14;
+          color: var(--colors-text-text-tertiary-600, #7a7c79);
+  
+          font-weight: 400;
+          line-height: 20px;
+          margin-bottom: 32px;
+  
+          & > a {
+            color: var(--colors-text-text-secondary-700, #028c4b);
+            font-weight: 600;
+            text-decoration: underline;
+          }
+        }
+  
+        &__buttons {
+          width: 100%;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+  
+          & > :first-child {
+            border-radius: 24px;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border: 1px solid #d5d8d5;
+            box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+            color: var(
+              --Component-colors-Components-Buttons-Secondary-button-secondary-fg,
+              #565856
+            );
+            font-size: 16px;
+            font-weight: 600;
+          }
+          & > :last-child {
+            @extend %button-bland;
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+          }
+        }
+  
+        &__button {
+          @extend %button-green;
+          min-width: unset;
+          width: 100%;
+          border-radius: 48px;
+        }
+      }
+    }
+  }
+  

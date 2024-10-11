@@ -1,0 +1,63 @@
+.fail-modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.24);
+
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+
+    &__inner {
+      width: 400px;
+      // height: 288px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 24px;
+
+      &__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 16px;
+      }
+
+      &__title {
+        @extend %title-20;
+        color: #050f0d;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      &__subtitle {
+        color: #565d5b;
+        line-height: 20px;
+        margin-bottom: 32px;
+      }
+
+      &__button {
+        width: 100%;
+        @extend %button-red;
+      }
+
+      &__buttons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        & >:first-child {
+          width: 100%;
+        @extend %button-bland;
+        height: 40px;
+
+      }
+        & >:last-child {
+          width: 100%;
+        @extend %button-red;
+      }
+      }
+    }
+  }

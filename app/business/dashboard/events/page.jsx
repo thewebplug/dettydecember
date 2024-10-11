@@ -1,28 +1,35 @@
 "use client";
-import React, { useState } from "react";
-import { eventData } from "../components/businessDashboard/event-management/data";
-import { PaginationSection } from "../components/userComponents/Pagination/PaginationSection";
+import React, { useEffect, useState } from "react";
+import { PaginationSection } from "../../../components/userComponents/Pagination/PaginationSection";
 import Image from "next/image";
-import { EventManagementViewModal } from "../components/businessDashboard/modals/EventModal";
-import ShareModal from "../components/businessDashboard/modals/ShareModal";
-import { ViewDropdown } from "../components/businessDashboard/modals/ViewDropdown";
+import { EventManagementViewModal } from "../../../components/businessDashboard/modals/EventModal";
+import ShareModal from "../../../components/businessDashboard/modals/ShareModal";
+import { ViewDropdown } from "../../../components/businessDashboard/modals/ViewDropdown";
 import SearchIcon from "@/public/assets/DD/search.svg";
+import { eventData } from "../../../components/businessDashboard/event-management/data";
+import { Header } from "../../../components/businessDashboard/Header";
+import { getUserEvents } from "@/app/apis/events";
+import { useSelector } from "react-redux";
 
 
 export default function dashboard() {
+  const auth = useSelector((state) => state.auth);
+  console.log('auth', auth);
   const [searchFilter, setSearchFilter] = useState("");
   const [eventStatus, seteventStatus] = useState("All events");
   const [OpenEventModal, setOpenEventModal] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [shareOpen, setShareOpen] = useState(false);
+  const [events, setEvents] = useState([]);
+  const [staticEvents, setStaticEvents] = useState([]);
   const [modalData, setModalData] = useState({
     totalAmount: 0,
     tax: 0,
     fees: 0,
     payoutTotal: 0,
   });
-  const statuses = ["All events", "Upcomming", "Cancelled", "Past"];
+  const statuses = ["All events", "Upcoming", "Cancelled", "Past"];
   const [ViewOpen, setViewOpen] = useState(false);
   const handleOpenView = (item) => {
     setSelectedItem(item)
@@ -48,13 +55,49 @@ export default function dashboard() {
   const handleSearchFilter = (e) => setSearchFilter(e.target.value);
 
   // HANDLE VIEW MODAL
-  const handleViewClick = (id) => {
-    const data = eventData.find((item) => item.id === id);
-    setSelectedData(data);
+  const handleViewClick = (event) => {
+    console.log('seyi lo seyi', event);
+    
+    setSelectedData(event);
     setOpenEventModal(true);
   };
 
+  const handleGetUserEvents = async () => {
+    const response = await getUserEvents(auth?.token);
+    console.log('response', response);
+    if(response?.status === 200) {
+      setEvents(response?.data);
+      setStaticEvents(response?.data);
+    }
+    else {
+      alert(response?.data?.message);
+    }
+  }
+
+  const handleEventsFilter = () => {
+    console.log('eventStatus', eventStatus);
+
+    if(eventStatus === "All events") {
+      console.log('shalli!');
+      console.log('staticEvents', staticEvents);
+      setEvents([...staticEvents])
+    }else {
+      const temp = staticEvents?.filter((event) => event?.status === eventStatus);
+      setEvents([...temp]);
+    }
+  }
+
+  useEffect(() => {
+    handleGetUserEvents();
+  }, []);
+  useEffect(() => {
+    handleEventsFilter();
+  }, [eventStatus]);
   return (
+    <>
+    <div className="py-12 ">
+          <Header />
+          </div>
     <main className="border-[1px] border-borderSecondary rounded-[10px] font-inter ">
       <div className="w-full h-full flex flex-col justify-between ">
         <div className="flex justify-between items-center p-6 text-[14px] font-medium leading-[20px]">
@@ -103,12 +146,12 @@ export default function dashboard() {
               </tr>
             </thead>
             <tbody>
-              {currentPosts.map((data) => (
-                <tr key={data.id} className="">
-                  <td>{data.event}</td>
-                  <td className="text-textPrimary">{data.name}</td>
-                  <td>{data.venue}</td>
-                  <td>{data.date}</td>
+              {events?.map((event) => (
+                <tr key={event._id} className="">
+                  <td>{event._id}</td>
+                  <td className="text-textPrimary">{event?.title}</td>
+                  <td>{event?.address}</td>
+                  <td>{event?.createdAt}</td>
 
                   <td>
                     <button
@@ -116,29 +159,29 @@ export default function dashboard() {
                     >
                       <span
                         className={`w-2 h-2 rounded-full  ${
-                          data.status === "Upcomming"
+                          event?.status === "Upcoming"
                             ? "bg-green "
-                            : data.status === "Cancelled"
+                            : event?.status === "Cancelled"
                             ? "bg-[#929692] "
-                            : data.status === "Past"
+                            : event?.status === "Past"
                             ? "bg-[#F04438] "
                             : ""
                         }`}
                       ></span>
-                      {data.status}
+                      {event?.status}
                     </button>
                   </td>
                   <td
-                    onClick={() => handleViewClick(data.id)}
+                    onClick={() => handleViewClick(event)}
                     className="pointer"
                   >
                     View
                   </td>
                   <td className="relative">
-                    <div className="pointer" onClick={()=>handleOpenView(data)}>...</div>
+                    <div className="pointer" onClick={()=>handleOpenView(event)}>...</div>
                     <div className="absolute top-12 -left-[160px] bg-white z-[99999]">
-                      {ViewOpen && selectedItem.id === data.id && (
-                        <ViewDropdown setViewOpen={setViewOpen} setShareOpen={setShareOpen} />
+                      {ViewOpen && selectedItem?._id === event?._id && (
+                        <ViewDropdown event={selectedItem} auth={auth} setViewOpen={setViewOpen} setShareOpen={setShareOpen} handleGetUserEvents={handleGetUserEvents} />
                       )}
                     </div>
                   </td>
@@ -159,12 +202,13 @@ export default function dashboard() {
           <EventManagementViewModal
             OpenViewModal={OpenEventModal}
             setOpenViewModal={setOpenEventModal}
-            data={selectedData}
+            event={selectedData}
           />
         )}
 
         {shareOpen && <ShareModal setOpen={setShareOpen}/>}
       </div>
     </main>
+    </>
   );
 }

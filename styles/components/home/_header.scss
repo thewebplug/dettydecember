@@ -1,111 +1,134 @@
 .user-home__hero__header1 {
-    width: 100%;
-    height: 72px;
-    border-bottom: 1px solid var(--Colors-Border-border-secondary, #3d3e3d);
+  width: 100%;
+  height: 72px;
+  border-bottom: 1px solid var(--Colors-Border-border-secondary, #3d3e3d);
 
-    &__inner {
-      width: 100%;
-      height: 100%;
-      max-width: 1440px;
-      padding: 0 96px;
-      margin: auto;
+  &__inner {
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    padding: 0 96px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 32px;
 
-      &__logo {
+      &__form {
+        width: 100%;
+        max-width: 320px;
         display: flex;
         align-items: center;
-        gap: 32px;
+        gap: 8px;
+        height: 40px;
+        padding: 0 12px;
+        border-radius: var(--radius-md, 8px);
+        border: 1px solid var(--Colors-Border-border-primary, #565856);
+        background: var(--Colors-Background-bg-primary, #0f0f0f);
+        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 
-        &__form {
-          width: 100%;
-          max-width: 320px;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          height: 40px;
-          padding: 0 12px;
-          border-radius: var(--radius-md, 8px);
-          border: 1px solid var(--Colors-Border-border-primary, #565856);
-          background: var(--Colors-Background-bg-primary, #0f0f0f);
-          box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-
-          & > input {
-            background: none;
-            border: none;
-            outline: none;
-          }
+        & > input {
+          background: none;
+          border: none;
+          outline: none;
         }
       }
+    }
 
-      &__nav {
-        @extend %title-14;
+    &__nav {
+      @extend %title-14;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(
+        --Component-colors-Components-Buttons-Primary-button-primary-fg,
+        #fff
+      );
+      font-weight: 500;
+
+      & > div {
+        cursor: pointer;
+      }
+
+      &__signup {
+        @extend %button-green;
+        min-width: 83px;
+      }
+
+      &__profile {
         display: flex;
         align-items: center;
-        gap: 24px;
-        color: var(
-          --Component-colors-Components-Buttons-Primary-button-primary-fg,
-          #fff
+        gap: 4px;
+        width: 64px;
+        height: 40px;
+        padding: 4px;
+        border-radius: 40px;
+        background: var(
+          --Component-colors-Components-Buttons-Secondary-button-secondary-bg,
+          #232423
         );
-        font-weight: 500;
+        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 
-        & > div {
-          cursor: pointer;
-        }
-
-        & > :last-child {
-          @extend %button-green;
-          min-width: 83px;
+        &__image {
+          position: relative;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          overflow: hidden;
         }
       }
     }
   }
+}
 
-  .user-home__hero__header2 {
+.user-home__hero__header2 {
+  width: 100%;
+  height: 72px;
+  // padding: 0 128px;
+  border-bottom: 1px solid var(--Colors-Border-border-secondary, #3d3e3d);
+
+  &__inner {
     width: 100%;
-    height: 72px;
-    // padding: 0 128px;
-    border-bottom: 1px solid var(--Colors-Border-border-secondary, #3d3e3d);
+    height: 100%;
+    max-width: 1440px;
+    padding: 0 96px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &__inner {
-      width: 100%;
-      height: 100%;
-      max-width: 1440px;
-      padding: 0 96px;
-      margin: auto;
+    &__nav1 {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 24px;
+      color: var(
+        --Component-colors-Components-Buttons-Primary-button-primary-fg,
+        #fff
+      );
 
-      &__nav1 {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-        color: var(
-          --Component-colors-Components-Buttons-Primary-button-primary-fg,
-          #fff
-        );
+      @extend %title-14;
+      font-weight: 500;
 
-        @extend %title-14;
-        font-weight: 500;
-
-        & > div {
-          cursor: pointer;
-        }
+      & > div {
+        cursor: pointer;
       }
+    }
 
-      &__nav2 {
+    &__nav2 {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      white-space: nowrap;
+
+      & > div {
         display: flex;
         align-items: center;
-        gap: 24px;
-        white-space: nowrap;
-
-        & > div {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
+        gap: 6px;
       }
     }
   }
+}

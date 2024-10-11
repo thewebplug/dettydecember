@@ -1,19 +1,15 @@
 "use client";
 import React, {useState} from "react";
-import { Sidebar } from "../../components/businessDashboard/sidebar/SideBar";
-import { Header } from "../../components/businessDashboard/Header";
-import { StatusProvider } from "../../components/context/contexApi";
-StatusProvider
+import { Sidebar } from "../../components/adminDashboard/Sidebar";
 
 const UserLayout = ({ children }) => {
   
 
   return (
-<StatusProvider>
 <div className=" bg-white w-full h-screen business-dashboard-container">
      
       <div className="flex  w-full h-full   ">
-        <main className="md:min-w-[15%]  w-[200px] h-full border-r-[1px] border-r-borderSecondary  ">
+        <main className="md:min-w-[15%]  w-[380px] h-full border-r-[1px] border-r-borderSecondary  ">
           <Sidebar />
         </main>
         <div className="w-full h-full  flex flex-col px-12  ">
@@ -23,7 +19,6 @@ const UserLayout = ({ children }) => {
         </div>
       </div>
     </div>
-</StatusProvider>
   );
 };
 

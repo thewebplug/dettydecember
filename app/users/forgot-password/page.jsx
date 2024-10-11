@@ -6,61 +6,71 @@ import { useEffect, useState } from "react";
 import { getEvenCategories } from "../../apis/general";
 import { bookEventsLearn, bookUpcomingEvents } from "../../apis/events";
 import { countries } from "@/app/utils/countries";
+import { forgotPassword } from "@/app/apis/auth";
 
 export default function Events() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalStage, setModalStage] = useState(1);
   const [email, setEmail] = useState("");
   const [stage, setStage] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [inst1, setInst1] = useState(false);
   const [inst2, setInst2] = useState(false);
   const [inst3, setInst3] = useState(false);
   const [inst4, setInst4] = useState(false);
 
-  const passwordRegex1 = /^.{8,}/
-  const passwordRegex2 = /(?=.*[a-z])(?=.*[A-Z])/
-  const passwordRegex3 = /(?=.*\d)/
-  const passwordRegex4 = /(?=.*[!@#$%^&*])/
+  const passwordRegex1 = /^.{8,}/;
+  const passwordRegex2 = /(?=.*[a-z])(?=.*[A-Z])/;
+  const passwordRegex3 = /(?=.*\d)/;
+  const passwordRegex4 = /(?=.*[!@#$%^&*])/;
 
   useEffect(() => {
-    if(passwordRegex1.test(password)) {
-      setInst1(true)
-    }else {
-      setInst1(false)
+    if (passwordRegex1.test(password)) {
+      setInst1(true);
+    } else {
+      setInst1(false);
     }
-    if(passwordRegex2.test(password)) {
-      setInst2(true)
-    }else {
-      setInst2(false)
+    if (passwordRegex2.test(password)) {
+      setInst2(true);
+    } else {
+      setInst2(false);
     }
-    if(passwordRegex3.test(password)) {
-      setInst3(true)
-    }else {
-      setInst3(false)
+    if (passwordRegex3.test(password)) {
+      setInst3(true);
+    } else {
+      setInst3(false);
     }
-    if(passwordRegex4.test(password)) {
-      setInst4(true)
-    }else {
-      setInst4(false)
+    if (passwordRegex4.test(password)) {
+      setInst4(true);
+    } else {
+      setInst4(false);
     }
-    
-  }, [password])
+  }, [password]);
 
-
-  const handleForgotPassword = (e) => {
+  const handleForgotPassword = async (e) => {
     e.preventDefault();
-    setModalOpen(true)
-            setModalStage(1);
-            setStage(2)
-  }
+
+    setLoading(true);
+    const response = await forgotPassword(email);
+    console.log("forgotPassword", response);
+
+    if (response?.status === 201) {
+    } else {
+      alert(response?.data?.message);
+    }
+    setLoading(false);
+
+    // setModalOpen(true)
+    //         setModalStage(1);
+    //         setStage(2)
+  };
 
   const handleResetPassword = (e) => {
     e.preventDefault();
-    setModalOpen(true)
+    setModalOpen(true);
     setModalStage(2);
-  }
-
+  };
 
   return (
     <main className="user-register">
@@ -277,7 +287,8 @@ export default function Events() {
 
         <h1 className="user-register__card1__title">Forgot Password?</h1>
         <h2 className="user-register__card1__subtitle">
-        Set up a new password to continue enjoying DettyDecember as your go to ticketing platform.
+          Set up a new password to continue enjoying DettyDecember as your go to
+          ticketing platform.
         </h2>
 
         <div className="user-register__card1__group"></div>
@@ -291,223 +302,393 @@ export default function Events() {
 
         <div className="user-register__card1__info">
           <h4>© DettyDecember 2024</h4>
-          <h4><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.33325 4.66675L6.77653 8.47704C7.21731 8.78559 7.4377 8.93986 7.67743 8.99962C7.88918 9.0524 8.11066 9.0524 8.32241 8.99962C8.56213 8.93986 8.78252 8.78559 9.2233 8.47704L14.6666 4.66675M4.53325 13.3334H11.4666C12.5867 13.3334 13.1467 13.3334 13.5746 13.1154C13.9509 12.9237 14.2569 12.6177 14.4486 12.2414C14.6666 11.8136 14.6666 11.2535 14.6666 10.1334V5.86675C14.6666 4.74664 14.6666 4.18659 14.4486 3.75877C14.2569 3.38244 13.9509 3.07648 13.5746 2.88474C13.1467 2.66675 12.5867 2.66675 11.4666 2.66675H4.53325C3.41315 2.66675 2.85309 2.66675 2.42527 2.88474C2.04895 3.07648 1.74299 3.38244 1.55124 3.75877C1.33325 4.18659 1.33325 4.74664 1.33325 5.86675V10.1334C1.33325 11.2535 1.33325 11.8136 1.55124 12.2414C1.74299 12.6177 2.04895 12.9237 2.42527 13.1154C2.85309 13.3334 3.41315 13.3334 4.53325 13.3334Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-support@dettydecember.xyz</h4>
+          <h4>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.33325 4.66675L6.77653 8.47704C7.21731 8.78559 7.4377 8.93986 7.67743 8.99962C7.88918 9.0524 8.11066 9.0524 8.32241 8.99962C8.56213 8.93986 8.78252 8.78559 9.2233 8.47704L14.6666 4.66675M4.53325 13.3334H11.4666C12.5867 13.3334 13.1467 13.3334 13.5746 13.1154C13.9509 12.9237 14.2569 12.6177 14.4486 12.2414C14.6666 11.8136 14.6666 11.2535 14.6666 10.1334V5.86675C14.6666 4.74664 14.6666 4.18659 14.4486 3.75877C14.2569 3.38244 13.9509 3.07648 13.5746 2.88474C13.1467 2.66675 12.5867 2.66675 11.4666 2.66675H4.53325C3.41315 2.66675 2.85309 2.66675 2.42527 2.88474C2.04895 3.07648 1.74299 3.38244 1.55124 3.75877C1.33325 4.18659 1.33325 4.74664 1.33325 5.86675V10.1334C1.33325 11.2535 1.33325 11.8136 1.55124 12.2414C1.74299 12.6177 2.04895 12.9237 2.42527 13.1154C2.85309 13.3334 3.41315 13.3334 4.53325 13.3334Z"
+                stroke="white"
+                stroke-width="1.33333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            support@dettydecember.xyz
+          </h4>
         </div>
       </div>
       <div className="user-register__card2">
-        {stage === 1 && <h2 className="user-register__card2__title">Reset Password</h2>}
+        {stage === 1 && (
+          <h2 className="user-register__card2__title">Reset Password</h2>
+        )}
 
-       {stage === 1 && <h3 className="user-register__card2__subtitle">
-        Forgot your password? Let's get you a new one. Enter your email below and we’ll send you password reset instructions.
-        </h3>}
+        {stage === 1 && (
+          <h3 className="user-register__card2__subtitle">
+            Forgot your password? Let's get you a new one. Enter your email
+            below and we’ll send you password reset instructions.
+          </h3>
+        )}
 
-        {stage === 2 && <h2 className="user-register__card2__title">Set A New Password</h2>}
+        {stage === 2 && (
+          <h2 className="user-register__card2__title">Set A New Password</h2>
+        )}
 
-       {stage === 2 && <h3 className="user-register__card2__subtitle">
-        Your new password must be different from previously used passwords.
-        </h3>}
+        {stage === 2 && (
+          <h3 className="user-register__card2__subtitle">
+            Your new password must be different from previously used passwords.
+          </h3>
+        )}
 
-       {stage === 1 && <form
-          className="user-register__card2__form"
-          onSubmit={handleForgotPassword}
-        >
+        {stage === 1 && (
+          <form
+            className="user-register__card2__form"
+            onSubmit={handleForgotPassword}
+          >
+            <label htmlFor="eventName">Email address</label>
+            <input
+              type="text"
+              placeholder="E.g. adams@dettydecember.xyz"
+              name="eventName"
+              id="eventName"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-        <label htmlFor="eventName">Email address</label>
-          <input
-            type="text"
-            placeholder="E.g. adams@dettydecember.xyz"
-            name="eventName"
-            id="eventName"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+            <button
+              className="user-register__card2__form__button"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Continue"}
+            </button>
 
-         
-         
-        
-         
-           <button className="user-register__card2__form__button" type="submit">
-          Continue
-          </button>
+            <div className="user-register__card2__form__info"
+            >
+              Remember your password? <span onClick={() => window.location.href = "/users/login"}>Go back to Sign In</span>
+            </div>
+          </form>
+        )}
 
-          <div className="user-register__card2__form__info">
-          Remember your password? <span>Go back to Sign In</span>
-          </div>
-        </form>}
-
-        {stage === 2 && <form
-          className="user-register__card2__form"
-          onSubmit={handleResetPassword}
-        >
-
-      
-
-        <label htmlFor="eventName">Password</label>
-          <input
-            type="password"
-            name="eventName"
-            id="eventName"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        {stage === 2 && (
+          <form
+            className="user-register__card2__form"
+            onSubmit={handleResetPassword}
+          >
+            <label htmlFor="eventName">Password</label>
+            <input
+              type="password"
+              name="eventName"
+              id="eventName"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
             <div className="user-register__card2__form__instructions">
-            <div>
-           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>
-{/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                    stroke="#D5D8D5"
+                  />
+                </svg>
+                {/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
 <path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
 </svg> */}
-
-
-At least 1 uppercase letter
+                At least 1 uppercase letter
+              </div>
+              <div>
+                {!inst2 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                      stroke="#D5D8D5"
+                    />
+                  </svg>
+                )}
+                {inst2 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                      fill="#028C4B"
+                    />
+                    <path
+                      d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                      fill="white"
+                    />
+                  </svg>
+                )}
+                At least 1 lowercase letter
+              </div>
+              <div>
+                {!inst4 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                      stroke="#D5D8D5"
+                    />
+                  </svg>
+                )}
+                {inst4 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                      fill="#028C4B"
+                    />
+                    <path
+                      d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                      fill="white"
+                    />
+                  </svg>
+                )}
+                At least 1 special character
+              </div>
+              <div>
+                {!inst3 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                      stroke="#D5D8D5"
+                    />
+                  </svg>
+                )}
+                {inst3 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                      fill="#028C4B"
+                    />
+                    <path
+                      d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                      fill="white"
+                    />
+                  </svg>
+                )}
+                At least 1 number
+              </div>
+              <div>
+                {!inst1 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                      stroke="#D5D8D5"
+                    />
+                  </svg>
+                )}
+                {inst1 && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                      fill="#028C4B"
+                    />
+                    <path
+                      d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                      fill="white"
+                    />
+                  </svg>
+                )}
+                At least 8 characters
+              </div>
             </div>
-            <div>
-            {!inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
 
-{inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
+            <button
+              className="user-register__card2__form__button"
+              type="submit"
+            >
+              Reset password
+            </button>
 
-
-At least 1 lowercase letter
+            <div className="user-register__card2__form__info">
+              Remember your password? <span>Go back to Sign In</span>
             </div>
-            <div>
-            {!inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 special character
-            </div>
-            <div>
-            {!inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 number
-            </div>
-            <div>
-            {!inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 8 characters
-            </div>
-          </div>
-        
-         
-         
-
-       <button className="user-register__card2__form__button" type="submit">
-          Reset password
-          </button>
-
-          <div className="user-register__card2__form__info">
-          Remember your password? <span>Go back to Sign In</span>
-          </div>
-        </form>}
+          </form>
+        )}
       </div>
-
 
       {modalOpen && (
         <div className="user-register__modal">
-          {modalStage === 1 && <div className="user-register__modal__inner">
-            <div className="user-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+          {modalStage === 1 && (
+            <div className="user-register__modal__inner">
+              <div className="user-register__modal__inner__flex">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+                    fill="#DCFAE6"
+                  />
+                  <path
+                    d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z"
+                    stroke="#079455"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
 
-           
+                <svg
+                  className="pointer"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={() => setModalOpen(false)}
+                >
+                  <path
+                    d="M28 16L16 28M16 16L28 28"
+                    stroke="#ACAFAC"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
 
-              <svg className="pointer" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
+              <div className="user-register__modal__inner__title">
+                Please check your email
+              </div>
+              <div className="user-register__modal__inner__subtitle">
+                We've sent a reset password link to <br /> <span>{email}</span>
+                <br />
+                <br />
+                Didn’t receive the email?{" "}
+                <span className="user-register__modal__inner__subtitle__resend">
+                  Click to resend email
+                </span>
+              </div>
+
+              <div className="user-register__modal__inner__buttons">
+                <button>Cancel</button>
+                <button>Open email app</button>
+              </div>
+            </div>
+          )}
+          {modalStage === 2 && (
+            <div className="user-register__modal__inner">
+              <div className="user-register__modal__inner__flex">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+                    fill="#DCFAE6"
+                  />
+                  <path
+                    d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z"
+                    stroke="#079455"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  className="pointer"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={() => setModalOpen(false)}
+                >
+                  <path
+                    d="M28 16L16 28M16 16L28 28"
+                    stroke="#ACAFAC"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div className="user-register__modal__inner__title">
+                Password reset successful
+              </div>
+              <div className="user-register__modal__inner__subtitle">
+                You have successfully reset your password, kindly click on the
+                button below to log in to your DettyDecember account.
+              </div>
+
+              <button
+                className="user-register__modal__inner__button"
+                onClick={() => (window.location.href = "/users/login")}
               >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+                Confirm
+              </button>
             </div>
-
-            <div className="user-register__modal__inner__title">
-            Please check your email
-            </div>
-            <div className="user-register__modal__inner__subtitle">
-            We've sent a reset password link to <br /> <span>{email}</span>
-            <br />
-            <br />
-            Didn’t receive the email? <span className="user-register__modal__inner__subtitle__resend">Click to resend email</span>
-            </div>
-
-          
-
-          
-           <div className="user-register__modal__inner__buttons">
-            <button>Cancel</button>
-            <button>Open email app</button>
-           </div>
-          </div>}
-          {modalStage === 2 && <div className="user-register__modal__inner">
-            <div className="user-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-
-           
-
-              <svg className="pointer" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
-              >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-            </div>
-
-            <div className="user-register__modal__inner__title">
-            Password reset successful
-            </div>
-            <div className="user-register__modal__inner__subtitle">
-            You have successfully reset your password, kindly click on the button below to log in to your DettyDecember account.
-            </div>
-          
-            <button className="user-register__modal__inner__button"
-            onClick={() => window.location.href ="/users/login"}
-            >Confirm</button>
-            
-          </div>}
+          )}
         </div>
-       )} 
-
-    
+      )}
     </main>
   );
 }

@@ -2,141 +2,157 @@
   width: 214px;
   height: 60px;
   background: rgba(255, 215, 0, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 500;
-    border: none;
-    border-radius: 40px;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 40px;
+  margin: auto;
 }
 
 %primary-button {
   width: 214px;
   height: 60px;
   background: rgba(255, 215, 0, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 500;
-    border: none;
-    border-radius: 40px;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 40px;
+  margin: auto;
 }
 .checkbox-green {
-  accent-color: #008D48;
+  accent-color: #008d48;
   width: 16px;
   height: 26px;
 }
 
 // .trans-button {
-  
+
 // }
 
 // %trans-button {
-  
+
 // }
 
-.button-green, %button-green {
- min-width: 150px;
- height: 40px;
- border-radius: 24px;
- background: #008D48;
- border: none;
- outline: none;
- color: #FFF;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 24px;
+.button-green,
+%button-green {
+  min-width: 150px;
+  height: 40px;
+  border-radius: 24px;
+  background: #008d48;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
-.button-green-trans, %button-green-trans {
- min-width: 150px;
- height: 40px;
- border-radius: 24px;
- background: none;
- border: 1px solid #008D48;
- outline: none;
- color: #008D48;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 24px;
+.button-green-trans,
+%button-green-trans {
+  min-width: 150px;
+  height: 40px;
+  border-radius: 24px;
+  background: none;
+  border: 1px solid #008d48;
+  outline: none;
+  color: #008d48;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
 }
-.button-red, %button-red {
- min-width: 150px;
- height: 40px;
- border-radius: 24px;
- background: #D92D20;
- border: none;
- outline: none;
- color: #FFF;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 24px;
+.button-red,
+%button-red {
+  min-width: 150px;
+  height: 40px;
+  border-radius: 24px;
+  background: #d92d20;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
 }
-.button-red-trans, %button-red-trans {
- min-width: 150px;
- height: 40px;
- border-radius: 24px;
- background: none;
- border: 1px solid #D92D20;
- outline: none;
- color: #008D48;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 24px;
+.button-red-trans,
+%button-red-trans {
+  min-width: 150px;
+  height: 40px;
+  border-radius: 24px;
+  background: none;
+  border: 1px solid #fda29b;
+  outline: none;
+  color: #d92d20;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
 }
-.button-gray, %button-gray{
- min-width: 150px;
- height: 40px;
- border-radius: 24px;
- background: #F9FAFA;
- border: 1px solid #EAEBEA;
- box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
- outline: none;
- color: #ACAFAC;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 24px;
+.button-gray,
+%button-gray {
+  min-width: 150px;
+  height: 40px;
+  border-radius: 24px;
+  background: #f9fafa;
+  border: 1px solid #eaebea;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  outline: none;
+  color: #acafac;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
-.font-inter{
+.font-inter {
   font-family: Inter;
 }
-.button-bland, %button-bland {
-min-width: 92px;
-height: 48px;
-border-radius: 24px;
-background: #F9FAFA;
-border: 1px solid #EAEBEA;
-box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-color: #ACAFAC;
-font-family: Inter;
-font-size: 16px;
-font-weight: 500;
-transition: 0.4s;
+.button-bland,
+%button-bland {
+  min-width: 92px;
+  height: 48px;
+  border-radius: 24px;
+  background: #f9fafa;
+  border: 1px solid #eaebea;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  color: #acafac;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.4s;
 
-&:hover {
-  background: #008D48;
-  color: #FFF;
+  &:hover {
+    background: #008d48;
+    color: #fff;
+  }
 }
-}
-
-
 
 // .bottom-button {
-  
+
 // }
 
-.btn-empty, %btn-empty{
-  border: 1px solid #EAEBEA;
+.btn-empty,
+%btn-empty {
+  min-width: 92px;
+  height: 48px;
+
+  border: 1px solid #eaebea;
   font-size: 14px;
   padding: 2px 10px;
   font-weight: 500;
@@ -144,18 +160,46 @@ transition: 0.4s;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  gap: 6px; 
-  border-radius: 24px
+  justify-content: center;
+  gap: 6px;
+  border-radius: 24px;
 }
-@layer utilities {
 
+.button-danger,
+%button-danger {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 24px;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid
+    var(
+      --Component-colors-Components-Buttons-Secondary-error-button-secondary-error-border,
+      #fda29b
+    );
+  background: var(
+    --Component-colors-Components-Buttons-Secondary-error-button-secondary-error-bg,
+    #fff
+  );
+
+  /* Shadows/shadow-xs */
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #d92d20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@layer utilities {
   .pag-btn {
-    @apply p-4 text-[#7A7C79] font-medium text-[14px] ;
+    @apply p-4 text-[#7A7C79] font-medium text-[14px];
   }
   .active-pag-btn {
     @apply bg-[#F4F5F4] w-[40px] h-[40px] rounded-full  text-[#3D3E3D] transition-all duration-100;
   }
-  .prev-next-btn{
+  .prev-next-btn {
     @apply px-[12px] py-[6px] text-[14px] border-[1px] rounded-full border-[#EAEBEA] bg-[#F9FAFA];
   }
 }

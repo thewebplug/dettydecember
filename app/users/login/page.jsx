@@ -3,26 +3,45 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getEvenCategories } from "../../apis/general";
-import { bookEventsLearn, bookUpcomingEvents } from "../../apis/events";
 import { countries } from "@/app/utils/countries";
+import { login } from "@/app/apis/auth";
+import { useDispatch } from "react-redux";
 
 export default function Events() {
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(true);
   const [modalStage, setModalStage] = useState(1);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
 
-
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    window.location.href = "/users/dashboard/tickets"
-  }
+    setLoading(true);
+    const response = await login(email, password);
+    console.log("login", response);
+
+    if (response?.status === 201) {
+      localStorage.setItem("token", response?.data?.accessToken);
+      document.cookie = `auth_token=${response?.data?.accessToken}; path=/; max-age=${
+        60 * 60 * 24 * 7
+      };`;
+      dispatch({
+        type: "USER_LOGIN_SUCCESS",
+        payload: {
+          token: response?.data?.accessToken,
+        },
+      });
+      window.location.href = "/users";
+    } else {
+      alert(response?.data?.message);
+    }
+    setLoading(false);
+  };
   const handleSubmitOtp = (e) => {
     e.preventDefault();
-    setModalStage(2)
-  }
-
+    setModalStage(2);
+  };
 
   return (
     <main className="user-register">
@@ -237,100 +256,209 @@ export default function Events() {
           </defs>
         </svg>
 
-        <h1 className="user-register__card1__title">Welcome Back Fun Lovers!</h1>
+        <h1 className="user-register__card1__title">
+          Welcome Back Fun Lovers!
+        </h1>
         <h2 className="user-register__card1__subtitle">
-        Here are what you stand to enjoy when you use DettyDecember as your go to ticketing platform.
+          Here are what you stand to enjoy when you use DettyDecember as your go
+          to ticketing platform.
         </h2>
 
         <div className="user-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>⁠Event Discovery</div>
         </div>
         <div className="user-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>Exclusive Offers and Packages</div>
         </div>
         <div className="user-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>⁠Guided Tours</div>
         </div>
         <div className="user-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>Ticket Resale</div>
         </div>
 
         <div className="user-register__card1__info">
           <h4>© DettyDecember 2024</h4>
-          <h4><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.33325 4.66675L6.77653 8.47704C7.21731 8.78559 7.4377 8.93986 7.67743 8.99962C7.88918 9.0524 8.11066 9.0524 8.32241 8.99962C8.56213 8.93986 8.78252 8.78559 9.2233 8.47704L14.6666 4.66675M4.53325 13.3334H11.4666C12.5867 13.3334 13.1467 13.3334 13.5746 13.1154C13.9509 12.9237 14.2569 12.6177 14.4486 12.2414C14.6666 11.8136 14.6666 11.2535 14.6666 10.1334V5.86675C14.6666 4.74664 14.6666 4.18659 14.4486 3.75877C14.2569 3.38244 13.9509 3.07648 13.5746 2.88474C13.1467 2.66675 12.5867 2.66675 11.4666 2.66675H4.53325C3.41315 2.66675 2.85309 2.66675 2.42527 2.88474C2.04895 3.07648 1.74299 3.38244 1.55124 3.75877C1.33325 4.18659 1.33325 4.74664 1.33325 5.86675V10.1334C1.33325 11.2535 1.33325 11.8136 1.55124 12.2414C1.74299 12.6177 2.04895 12.9237 2.42527 13.1154C2.85309 13.3334 3.41315 13.3334 4.53325 13.3334Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-support@dettydecember.xyz</h4>
+          <h4>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.33325 4.66675L6.77653 8.47704C7.21731 8.78559 7.4377 8.93986 7.67743 8.99962C7.88918 9.0524 8.11066 9.0524 8.32241 8.99962C8.56213 8.93986 8.78252 8.78559 9.2233 8.47704L14.6666 4.66675M4.53325 13.3334H11.4666C12.5867 13.3334 13.1467 13.3334 13.5746 13.1154C13.9509 12.9237 14.2569 12.6177 14.4486 12.2414C14.6666 11.8136 14.6666 11.2535 14.6666 10.1334V5.86675C14.6666 4.74664 14.6666 4.18659 14.4486 3.75877C14.2569 3.38244 13.9509 3.07648 13.5746 2.88474C13.1467 2.66675 12.5867 2.66675 11.4666 2.66675H4.53325C3.41315 2.66675 2.85309 2.66675 2.42527 2.88474C2.04895 3.07648 1.74299 3.38244 1.55124 3.75877C1.33325 4.18659 1.33325 4.74664 1.33325 5.86675V10.1334C1.33325 11.2535 1.33325 11.8136 1.55124 12.2414C1.74299 12.6177 2.04895 12.9237 2.42527 13.1154C2.85309 13.3334 3.41315 13.3334 4.53325 13.3334Z"
+                stroke="white"
+                stroke-width="1.33333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            support@dettydecember.xyz
+          </h4>
         </div>
       </div>
       <div className="user-register__card2">
         <h2 className="user-register__card2__title">Sign In</h2>
 
         <h3 className="user-register__card2__subtitle">
-        Please fill in the information below
+          Please fill in the information below
         </h3>
 
-        <form
-          className="user-register__card2__form"
-          onSubmit={handleSubmit}
-        >
-
+        <form className="user-register__card2__form" onSubmit={handleSubmit}>
           <label htmlFor="eventName">Email address</label>
           <input
             type="text"
@@ -338,39 +466,47 @@ support@dettydecember.xyz</h4>
             name="eventName"
             id="eventName"
             required
-            // value={eventName}
-            // onChange={(e) => setEventName(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
-        
           <label htmlFor="user-registerPerYear">Password</label>
-          <input type="password" value={password} onChange={((e) => setPassword(e.target.value))} />
-   
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
           <div className="user-register__card2__form__remember">
             <div>
-            <input type="checkbox" name="" id="" />
-            <div>
-            Remember
+              <input type="checkbox" name="" id="" />
+              <div>Remember</div>
             </div>
-            </div>
-            
+
             <div>
-            <div className="pointer" onClick={() => window.location.href = "/users/forgot-password"}>Forgot password?</div>
+              <div
+                className="pointer"
+                onClick={() =>
+                  (window.location.href = "/users/forgot-password")
+                }
+              >
+                Forgot password?
+              </div>
             </div>
           </div>
           <button className="user-register__card2__form__button" type="submit">
-          Sign in
+            {loading? "Loading..." : "Sign in"}
           </button>
 
           <div className="user-register__card2__form__info">
-          Don’t have a DettyDecember account? <span
-          onClick={() => window.location.href = "/users/register"}
-          >Sign Up</span>
+            Don’t have a DettyDecember account?{" "}
+            <span onClick={() => (window.location.href = "/users/register")}>
+              Sign Up
+            </span>
           </div>
         </form>
       </div>
-
-    
     </main>
   );
 }

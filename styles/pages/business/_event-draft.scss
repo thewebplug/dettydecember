@@ -1,0 +1,98 @@
+.event-draft {
+  width: 100%;
+
+  &__inner {
+    width: 100%;
+    max-width: 640px;
+    margin: auto;
+    margin-top: 64px;
+
+    &__title {
+      @extend %title-32;
+      font-weight: 700;
+      color: #232423;
+      margin-bottom: 32px;
+    }
+    &__subtitle {
+      @extend %title-24;
+      font-weight: 700;
+      color: #232423;
+      margin-bottom: 6px;
+    }
+    &__subsubtitle {
+      @extend %title-14;
+      font-weight: 400;
+      color: #7a7c79;
+      margin-bottom: 24px;
+    }
+
+    &__card {
+      width: 100%;
+      border-radius: var(--radius-xl, 12px);
+      border: 1px solid var(--Colors-Border-border-secondary, #eaebea);
+      background: var(--Colors-Background-bg-primary, #fff);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+
+      & > :first-child {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      &__title {
+        & > :first-child {
+          @extend %title-16;
+          font-weight: 600;
+          color: #232423;
+          margin-bottom: 4px;
+        }
+        & > :last-child {
+          @extend %title-14;
+          font-weight: 400;
+          color: #7a7c79;
+        }
+      }
+
+      &__actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        & > svg {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__footer {
+      width: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      margin-top: 32px;
+
+      &__title {
+        & > :first-child {
+          @extend %title-24;
+          font-weight: 700;
+          color: #232423;
+          margin-bottom: 6px;
+        }
+
+        & > :last-child {
+          @extend %title-14;
+          font-weight: 400;
+          color: #7a7c79;
+        }
+      }
+
+      button {
+        @extend %button-green;
+      }
+    }
+  }
+}

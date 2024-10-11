@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { getEvenCategories } from "../../apis/general";
 import { bookEventsLearn, bookUpcomingEvents } from "../../apis/events";
 import { countries } from "@/app/utils/countries";
+import { signUp } from "@/app/apis/auth";
+import { setLazyProp } from "next/dist/server/api-utils";
 
 export default function Events() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,48 +17,73 @@ export default function Events() {
   const [inst2, setInst2] = useState(false);
   const [inst3, setInst3] = useState(false);
   const [inst4, setInst4] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [country, setCountry] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const passwordRegex1 = /^.{8,}/
-  const passwordRegex2 = /(?=.*[a-z])(?=.*[A-Z])/
-  const passwordRegex3 = /(?=.*\d)/
-  const passwordRegex4 = /(?=.*[!@#$%^&*])/
+  const passwordRegex1 = /^.{8,}/;
+  const passwordRegex2 = /(?=.*[a-z])(?=.*[A-Z])/;
+  const passwordRegex3 = /(?=.*\d)/;
+  const passwordRegex4 = /(?=.*[!@#$%^&*])/;
 
   useEffect(() => {
-    if(passwordRegex1.test(password)) {
-      setInst1(true)
-    }else {
-      setInst1(false)
+    if (passwordRegex1.test(password)) {
+      setInst1(true);
+    } else {
+      setInst1(false);
     }
-    if(passwordRegex2.test(password)) {
-      setInst2(true)
-    }else {
-      setInst2(false)
+    if (passwordRegex2.test(password)) {
+      setInst2(true);
+    } else {
+      setInst2(false);
     }
-    if(passwordRegex3.test(password)) {
-      setInst3(true)
-    }else {
-      setInst3(false)
+    if (passwordRegex3.test(password)) {
+      setInst3(true);
+    } else {
+      setInst3(false);
     }
-    if(passwordRegex4.test(password)) {
-      setInst4(true)
-    }else {
-      setInst4(false)
+    if (passwordRegex4.test(password)) {
+      setInst4(true);
+    } else {
+      setInst4(false);
     }
-    
-  }, [password])
+  }, [password]);
 
-  const handleModalOpen = (e) => {
+  const handleModalOpen = async (e) => {
     e.preventDefault();
-    setModalOpen(true)
-            setModalStage(1);
-  }
+    setLoading(true)
+    const response = await signUp(
+      email,
+      phone,
+      password,
+      firstName,
+      lastName,
+      country,
+      "business"
+    );
+    console.log('signUp', response);
+    
+    if(response?.status === 201) {
+      window.location.href ="/business/login"
+    }else {
+      alert(response?.data?.message)
+    }
+    // setModalOpen(true);
+    // setModalStage(1);
+    setLoading(false)
+  };
   const handleSubmitOtp = (e) => {
     e.preventDefault();
-    setModalStage(2)
-  }
+    setModalStage(2);
+  };
 
   useEffect(() => {
-    const otpInputs = document.querySelectorAll(".business-register__modal__inner__otp-group__otp");
+    const otpInputs = document.querySelectorAll(
+      ".business-register__modal__inner__otp-group__otp"
+    );
 
     otpInputs.forEach((input, index) => {
       input.addEventListener("input", (event) => {
@@ -76,10 +103,9 @@ export default function Events() {
     });
   }, [modalStage === 1]);
 
-
   return (
-<div className="business-register-container">
-<main className="business-register">
+    <div className="business-register-container">
+    <main className="business-register">
       <div className="business-register__card1">
         <svg
           className="business-register__card1__logo"
@@ -298,80 +324,190 @@ export default function Events() {
         </h2>
 
         <div className="business-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>⁠Event Discovery</div>
         </div>
         <div className="business-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>Exclusive Offers and Packages</div>
         </div>
         <div className="business-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>⁠Guided Tours</div>
         </div>
         <div className="business-register__card1__group">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_509_5699)">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#232423"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" fill="white"/>
-<path d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z" stroke="white" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z" fill="#232423"/>
-</g>
-<defs>
-<clipPath id="clip0_509_5699">
-<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_509_5699)">
+              <path
+                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                fill="#232423"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                fill="white"
+              />
+              <path
+                d="M0.75 12C0.75 5.7868 5.7868 0.75 12 0.75C18.2132 0.75 23.25 5.7868 23.25 12C23.25 18.2132 18.2132 23.25 12 23.25C5.7868 23.25 0.75 18.2132 0.75 12Z"
+                stroke="white"
+                stroke-width="1.5"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.0965 7.39016L9.9365 14.3002L8.0365 12.2702C7.6865 11.9402 7.1365 11.9202 6.7365 12.2002C6.3465 12.4902 6.2365 13.0002 6.4765 13.4102L8.7265 17.0702C8.9465 17.4102 9.3265 17.6202 9.7565 17.6202C10.1665 17.6202 10.5565 17.4102 10.7765 17.0702C11.1365 16.6002 18.0065 8.41016 18.0065 8.41016C18.9065 7.49016 17.8165 6.68016 17.0965 7.38016V7.39016Z"
+                fill="#232423"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_509_5699">
+                <path
+                  d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
 
           <div>Ticket Resale</div>
         </div>
 
         <div className="business-register__card1__info">
           <h4>© DettyDecember 2024</h4>
-          <h4><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.33325 4.66675L6.77653 8.47704C7.21731 8.78559 7.4377 8.93986 7.67743 8.99962C7.88918 9.0524 8.11066 9.0524 8.32241 8.99962C8.56213 8.93986 8.78252 8.78559 9.2233 8.47704L14.6666 4.66675M4.53325 13.3334H11.4666C12.5867 13.3334 13.1467 13.3334 13.5746 13.1154C13.9509 12.9237 14.2569 12.6177 14.4486 12.2414C14.6666 11.8136 14.6666 11.2535 14.6666 10.1334V5.86675C14.6666 4.74664 14.6666 4.18659 14.4486 3.75877C14.2569 3.38244 13.9509 3.07648 13.5746 2.88474C13.1467 2.66675 12.5867 2.66675 11.4666 2.66675H4.53325C3.41315 2.66675 2.85309 2.66675 2.42527 2.88474C2.04895 3.07648 1.74299 3.38244 1.55124 3.75877C1.33325 4.18659 1.33325 4.74664 1.33325 5.86675V10.1334C1.33325 11.2535 1.33325 11.8136 1.55124 12.2414C1.74299 12.6177 2.04895 12.9237 2.42527 13.1154C2.85309 13.3334 3.41315 13.3334 4.53325 13.3334Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-support@dettydecember.xyz</h4>
+          <h4>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.33325 4.66675L6.77653 8.47704C7.21731 8.78559 7.4377 8.93986 7.67743 8.99962C7.88918 9.0524 8.11066 9.0524 8.32241 8.99962C8.56213 8.93986 8.78252 8.78559 9.2233 8.47704L14.6666 4.66675M4.53325 13.3334H11.4666C12.5867 13.3334 13.1467 13.3334 13.5746 13.1154C13.9509 12.9237 14.2569 12.6177 14.4486 12.2414C14.6666 11.8136 14.6666 11.2535 14.6666 10.1334V5.86675C14.6666 4.74664 14.6666 4.18659 14.4486 3.75877C14.2569 3.38244 13.9509 3.07648 13.5746 2.88474C13.1467 2.66675 12.5867 2.66675 11.4666 2.66675H4.53325C3.41315 2.66675 2.85309 2.66675 2.42527 2.88474C2.04895 3.07648 1.74299 3.38244 1.55124 3.75877C1.33325 4.18659 1.33325 4.74664 1.33325 5.86675V10.1334C1.33325 11.2535 1.33325 11.8136 1.55124 12.2414C1.74299 12.6177 2.04895 12.9237 2.42527 13.1154C2.85309 13.3334 3.41315 13.3334 4.53325 13.3334Z"
+                stroke="white"
+                stroke-width="1.33333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            support@dettydecember.xyz
+          </h4>
         </div>
       </div>
       <div className="business-register__card2">
@@ -382,10 +518,7 @@ support@dettydecember.xyz</h4>
           solutions will work best for you.
         </h3>
 
-        <form
-          className="business-register__card2__form"
-          onSubmit={handleModalOpen}
-        >
+        <form className="business-register__card2__form" onSubmit={handleModalOpen}>
           <div className="business-register__card2__form__input-group">
             <div>
               <label htmlFor="firstName">First name</label>
@@ -395,8 +528,8 @@ support@dettydecember.xyz</h4>
                 name="firstName"
                 id="firstName"
                 required
-                // value={firstName}
-                // onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
             <div>
@@ -407,8 +540,8 @@ support@dettydecember.xyz</h4>
                 name="lastName"
                 id="lastName"
                 required
-                // value={lastName}
-                // onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
           </div>
@@ -420,186 +553,397 @@ support@dettydecember.xyz</h4>
             name="eventName"
             id="eventName"
             required
-            // value={eventName}
-            // onChange={(e) => setEventName(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label htmlFor="eventName">Phone number</label>
+          <input
+            type="text"
+            placeholder=""
+            name="eventName"
+            id="eventName"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
 
           <label htmlFor="dateOfNextEvent">Country of residence</label>
-          <select name="" id="">
-            {countries?.map((country, index) => <option value="" key={index}>{country?.label}</option>)}
+          <select
+            name=""
+            id=""
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            required
+          >
+            {!country && <option value="">Select country</option>}
+            {countries?.map((country, index) => (
+              <option value={country?.label} key={index}>
+                {country?.label}
+              </option>
+            ))}
           </select>
           <label htmlFor="business-registerPerYear">Password</label>
-          <input type="password" value={password} onChange={((e) => setPassword(e.target.value))} />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
           <div className="business-register__card2__form__instructions">
             <div>
-           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>
-{/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                  stroke="#D5D8D5"
+                />
+              </svg>
+              {/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
 <path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
 </svg> */}
-
-
-At least 1 uppercase letter
+              At least 1 uppercase letter
             </div>
             <div>
-            {!inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst2 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 lowercase letter
+              {!inst2 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                    stroke="#D5D8D5"
+                  />
+                </svg>
+              )}
+              {inst2 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                    fill="#028C4B"
+                  />
+                  <path
+                    d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                    fill="white"
+                  />
+                </svg>
+              )}
+              At least 1 lowercase letter
             </div>
             <div>
-            {!inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst4 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 special character
+              {!inst4 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                    stroke="#D5D8D5"
+                  />
+                </svg>
+              )}
+              {inst4 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                    fill="#028C4B"
+                  />
+                  <path
+                    d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                    fill="white"
+                  />
+                </svg>
+              )}
+              At least 1 special character
             </div>
             <div>
-            {!inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst3 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 1 number
+              {!inst3 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                    stroke="#D5D8D5"
+                  />
+                </svg>
+              )}
+              {inst3 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                    fill="#028C4B"
+                  />
+                  <path
+                    d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                    fill="white"
+                  />
+                </svg>
+              )}
+              At least 1 number
             </div>
             <div>
-            {!inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z" stroke="#D5D8D5"/>
-</svg>}
-
-{inst1 && <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="#028C4B"/>
-<path d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z" fill="white"/>
-</svg>}
-
-
-At least 8 characters
+              {!inst1 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8Z"
+                    stroke="#D5D8D5"
+                  />
+                </svg>
+              )}
+              {inst1 && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                    fill="#028C4B"
+                  />
+                  <path
+                    d="M5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8Z"
+                    fill="white"
+                  />
+                </svg>
+              )}
+              At least 8 characters
             </div>
           </div>
           <div className="business-register__card2__form__checkbox">
             <input type="checkbox" name="" id="" />
             <div>
-            Be the first to hear about the newest updates (Including news, exclusive pre-sales and offers, etc)
+              Be the first to hear about the newest updates (Including news,
+              exclusive pre-sales and offers, etc)
             </div>
           </div>
           <div className="business-register__card2__form__checkbox">
-            <input type="checkbox" name="" id="" required/>
-            <div>I have read and agree to the <span>Terms of use</span> and <span>Privacy policy</span>.</div>
+            <input type="checkbox" name="" id="" required />
+            <div>
+              I have read and agree to the <span>Terms of use</span> and{" "}
+              <span>Privacy policy</span>.
+            </div>
           </div>
-          <button className="business-register__card2__form__button" type="submit">
-          Sign up
+          <button className="business-register__card2__form__button" type="submit" disabled={loading}>
+            {loading ? "Loading..." : "Sign up"}
           </button>
 
           <div className="business-register__card2__form__info">
-          Already have a DettyDecember account? <span
-          onClick={() => window.location.href = "/business/login"}
-          >Sign in</span>
+            Already have a DettyDecember account?{" "}
+            <span onClick={() => (window.location.href = "/business/login")}>
+              Sign in
+            </span>
           </div>
         </form>
       </div>
 
       {modalOpen && (
         <div className="business-register__modal">
-          {modalStage === 1 && <form className="business-register__modal__inner" onSubmit={handleSubmitOtp}>
-            <div className="business-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M14 19L22.1649 24.7154C22.8261 25.1783 23.1567 25.4097 23.5163 25.4993C23.8339 25.5785 24.1661 25.5785 24.4837 25.4993C24.8433 25.4097 25.1739 25.1783 25.8351 24.7154L34 19M18.8 32H29.2C30.8802 32 31.7202 32 32.362 31.673C32.9265 31.3854 33.3854 30.9265 33.673 30.362C34 29.7202 34 28.8802 34 27.2V20.8C34 19.1198 34 18.2798 33.673 17.638C33.3854 17.0735 32.9265 16.6146 32.362 16.327C31.7202 16 30.8802 16 29.2 16H18.8C17.1198 16 16.2798 16 15.638 16.327C15.0735 16.6146 14.6146 17.0735 14.327 17.638C14 18.2798 14 19.1198 14 20.8V27.2C14 28.8802 14 29.7202 14.327 30.362C14.6146 30.9265 15.0735 31.3854 15.638 31.673C16.2798 32 17.1198 32 18.8 32Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+          {modalStage === 1 && (
+            <form
+              className="business-register__modal__inner"
+              onSubmit={handleSubmitOtp}
+            >
+              <div className="business-register__modal__inner__flex">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+                    fill="#DCFAE6"
+                  />
+                  <path
+                    d="M14 19L22.1649 24.7154C22.8261 25.1783 23.1567 25.4097 23.5163 25.4993C23.8339 25.5785 24.1661 25.5785 24.4837 25.4993C24.8433 25.4097 25.1739 25.1783 25.8351 24.7154L34 19M18.8 32H29.2C30.8802 32 31.7202 32 32.362 31.673C32.9265 31.3854 33.3854 30.9265 33.673 30.362C34 29.7202 34 28.8802 34 27.2V20.8C34 19.1198 34 18.2798 33.673 17.638C33.3854 17.0735 32.9265 16.6146 32.362 16.327C31.7202 16 30.8802 16 29.2 16H18.8C17.1198 16 16.2798 16 15.638 16.327C15.0735 16.6146 14.6146 17.0735 14.327 17.638C14 18.2798 14 19.1198 14 20.8V27.2C14 28.8802 14 29.7202 14.327 30.362C14.6146 30.9265 15.0735 31.3854 15.638 31.673C16.2798 32 17.1198 32 18.8 32Z"
+                    stroke="#079455"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
 
-           
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={() => setModalOpen(false)}
+                >
+                  <path
+                    d="M28 16L16 28M16 16L28 28"
+                    stroke="#ACAFAC"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
 
-              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
+              <div className="business-register__modal__inner__title">
+                Please check your email
+              </div>
+              <div className="business-register__modal__inner__subtitle">
+                We've sent a 6-digit verification code to <br />
+                <span>wandeadams@gmail.com</span>
+              </div>
+
+              <div className="business-register__modal__inner__otp-group">
+                <input
+                  className="business-register__modal__inner__otp-group__active business-register__modal__inner__otp-group__otp"
+                  type="text"
+                />
+                <input
+                  className="business-register__modal__inner__otp-group__otp"
+                  type="text"
+                  required
+                  maxLength={1}
+                />
+                <input
+                  className="business-register__modal__inner__otp-group__otp"
+                  type="text"
+                  required
+                  maxLength={1}
+                />
+                <input
+                  className="business-register__modal__inner__otp-group__otp"
+                  type="text"
+                  required
+                  maxLength={1}
+                />
+                <input
+                  className="business-register__modal__inner__otp-group__otp"
+                  type="text"
+                  required
+                  maxLength={1}
+                />
+                <input
+                  className="business-register__modal__inner__otp-group__otp"
+                  type="text"
+                  required
+                  maxLength={1}
+                />
+              </div>
+
+              <div className="business-register__modal__inner__resend">
+                Didn’t get a code? <a href="">Click to resend code</a>
+              </div>
+              <div className="business-register__modal__inner__buttons">
+                <button
+                  onClick={() => {
+                    setModalOpen(false);
+                    setModalStage(null);
+                  }}
+                >
+                  Cancel
+                </button>
+                <button type="submit">Verify</button>
+              </div>
+            </form>
+          )}
+          {modalStage === 2 && (
+            <div className="business-register__modal__inner">
+              <div className="business-register__modal__inner__flex">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+                    fill="#DCFAE6"
+                  />
+                  <path
+                    d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z"
+                    stroke="#079455"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={() => setModalOpen(false)}
+                >
+                  <path
+                    d="M28 16L16 28M16 16L28 28"
+                    stroke="#ACAFAC"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div className="business-register__modal__inner__title">
+                Email verified!
+              </div>
+              <div className="business-register__modal__inner__subtitle">
+                You have successfully verified your email address, kindly click
+                on the button below to start your DettyDecember experience.
+              </div>
+
+              <button
+                className="business-register__modal__inner__button"
+                onClick={() => (window.location.href = "/business/onboarding")}
               >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+                Get started
+              </button>
             </div>
-
-            <div className="business-register__modal__inner__title">
-            Please check your email
-            </div>
-            <div className="business-register__modal__inner__subtitle">
-            We've sent a 6-digit verification code to <br /><span>wandeadams@gmail.com</span>
-            </div>
-
-            <div className="business-register__modal__inner__otp-group">
-              <input className="business-register__modal__inner__otp-group__active business-register__modal__inner__otp-group__otp" type="text" />
-              <input className="business-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
-              <input className="business-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
-              <input className="business-register__modal__inner__otp-group__otp" type="text" required maxLength={1}  />
-              <input className="business-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
-              <input className="business-register__modal__inner__otp-group__otp" type="text" required maxLength={1} />
-            </div>
-
-            <div className="business-register__modal__inner__resend">
-            Didn’t get a code? <a href="">Click to resend code</a>
-            </div>
-           <div className="business-register__modal__inner__buttons">
-            <button onClick={() => {
-              setModalOpen(false)
-              setModalStage(null)
-              }}>Cancel</button>
-            <button type="submit">Verify</button>
-           </div>
-          </form>}
-          {modalStage === 2 && <div className="business-register__modal__inner">
-            <div className="business-register__modal__inner__flex">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#DCFAE6"/>
-<path d="M19.5 24L22.5 27L28.5 21M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z" stroke="#079455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-           
-
-              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"
-              onClick={() => setModalOpen(false)}
-              >
-<path d="M28 16L16 28M16 16L28 28" stroke="#ACAFAC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-            </div>
-
-            <div className="business-register__modal__inner__title">
-            Email verified!
-            </div>
-            <div className="business-register__modal__inner__subtitle">
-            You have successfully verified your email address, kindly click on the button below to start your DettyDecember experience.
-            </div>
-
-          
-
-          
-           <button className="business-register__modal__inner__button"
-           onClick={() => window.location.href = "/business/onboarding"}
-           >
-            Get started
-           </button>
-          </div>}
+          )}
         </div>
-       )} 
+      )}
     </main>
-</div>
+    </div>
   );
 }
