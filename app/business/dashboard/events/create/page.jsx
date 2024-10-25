@@ -97,8 +97,7 @@ export default function CreateEvent(params) {
 
         if(response?.status === 201) {
           console.log('we dey!');
-          
-          window.location.href = "/business/dashboard/events/";
+          // window.location.href = "/business/dashboard/events/";
         }else{
           alert(response?.data?.message);
         }

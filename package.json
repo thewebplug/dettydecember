@@ -15,6 +15,7 @@
     "@reduxjs/toolkit": "^2.2.4",
     "axios": "^1.6.8",
     "css-loader": "^7.1.2",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.5",
     "jwt-decode": "^3.1.2",
     "next": "14.1.2",

@@ -12,7 +12,7 @@ export const signUp = async (email, phoneNumber, password, firstName, lastName, 
       phoneNumber,
       userType
     });
-    const res = await axios.post(`http://3.238.81.121:5000/auth/signup`, {
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_DEV_URL}/auth/signup`, {
       email,
       password,
       firstName,
@@ -31,7 +31,7 @@ export const signUp = async (email, phoneNumber, password, firstName, lastName, 
 
 export const login = async (email, password) => {
   try {
-    const res = await axios.post(`http://3.238.81.121:5000/auth/login`, {
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_DEV_URL}/auth/login`, {
       email,
       password,
     });
@@ -45,7 +45,7 @@ export const login = async (email, password) => {
 
 export const forgotPassword = async (email) => {
   try {
-    const res = await axios.post(`http://3.238.81.121:5000/forgot-password`, {
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_DEV_URL}/forgot-password`, {
       email
     });
 

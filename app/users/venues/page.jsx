@@ -40,7 +40,7 @@ export default function HomePicks() {
 
             <h1 className="home-picks__hero__title">Venues</h1>
           </div>
-          <div className="home-picks__filter">
+          {/* <div className="home-picks__filter">
             <div className="home-picks__filter__select">
               <select name="" id="">
                 <option value="">All categories</option>
@@ -130,7 +130,7 @@ export default function HomePicks() {
               <button 
               className={selectedFilter === "Next 30 Days" ? "home-picks__filter__button home-picks__filter__button-active" : "home-picks__filter__button"}
               onClick={() => setSelectedFilter("Next 30 Days")}>Next 30 Days</button>
-          </div>
+          </div> */}
 
           <div className="user-home__grid">
         <div>

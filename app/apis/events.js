@@ -74,9 +74,9 @@ export const bookUpcomingEvents = async (
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
   }
 };
-
 
 export const bookEventsLearn = async (
   numberOfTicketsPerYear,
@@ -119,9 +119,9 @@ export const bookEventsLearn = async (
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
   }
 };
-
 
 export const createEvent = async (
   category,
@@ -145,21 +145,21 @@ export const createEvent = async (
   try {
     console.log({
       category,
-  title,
-  description,
-  capacity,
-  address,
-  town,
-  state,
-  country,
-  mapLink,
-  timeZone,
-  date,
-  time,
-  userId,
-  performers,
-  organizers,
-  sponsors
+      title,
+      description,
+      capacity,
+      address,
+      town,
+      state,
+      country,
+      mapLink,
+      timeZone,
+      date,
+      time,
+      userId,
+      performers,
+      organizers,
+      sponsors,
     });
     const config = {
       headers: {
@@ -168,7 +168,7 @@ export const createEvent = async (
     };
 
     const res = await axios.post(
-      `http://3.238.81.121:5000/events/createEvent`,
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/createEvent`,
       {
         category,
         title,
@@ -185,7 +185,7 @@ export const createEvent = async (
         userId,
         performers,
         organizers,
-        sponsors
+        sponsors,
       },
       config
     );
@@ -193,6 +193,7 @@ export const createEvent = async (
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
   }
 };
 
@@ -205,13 +206,14 @@ export const getUserEvents = async (token) => {
     };
 
     const res = await axios.get(
-      `http://3.238.81.121:5000/events/user/events`,
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/user/events`,
       config
     );
 
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
   }
 };
 
@@ -224,13 +226,14 @@ export const getUserEvent = async (id, token) => {
     };
 
     const res = await axios.get(
-      `http://3.238.81.121:5000/events/${id}`,
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}`,
       config
     );
 
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
   }
 };
 
@@ -258,21 +261,21 @@ export const editEvent = async (
     console.log({
       id,
       category,
-  title,
-  description,
-  capacity,
-  address,
-  town,
-  state,
-  country,
-  mapLink,
-  timeZone,
-  date,
-  time,
-  userId,
-  performers,
-  organizers,
-  sponsors
+      title,
+      description,
+      capacity,
+      address,
+      town,
+      state,
+      country,
+      mapLink,
+      timeZone,
+      date,
+      time,
+      userId,
+      performers,
+      organizers,
+      sponsors,
     });
     const config = {
       headers: {
@@ -281,7 +284,7 @@ export const editEvent = async (
     };
 
     const res = await axios.patch(
-      `http://3.238.81.121:5000/events/${id}`,
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}`,
       {
         category,
         title,
@@ -298,7 +301,7 @@ export const editEvent = async (
         userId,
         performers,
         organizers,
-        sponsors
+        sponsors,
       },
       config
     );
@@ -306,6 +309,7 @@ export const editEvent = async (
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
   }
 };
 
@@ -318,13 +322,14 @@ export const deleteEvent = async (id, token) => {
     };
 
     const res = await axios.delete(
-      `http://3.238.81.121:5000/events/${id}`,
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}`,
       config
     );
 
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
   }
 };
 
@@ -337,12 +342,311 @@ export const adminGetEvents = async (token) => {
     };
 
     const res = await axios.get(
-      `http://3.238.81.121:5000/events/admin/events`,
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/admin/events`,
       config
     );
 
     return res;
   } catch (error) {
     console.log("ERROR", error);
+    return error?.response;
+  }
+};
+
+export const createTicket = async (
+  ticketType,
+  ticketPrice,
+  availableTickets,
+  ticketAdmits,
+  eventId,
+  token
+) => {
+  try {
+    console.log({
+      ticketType,
+      ticketPrice,
+      availableTickets,
+      ticketAdmits,
+      eventId,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.post(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/createTicket`,
+      {
+        ticketType,
+        ticketPrice,
+        availableTickets,
+        ticketAdmits,
+        eventId,
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+export const addEventImage = async (image, eventId, token) => {
+  try {
+    console.log({
+      image,
+      eventId,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.patch(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/addImage`,
+      {
+        image,
+        eventId,
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+
+export const toggleEventDay = async (
+  isEventDay,
+  id,
+  token
+) => {
+  try {
+    console.log({
+      isEventDay,
+      id,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.patch(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}/toggle-event-day`,
+      {
+        isEventDay
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+export const otherEventDetails = async (
+  entryPoints,
+  venueEntryPoint,
+  scanner,
+  staffScanning,
+  validationRule,
+  ticketTypeRule,
+  specialCondition,
+  id,
+  token
+) => {
+  try {
+    console.log({
+      entryPoints,
+      venueEntryPoint,
+      scanner,
+      staffScanning,
+      validationRule,
+      ticketTypeRule,
+      specialCondition,
+      id,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.patch(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}/event-day`,
+      {
+        entryPoints,
+        venueEntryPoint: entryPoints,
+        scanner,
+        staffScanning,
+        validationRule,
+        ticketTypeRule,
+        specialCondition,
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+export const toggleBoost = async (boost, id, token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.patch(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}/toggle-boost`,
+      { boost },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+
+export const toggleBoostDetails = async (
+  boostType,
+  boostDetails,
+  id,
+  token
+) => {
+  try {
+    console.log({
+      boostType,
+      boostDetails,
+      id,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.patch(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}/boost-details`,
+      {
+        boostType,
+        boostDetails,
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+
+export const earlyBirdPricing = async (enabled, type, details, id, token) => {
+  try {
+    console.log({
+      enabled,
+      type,
+      details,
+      id,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.patch(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}/early-bird`,
+      {
+        enabled,
+        type,
+        details,
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+
+export const discountPricing = async (enabled, type, details, id, token) => {
+  try {
+    console.log({
+      enabled,
+      type,
+      details,
+      id,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.patch(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}/discount`,
+      {
+        enabled,
+        type,
+        details,
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
+  }
+};
+
+export const eventFaq = async (title, description, id, token) => {
+  try {
+    console.log({
+      title, description,
+      id,
+      token,
+    });
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const res = await axios.post(
+      `${process.env.NEXT_PUBLIC_DEV_URL}/events/${id}/faqs`,
+      {
+        title, description
+      },
+      config
+    );
+
+    return res;
+  } catch (error) {
+    console.log("ERROR", error);
+    return error?.response;
   }
 };

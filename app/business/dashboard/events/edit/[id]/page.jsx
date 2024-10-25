@@ -1,15 +1,29 @@
 "use client";
-import { editEvent, getUserEvent } from "@/app/apis/events";
+import {
+  editEvent,
+  getUserEvent,
+  createTicket,
+  addEventImage,
+  toggleEventDay,
+  otherEventDetails,
+  toggleBoostDetails,
+  toggleBoost,
+  earlyBirdPricing,
+  discountPricing,
+  eventFaq
+} from "@/app/apis/events";
 import SuccessModal from "@/app/components/successModal";
 import { picksData } from "@/app/components/userComponents/picksForMe/picksData";
 import { PicksItems } from "@/app/components/userComponents/picksForMe/PicksItems";
+import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function EditEvent(params) {
   const { id } = useParams();
+  const mediaRef = useRef("");
   const auth = useSelector((state) => state.auth);
   const [stage, setStage] = useState(1);
   const [open, setOpen] = useState(false);
@@ -38,19 +52,62 @@ export default function EditEvent(params) {
   const [sponsors, setSponsors] = useState([]);
   const [sponsor, setSponsor] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [ticketType, setTicketType] = useState("");
+  const [tickets, setTickets] = useState([]);
+  const [regularTicketName, setRegularTicketName] = useState("");
+  const [regularTicketPrice, setRegularTicketPrice] = useState("");
+  const [regularAvailableTickets, setRegularAvailableTickets] = useState("");
+  const [regularTicketAdmits, setRegularTicketAdmits] = useState("");
+  const [vipTicketName, setVipTicketName] = useState("");
+  const [vipTicketPrice, setVipTicketPrice] = useState("");
+  const [vipAvailableTickets, setVipAvailableTickets] = useState("");
+  const [vipTicketAdmits, setVipTicketAdmits] = useState("");
+  const [platinumTicketName, setPlatinumTicketName] = useState("");
+  const [platinumTicketPrice, setPlatinumTicketPrice] = useState("");
+  const [platinumAvailableTickets, setPlatinumAvailableTickets] = useState("");
+  const [platinumTicketAdmits, setPlatinumTicketAdmits] = useState("");
   const [event, setEvent] = useState(null);
+  const [image, setImage] = useState(null);
+  const [entryPoints, setEntryPoints] = useState("");
+  const [venueEntryPoint, setVenueEntryPoint] = useState([]);
+  const [scanner, setScanner] = useState("");
+  const [staffScanning, setStaffScanning] = useState("");
+  const [validationRule, setValidationRule] = useState("");
+  const [ticketTypeRule, setTicketTypeRule] = useState("");
+  const [specialCondition, setSpecialCondition] = useState("");
+  const [boostType, setBoostType] = useState("daily");
+  const [boostPage, setBoostPage] = useState("");
+  const [boostImage, setBoostImage] = useState("");
+  const [boostImageTitle, setBoostImageTitle] = useState("");
+  const [boostImageType, setBoostImageType] = useState("");
+  const [earlyBirdActive, setEarlyBirdActive] = useState(false);
+  const [eventDayActive, setEventDayActive] = useState(false);
+  const [boostEventActive, setBoostEventActive] = useState(false);
+  const [discountActive, setDiscountActive] = useState(false);
+  const [earlyBirdType, setEarlyBirdType] = useState("fixed amount");
+  const [discountType, setDiscountType] = useState("fixed amount");
+  const [percentage, setPercentage] = useState(0);
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const [ticketQuantity, setTicketQuantity] = useState(0);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [discountPercentage, setDiscountPercentage] = useState(0);
+  const [discountDiscountAmount, setDiscountDiscountAmount] = useState(0);
+  const [discountTicketQuantity, setDiscountTicketQuantity] = useState(0);
+  const [discountStartDate, setDiscountStartDate] = useState("");
+  const [discountEndDate, setDiscountEndDate] = useState("");
   const slicedData = picksData.slice(0, list);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
 
   const handleStageChange = async () => {
-    setLoading(true);
     if (stage === 1) {
       if (!category) {
         alert("Please select a category for your event");
       } else {
         setStage(2);
       }
-    }
-    if (stage === 2) {
+    } else if (stage === 2) {
       if (title?.length < 1) {
         alert("Please fill title field");
       } else if (description?.length < 1) {
@@ -78,6 +135,8 @@ export default function EditEvent(params) {
       } else if (sponsors?.length < 1) {
         alert("Please fill sponsors field");
       } else {
+        setLoading(true);
+
         const response = await editEvent(
           id,
           category,
@@ -98,17 +157,377 @@ export default function EditEvent(params) {
           sponsors,
           auth?.token
         );
-        
 
         if (response?.status === 200) {
           console.log("we dey!");
-          window.location.href = "/business/dashboard/events/";
+          setStage(3);
         } else {
           alert(response?.data?.message);
         }
 
         console.log("createEvent", response);
+        setLoading(false);
+
       }
+    } else if (stage === 3) {
+      console.log("deyyah!");
+      setLoading(true);
+      const regularTicketExists = tickets?.filter(
+        (ticket) => ticket?.ticketType === "regular"
+      );
+      const vipTicketExists = tickets?.filter(
+        (ticket) => ticket?.ticketType === "vip"
+      );
+      const platinumTicketExists = tickets?.filter(
+        (ticket) => ticket?.ticketType === "platinum"
+      );
+      console.log("regularTicketPrice", regularTicketPrice);
+
+      if (
+        !regularTicketName?.toString()?.trim() ||
+        !regularTicketPrice?.toString()?.trim() ||
+        !regularAvailableTickets?.toString()?.trim() ||
+        !regularTicketAdmits?.toString()?.trim()
+      ) {
+        alert("Please fill all regular ticket fields");
+        return;
+      } else if (
+        !!vipTicketName?.toString()?.trim() ||
+        !!vipTicketPrice?.toString()?.trim() ||
+        !!vipAvailableTickets?.toString()?.trim() ||
+        !!vipTicketAdmits?.toString()?.trim()
+      ) {
+        if (
+          !vipTicketName?.toString()?.trim() ||
+          !vipTicketPrice?.toString()?.trim() ||
+          !vipAvailableTickets?.toString()?.trim() ||
+          !vipTicketAdmits?.toString()?.trim()
+        ) {
+          alert("Please fill all vip ticket fields");
+          return;
+        }
+      } else if (
+        !!platinumTicketName?.toString()?.trim() ||
+        !!platinumTicketPrice?.toString()?.trim() ||
+        !!platinumAvailableTickets?.toString()?.trim() ||
+        !!platinumTicketAdmits?.toString()?.trim()
+      ) {
+        if (
+          !platinumTicketName?.toString()?.trim() ||
+          !platinumTicketPrice?.toString()?.trim() ||
+          !platinumAvailableTickets?.toString()?.trim() ||
+          !platinumTicketAdmits?.toString()?.trim()
+        ) {
+          alert("Please fill all platinum ticket fields");
+          return;
+        }
+      }
+
+      setLoading(true);
+      if (regularTicketExists?.length < 1) {
+        console.log("else");
+        const responseRegular = await createTicket(
+          "regular",
+          regularTicketPrice,
+          regularAvailableTickets,
+          regularTicketAdmits,
+          id,
+          auth?.token
+        );
+        console.log("responseRegular", responseRegular);
+        if (responseRegular?.status === 201) {
+          console.log("regular ticket created!");
+        } else {
+          alert(responseRegular?.data?.message);
+        }
+
+      }
+
+      if (vipTicketExists?.length < 1) {
+
+        const responseVip = await createTicket(
+          "vip",
+          vipTicketPrice,
+          vipAvailableTickets,
+          vipTicketAdmits,
+          id,
+          auth?.token
+        );
+        console.log("responseVip", responseVip);
+        if (responseVip?.status === 201) {
+          console.log("vip ticket created!");
+        } else {
+          alert(responseVip?.data?.message);
+        }
+
+      }
+      if (platinumTicketExists?.length < 1) {
+        const responsePlatinum = await createTicket(
+          "platinum",
+          platinumTicketPrice,
+          platinumAvailableTickets,
+          platinumTicketAdmits,
+          id,
+          auth?.token
+        );
+        console.log("responsePlatinum", responsePlatinum);
+        if (responsePlatinum?.status === 201) {
+          console.log("platinum ticket created!");
+        } else {
+          alert(responsePlatinum?.data?.message);
+        }
+      }
+
+      //   if(regularTicketExists?.length > 0) {
+      //   //Edit ticket
+      //   }
+      //   if(vipTicketExists?.length > 0) {
+      //   //Edit ticket
+      //   }
+      //   if(platinumTicketExists?.length > 0) {
+      //   //Edit ticket
+      //   }
+      setStage(4);
+      //   window.location.href = "/business/dashboard/events/";
+      setLoading(false);
+    } else if (stage === 4) {
+      setStage(5);
+    } else if (stage === 5) {
+       
+        if(eventDayActive) {
+            if (entryPoints?.toString()?.length < 1) {
+               alert("Please fill entry points field");
+               return;
+             }
+            if(entryPoints?.toString()?.length > 0) {
+                if(venueEntryPoint?.length < 1) {
+                    alert("Please fill all selected points field");
+                    return;
+                }else if(venueEntryPoint?.length < Number(entryPoints)) {
+                    alert("Please fill all selected points field");
+                    return;
+                }
+                
+                const temp = venueEntryPoint.filter((item) => item?.length < 1);
+                if(temp?.length > 0) {
+                    alert("Please fill all selected points field");
+                    return;
+                }
+             }
+              if (scanner?.length < 1) {
+                alert('Please fill the "Will you use mobile devices or dedicated scanners for ticket scanning?" field');
+                return;
+              } if (scanner === "yes" && staffScanning?.length < 1) {
+                alert('Please fill the "Will you require additional staff for scanning tickets?" field');
+                return;
+              }
+               if (validationRule?.length < 1) {
+                alert('Please fill Validation rules field');
+                return;
+              } if (ticketTypeRule?.length < 1) {
+                alert('Please fill Ticket type-specific rules field');
+                return;
+              }
+               if (specialCondition?.length < 1) {
+                alert('Please fill Special conditions field');
+                return;
+              }
+        }
+        if(boostEventActive) {
+            if (boostPage?.length < 1) {
+                alert("Please select the page where you would like your event to appear");
+                return;
+              }
+           else if (boostImage?.length < 1) {
+                alert("Please upload ad banner");
+                return;
+              }
+        }
+
+        if(earlyBirdActive) {
+            if (earlyBirdType?.length < 1) {
+                alert("Please select Discount value type");
+                return;
+              }
+              else if(earlyBirdType === "percentage" && percentage < 1) {
+                alert("Please fill Percentage off field");
+                return;
+              }
+              else if(earlyBirdType === "fixed amount" && discountAmount < 1) {
+                alert("Please fill Discount amount field");
+                return;
+              }
+              else if(ticketQuantity < 1) {
+                alert("Please fill Ticket quantity field");
+                return;
+              }
+              else if(startDate?.length < 1) {
+                alert("Please fill Start date field");
+                return;
+              }
+              else if(endDate?.length < 1) {
+                alert("Please fill Enf date field");
+                return;
+              }
+        }
+        if(discountActive) {
+            if (discountType?.length < 1) {
+                alert("Please select Discount value type");
+                return;
+              }
+              else if(discountType === "percentage" && discountPercentage < 1) {
+                alert("Please fill Percentage off field");
+                return;
+              }
+              else if(discountType === "fixed amount" && discountDiscountAmount < 1) {
+                alert("Please fill Discount amount field");
+                return;
+              }
+              else if(discountTicketQuantity < 1) {
+                alert("Please fill Ticket quantity field");
+                return;
+              }
+              else if(discountStartDate?.length < 1) {
+                alert("Please fill Start date field");
+                return;
+              }
+              else if(discountEndDate?.length < 1) {
+                alert("Please fill Enf date field");
+                return;
+              }
+        }
+        setLoading(true);
+
+              
+        
+      const responseBeforeOne = await toggleEventDay(
+        eventDayActive,
+        id,
+        auth?.token
+      );
+      console.log("toggleEventDay", responseBeforeOne);
+        if (responseBeforeOne?.status === 200) {
+        //   console.log("regular ticket created!");
+        } else {
+          alert(responseBeforeOne?.data?.message);
+          return;
+        }
+      const response = await otherEventDetails(
+        entryPoints,
+        venueEntryPoint,
+        scanner,
+        staffScanning,
+        validationRule,
+        ticketTypeRule,
+        specialCondition,
+        id,
+        auth?.token
+      );
+      console.log("otherEventDetails", response);
+        if (response?.status === 200) {
+        //   console.log("regular ticket created!");
+        } else {
+          alert(response?.data?.message);
+          return;
+        }
+
+      //Here ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
+      const responseTwo = await toggleBoost(true, id, auth?.token);
+      console.log("toggleBoost", responseTwo);
+
+      if (response?.status === 200) {
+        //   console.log("regular ticket created!");
+        } else {
+          alert(response?.data?.message);
+          return;
+        }
+
+      let boostDetails;
+
+      if (boostPage === "Home page") {
+        boostDetails = {
+          homePageAmount: 500000,
+          eventPageAmount: 0,
+          trendingPageAmount: 0,
+          othersAmount: 0,
+          imageLink: boostImage,
+          status: true,
+        };
+      } else if (boostPage === "Events page") {
+        boostDetails = {
+          homePageAmount: 0,
+          eventPageAmount: 350000,
+          trendingPageAmount: 0,
+          othersAmount: 0,
+          imageLink: boostImage,
+          status: true,
+        };
+      } else if (boostPage === "Trending events") {
+        boostDetails = {
+          homePageAmount: 0,
+          eventPageAmount: 0,
+          trendingPageAmount: 250000,
+          othersAmount: 0,
+          imageLink: boostImage,
+          status: true,
+        };
+      } else if (boostPage === "Other ads") {
+        boostDetails = {
+          homePageAmount: 0,
+          eventPageAmount: 0,
+          trendingPageAmount: 0,
+          othersAmount: 150000,
+          imageLink: boostImage,
+          status: true,
+        };
+      }
+
+      const responseThree = await toggleBoostDetails(
+        boostType?.toLowerCase(),
+        boostDetails,
+        id,
+        auth?.token
+      );
+      console.log("toggleBoostDetails", responseThree);
+
+      if (responseThree?.status === 200) {
+        //   console.log("regular ticket created!");
+        } else {
+          alert(responseThree?.data?.message);
+          return;
+        }
+
+      const responseFour = await earlyBirdPricing(
+        earlyBirdActive,
+        earlyBirdType,
+        {
+          percentage: 20,
+          discountAmount: 20,
+          ticketQuantity: 100,
+          startDate,
+          endDate,
+        },
+        id,
+        auth?.token
+      );
+      console.log("earlyBirdPricing", responseFour);
+
+    //   const responseFive = await discountPricing(
+    //     discountActive,
+    //     discountType,
+    //     {
+    //         discountPercentage,
+    //         discountDiscountAmount,
+    //         discountTicketQuantity,
+    //         discountStartDate,
+    //         discountEndDate,
+    //     },
+    //     id,
+    //     auth?.token
+    //   );
+    //   console.log("discountPricing", responseFive);
+    setLoading(false);
     }
     setLoading(false);
   };
@@ -120,7 +539,7 @@ export default function EditEvent(params) {
     listInputStateSetter
   ) => {
     console.log("listInputState", listInputState);
-    if (listInputState?.trim()?.length > 0) {
+    if (listInputState?.toString()?.trim()?.length > 0) {
       listSetter([...list, listInputState]);
       listInputStateSetter("");
     }
@@ -132,6 +551,7 @@ export default function EditEvent(params) {
   };
 
   const handleGetUserEvent = async () => {
+    setLoading(true);
     const response = await getUserEvent(id, auth?.token);
     console.log("response from get Event", response);
 
@@ -151,14 +571,169 @@ export default function EditEvent(params) {
       setPerformers(response?.data?.performers);
       setOrganizers(response?.data?.organizers);
       setSponsors(response?.data?.sponsors);
+      setTickets(response?.data?.tickets);
+      setImage(response?.data?.image);
+      setEventDayActive(response?.data?.eventDay);
+      setEntryPoints(response?.data?.entryPoints);
+      setScanner(response?.data?.scanner);
+      setStaffScanning(response?.data?.staffScanning);
+      setValidationRule(response?.data?.validationRule);
+      setTicketTypeRule(response?.data?.ticketTypeRule);
+      setSpecialCondition(response?.data?.specialCondition);
+      setBoostEventActive(response?.data?.boostEvent);
+      setBoostImage(
+        response?.data?.boostDetails?.daily?
+        "daily" :
+        response?.data?.boostDetails?.weekly ?
+        "weekly" :
+        response?.data?.boostDetails?.monthly ?
+        "monthly" : ""
+    );
+      setBoostImage(
+        response?.data?.boostDetails?.daily?.imageLink ?
+        response?.data?.boostDetails?.daily?.imageLink :
+        response?.data?.boostDetails?.weekly?.imageLink ?
+        response?.data?.boostDetails?.weekly?.imageLink :
+        response?.data?.boostDetails?.monthly?.imageLink ?
+        response?.data?.boostDetails?.monthly?.imageLink : ""
+    );
+      setBoostPage(
+        response?.data?.boostDetails?.daily?.homePageAmount > 0 ?
+        "Home page" :
+        response?.data?.boostDetails?.daily?.eventPageAmount > 0 ?
+        "Events page" :
+        response?.data?.boostDetails?.daily?.trendingPageAmount > 0 ?
+        "Trending events" : 
+        response?.data?.boostDetails?.daily?.othersAmount > 0 ?
+        "Other ads" : ""
+    );
+
+      for (let index = 0; index < response?.data?.tickets.length; index++) {
+        if (response?.data?.tickets[index]?.ticketType === "regular") {
+          console.log(
+            "response?.data?.tickets[index]?.ticketPrice",
+            response?.data?.tickets[index]?.ticketPrice
+          );
+
+          setRegularTicketPrice(response?.data?.tickets[index]?.ticketPrice);
+          setRegularAvailableTickets(
+            response?.data?.tickets[index]?.availableTickets
+          );
+          setRegularTicketAdmits(response?.data?.tickets[index]?.ticketAdmits);
+        } else if (response?.data?.tickets[index]?.ticketType === "vip") {
+          setVipTicketPrice(response?.data?.tickets[index]?.ticketPrice);
+          setVipAvailableTickets(
+            response?.data?.tickets[index]?.availableTickets
+          );
+          setVipTicketAdmits(response?.data?.tickets[index]?.ticketAdmits);
+        } else if (response?.data?.tickets[index]?.ticketType === "platinum") {
+          setPlatinumTicketPrice(response?.data?.tickets[index]?.ticketPrice);
+          setPlatinumAvailableTickets(
+            response?.data?.tickets[index]?.availableTickets
+          );
+          setPlatinumTicketAdmits(response?.data?.tickets[index]?.ticketAdmits);
+        }
+      }
     } else {
       alert(response?.data?.message);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     handleGetUserEvent();
   }, []);
+
+  const handleAddEventImage = async (uploadedImage) => {
+    console.log("uploadedImage", uploadedImage);
+
+    const response = await addEventImage(uploadedImage, id, auth?.token);
+
+    console.log("handleAddEventImage", response);
+  };
+
+  const handleUploadImage = (e, type) => {
+    let files = e.target.files;
+
+    const fileToUri = (file, cb) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        cb(null, reader.result);
+      };
+      reader.onerror = function (error) {
+        cb(error, null);
+      };
+    };
+
+    if (files) {
+      fileToUri(files[0], (err, result) => {
+        if (result) {
+          console.log("result", result);
+
+          axios
+            .post(
+              `https://kaxl3c7ehj.execute-api.us-east-1.amazonaws.com/dev/v1/upload`,
+              {
+                user: "teddy",
+                media_type: "png",
+                contents: result,
+              }
+            )
+            .then((response) => {
+              console.log("response file uploaded", response);
+              if (response?.status === 200) {
+                if (type === "boost") {
+                  setBoostImage(response?.data?.body?.data);
+                  setBoostImageTitle(files[0]?.name);
+                  setBoostImageType(files[0]?.type.split("/")[1]);
+                } else {
+                  setImage(response?.data?.body?.data);
+                  handleAddEventImage(response?.data?.body?.data);
+                }
+              }
+              // setMugLoading(false);
+            })
+            .catch((err) => {
+              console.log("ERRRR", err);
+              // setMugLoading(false);
+              // alert("Mugshot upload failed. please try again")
+            });
+        }
+      });
+    }
+    setLoading(false);
+  };
+
+  const handleRemoveImage = () => {
+    setImage(null);
+  };
+
+  const handleVenueEntryPointInput = (index, value) => {
+    const temp = [...venueEntryPoint];
+    temp.splice(index, 1, value);
+    setVenueEntryPoint(temp);
+  };
+
+  useEffect(() => {
+    console.log("entryPoints", entryPoints);
+    console.log("venueEntryPoint", venueEntryPoint);
+  }, [entryPoints]);
+
+
+  const handleEventFaq = async (e) => {
+    setLoading(true)
+    e.preventDefault();
+    const response = await eventFaq(question, answer, id, auth?.token);
+    console.log('eventFaq', response);
+    if(response?.status === 201) {
+      handleGetUserEvent();
+      setFaqModal(false)
+    }else {
+      alert(response?.data?.message)
+    }
+    setLoading(false)
+  }
   return (
     <div className="edit-event">
       <div className="edit-event__header">
@@ -949,19 +1524,37 @@ export default function EditEvent(params) {
                 <div className="edit-event__inner__card2__ticket-card__grid">
                   <div>
                     <label htmlFor="">Ticket name</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={regularTicketName}
+                      onChange={(e) => setRegularTicketName(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Ticket admits </label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={regularTicketAdmits}
+                      onChange={(e) => setRegularTicketAdmits(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Price</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={regularTicketPrice}
+                      onChange={(e) => setRegularTicketPrice(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Available tickets</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={regularAvailableTickets}
+                      onChange={(e) =>
+                        setRegularAvailableTickets(e.target.value)
+                      }
+                    />
                   </div>
                 </div>
               </div>
@@ -973,19 +1566,35 @@ export default function EditEvent(params) {
                 <div className="edit-event__inner__card2__ticket-card__grid">
                   <div>
                     <label htmlFor="">Ticket name</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={vipTicketName}
+                      onChange={(e) => setVipTicketName(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Ticket admits </label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={vipTicketAdmits}
+                      onChange={(e) => setVipTicketAdmits(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Price</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={vipTicketPrice}
+                      onChange={(e) => setVipTicketPrice(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Available tickets</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={vipAvailableTickets}
+                      onChange={(e) => setVipAvailableTickets(e.target.value)}
+                    />
                   </div>
                 </div>
               </div>
@@ -997,19 +1606,37 @@ export default function EditEvent(params) {
                 <div className="edit-event__inner__card2__ticket-card__grid">
                   <div>
                     <label htmlFor="">Ticket name</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={platinumTicketName}
+                      onChange={(e) => setPlatinumTicketName(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Ticket admits </label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={platinumTicketAdmits}
+                      onChange={(e) => setPlatinumTicketAdmits(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Price</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={platinumTicketPrice}
+                      onChange={(e) => setPlatinumTicketPrice(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Available tickets</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={platinumAvailableTickets}
+                      onChange={(e) =>
+                        setPlatinumAvailableTickets(e.target.value)
+                      }
+                    />
                   </div>
                 </div>
               </div>
@@ -1027,101 +1654,119 @@ export default function EditEvent(params) {
                 First impression matters.So, upload an image that sells your
                 event
               </div>
-              {/* <div className="edit-event__inner__card2__image">
-                <Image
-                  src="/assets/davido.png"
-                  layout="fill"
-                  objectFit="cover"
-                  style={{ borderRadius: "12px" }}
-                />
-                <button>
+              {image && (
+                <div className="edit-event__inner__card2__image">
+                  <Image
+                    src={`https://${image}`}
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "12px" }}
+                  />
+                  <button onClick={handleRemoveImage}>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.3333 5.00008V4.33341C13.3333 3.39999 13.3333 2.93328 13.1517 2.57676C12.9919 2.26316 12.7369 2.00819 12.4233 1.8484C12.0668 1.66675 11.6001 1.66675 10.6667 1.66675H9.33333C8.39991 1.66675 7.9332 1.66675 7.57668 1.8484C7.26308 2.00819 7.00811 2.26316 6.84832 2.57676C6.66667 2.93328 6.66667 3.39999 6.66667 4.33341V5.00008M8.33333 9.58342V13.7501M11.6667 9.58342V13.7501M2.5 5.00008H17.5M15.8333 5.00008V14.3334C15.8333 15.7335 15.8333 16.4336 15.5608 16.9684C15.3212 17.4388 14.9387 17.8212 14.4683 18.0609C13.9335 18.3334 13.2335 18.3334 11.8333 18.3334H8.16667C6.76654 18.3334 6.06647 18.3334 5.53169 18.0609C5.06129 17.8212 4.67883 17.4388 4.43915 16.9684C4.16667 16.4336 4.16667 15.7335 4.16667 14.3334V5.00008"
+                        stroke="#D92D20"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    Delete Image
+                  </button>
+                </div>
+              )}
+
+              {!image && (
+                <label className="edit-event__inner__card2__upload">
                   <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 44 44"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M13.3333 5.00008V4.33341C13.3333 3.39999 13.3333 2.93328 13.1517 2.57676C12.9919 2.26316 12.7369 2.00819 12.4233 1.8484C12.0668 1.66675 11.6001 1.66675 10.6667 1.66675H9.33333C8.39991 1.66675 7.9332 1.66675 7.57668 1.8484C7.26308 2.00819 7.00811 2.26316 6.84832 2.57676C6.66667 2.93328 6.66667 3.39999 6.66667 4.33341V5.00008M8.33333 9.58342V13.7501M11.6667 9.58342V13.7501M2.5 5.00008H17.5M15.8333 5.00008V14.3334C15.8333 15.7335 15.8333 16.4336 15.5608 16.9684C15.3212 17.4388 14.9387 17.8212 14.4683 18.0609C13.9335 18.3334 13.2335 18.3334 11.8333 18.3334H8.16667C6.76654 18.3334 6.06647 18.3334 5.53169 18.0609C5.06129 17.8212 4.67883 17.4388 4.43915 16.9684C4.16667 16.4336 4.16667 15.7335 4.16667 14.3334V5.00008"
-                      stroke="#D92D20"
-                      stroke-width="1.66667"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                    <g filter="url(#filter0_d_2529_9332)">
+                      <path
+                        d="M2.5 9C2.5 4.85786 5.85786 1.5 10 1.5H34C38.1421 1.5 41.5 4.85786 41.5 9V33C41.5 37.1421 38.1421 40.5 34 40.5H10C5.85786 40.5 2.5 37.1421 2.5 33V9Z"
+                        stroke="#EAEBEA"
+                        shape-rendering="crispEdges"
+                      />
+                      <path
+                        d="M18.666 24.3333L21.9993 21M21.9993 21L25.3327 24.3333M21.9993 21V28.5M28.666 24.9524C29.6839 24.1117 30.3327 22.8399 30.3327 21.4167C30.3327 18.8854 28.2807 16.8333 25.7493 16.8333C25.5673 16.8333 25.3969 16.7383 25.3044 16.5814C24.2177 14.7374 22.2114 13.5 19.916 13.5C16.4642 13.5 13.666 16.2982 13.666 19.75C13.666 21.4718 14.3622 23.0309 15.4885 24.1613"
+                        stroke="#565856"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <filter
+                        id="filter0_d_2529_9332"
+                        x="0"
+                        y="0"
+                        width="44"
+                        height="44"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feColorMatrix
+                          in="SourceAlpha"
+                          type="matrix"
+                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha"
+                        />
+                        <feOffset dy="1" />
+                        <feGaussianBlur stdDeviation="1" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix
+                          type="matrix"
+                          values="0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0 0.156863 0 0 0 0.05 0"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in2="BackgroundImageFix"
+                          result="effect1_dropShadow_2529_9332"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_dropShadow_2529_9332"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
                   </svg>
-                  Delete Image
-                </button>
-              </div> */}
 
-              <div className="edit-event__inner__card2__upload">
-                <svg
-                  width="44"
-                  height="44"
-                  viewBox="0 0 44 44"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_d_2529_9332)">
-                    <path
-                      d="M2.5 9C2.5 4.85786 5.85786 1.5 10 1.5H34C38.1421 1.5 41.5 4.85786 41.5 9V33C41.5 37.1421 38.1421 40.5 34 40.5H10C5.85786 40.5 2.5 37.1421 2.5 33V9Z"
-                      stroke="#EAEBEA"
-                      shape-rendering="crispEdges"
-                    />
-                    <path
-                      d="M18.666 24.3333L21.9993 21M21.9993 21L25.3327 24.3333M21.9993 21V28.5M28.666 24.9524C29.6839 24.1117 30.3327 22.8399 30.3327 21.4167C30.3327 18.8854 28.2807 16.8333 25.7493 16.8333C25.5673 16.8333 25.3969 16.7383 25.3044 16.5814C24.2177 14.7374 22.2114 13.5 19.916 13.5C16.4642 13.5 13.666 16.2982 13.666 19.75C13.666 21.4718 14.3622 23.0309 15.4885 24.1613"
-                      stroke="#565856"
-                      stroke-width="1.66667"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_d_2529_9332"
-                      x="0"
-                      y="0"
-                      width="44"
-                      height="44"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="1" />
-                      <feGaussianBlur stdDeviation="1" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0 0.156863 0 0 0 0.05 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="BackgroundImageFix"
-                        result="effect1_dropShadow_2529_9332"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_dropShadow_2529_9332"
-                        result="shape"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
+                  <div className="edit-event__inner__card2__upload__title">
+                    <span>Click to upload</span> or drag and drop your image
+                    here
+                  </div>
+                  <div className="edit-event__inner__card2__upload__subtitle">
+                    PNG or JPG • 1600 x 1200px (4:3) recommended, up to 10MB.
+                  </div>
 
-                <div className="edit-event__inner__card2__upload__title">
-                  <span>Click to upload</span> or drag and drop your image here
-                </div>
-                <div className="edit-event__inner__card2__upload__subtitle">
-                  PNG or JPG • 1600 x 1200px (4:3) recommended, up to 10MB.
-                </div>
-              </div>
+                  <input
+                    type="file"
+                    name=""
+                    id=""
+                    hidden
+                    ref={mediaRef}
+                    accept="image/*"
+                    onChange={(e) => handleUploadImage(e)}
+                  />
+                </label>
+              )}
             </>
           )}
 
@@ -1142,10 +1787,22 @@ export default function EditEvent(params) {
                   </div>
                 </div>
 
-                {/* add toggle switch here */}
+                <div
+                  className={`edit-event__inner__card2__switch-group__switch ${
+                    eventDayActive &&
+                    "edit-event__inner__card2__switch-group__switch-active"
+                  }`}
+                  onClick={() => setEventDayActive(!eventDayActive)}
+                >
+                  <div className="edit-event__inner__card2__switch-group__switch__ball"></div>
+                </div>
+
               </div>
 
-              <div className="edit-event__inner__card2__mini-title">
+              {eventDayActive && <>
+
+              
+                <div className="edit-event__inner__card2__mini-title">
                 Venue entry points
               </div>
 
@@ -1156,22 +1813,97 @@ export default function EditEvent(params) {
                 name=""
                 id=""
                 className="edit-event__inner__card2__select"
+                value={entryPoints}
+                onChange={(e) => setEntryPoints(e.target.value)}
               >
-                <option value="">3</option>
+                <option value="">Select number of entry points</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
+              {Number(entryPoints) > 0 && (
+                <>
+                  <label htmlFor="" className="edit-event__inner__card2__label">
+                    1st venue entry point{" "}
+                  </label>
+                  <input
+                    type="text"
+                    className="edit-event__inner__card2__input"
+                    value={venueEntryPoint[0]}
+                    onChange={(e) =>
+                      handleVenueEntryPointInput(0, e.target.value)
+                    }
+                    required
+                  />
+                </>
+              )}
+              {Number(entryPoints) > 1 && (
+                <>
+                  <label htmlFor="" className="edit-event__inner__card2__label">
+                    2nd venue entry point{" "}
+                  </label>
+                  <input
+                    type="text"
+                    className="edit-event__inner__card2__input"
+                    value={venueEntryPoint[1]}
+                    onChange={(e) =>
+                      handleVenueEntryPointInput(1, e.target.value)
+                    }
+                    required
+                  />
+                </>
+              )}
+              {Number(entryPoints) > 2 && (
+                <>
+                  <label htmlFor="" className="edit-event__inner__card2__label">
+                    3rd venue entry point{" "}
+                  </label>
+                  <input
+                    type="text"
+                    className="edit-event__inner__card2__input"
+                    value={venueEntryPoint[2]}
+                    onChange={(e) =>
+                      handleVenueEntryPointInput(2, e.target.value)
+                    }
+                    required
+                  />
+                </>
+              )}
+              {Number(entryPoints) > 3 && (
+                <>
+                  <label htmlFor="" className="edit-event__inner__card2__label">
+                    4th venue entry point{" "}
+                  </label>
+                  <input
+                    type="text"
+                    className="edit-event__inner__card2__input"
+                    value={venueEntryPoint[3]}
+                    onChange={(e) =>
+                      handleVenueEntryPointInput(3, e.target.value)
+                    }
+                    required
+                  />
+                </>
+              )}
+              {Number(entryPoints) > 4 && (
+                <>
+                  <label htmlFor="" className="edit-event__inner__card2__label">
+                    5th venue entry point{" "}
+                  </label>
+                  <input
+                    type="text"
+                    className="edit-event__inner__card2__input"
+                    value={venueEntryPoint[4]}
+                    onChange={(e) =>
+                      handleVenueEntryPointInput(4, e.target.value)
+                    }
+                    required
+                  />
+                </>
+              )}
 
-              <label htmlFor="" className="edit-event__inner__card2__label">
-                1st venue entry point{" "}
-              </label>
-              <input type="text" className="edit-event__inner__card2__input" />
-              <label htmlFor="" className="edit-event__inner__card2__label">
-                2nd venue entry point
-              </label>
-              <input type="text" className="edit-event__inner__card2__input" />
-              <label htmlFor="" className="edit-event__inner__card2__label">
-                3rd venue entry point
-              </label>
-              <input type="text" className="edit-event__inner__card2__input" />
               <div className="edit-event__inner__card2__mini-title">
                 Ticket scanning
               </div>
@@ -1184,10 +1916,15 @@ export default function EditEvent(params) {
                 name=""
                 id=""
                 className="edit-event__inner__card2__select"
+                value={scanner}
+                onChange={(e) => setScanner(e.target.value)}
+                required
               >
-                <option value="">Yes</option>
+                <option value="">Select option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
-              <label htmlFor="" className="edit-event__inner__card2__label">
+              {/* <label htmlFor="" className="edit-event__inner__card2__label">
                 Select your preferred scanning device for ticket scanning?
               </label>
               <select
@@ -1196,7 +1933,8 @@ export default function EditEvent(params) {
                 className="edit-event__inner__card2__select"
               >
                 <option value="">Yes</option>
-              </select>
+              </select> */}
+              {scanner === "yes" && <>
 
               <div className="edit-event__inner__card2__mini-title">
                 Staffing on event day
@@ -1209,11 +1947,18 @@ export default function EditEvent(params) {
                 name=""
                 id=""
                 className="edit-event__inner__card2__select"
+                value={staffScanning}
+                onChange={(e) => setStaffScanning(e.target.value)}
+                required
               >
-                <option value="">Yes</option>
+                <option value="">Select option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
 
-              <label htmlFor="" className="edit-event__inner__card2__label">
+              </>
+}
+              {/* <label htmlFor="" className="edit-event__inner__card2__label">
                 Number of additional staffs required for scanning tickets?
               </label>
               <select
@@ -1221,8 +1966,8 @@ export default function EditEvent(params) {
                 id=""
                 className="edit-event__inner__card2__select"
               >
-                <option value="">6</option>
-              </select>
+                <option value=""></option>
+              </select> */}
 
               <div className="edit-event__inner__card2__mini-title">
                 Access control rules
@@ -1235,6 +1980,9 @@ export default function EditEvent(params) {
                 name=""
                 id=""
                 className="edit-event__inner__card2__input"
+                value={validationRule}
+                onChange={(e) => setValidationRule(e.target.value)}
+                required
               ></textarea>
 
               <label htmlFor="" className="edit-event__inner__card2__label">
@@ -1244,6 +1992,9 @@ export default function EditEvent(params) {
                 name=""
                 id=""
                 className="edit-event__inner__card2__input"
+                value={ticketTypeRule}
+                onChange={(e) => setTicketTypeRule(e.target.value)}
+                required
               ></textarea>
 
               <label htmlFor="" className="edit-event__inner__card2__label">
@@ -1253,7 +2004,12 @@ export default function EditEvent(params) {
                 name=""
                 id=""
                 className="edit-event__inner__card2__input"
+                value={specialCondition}
+                onChange={(e) => setSpecialCondition(e.target.value)}
+                required
               ></textarea>
+              </>}
+
 
               <div className="edit-event__inner__card2__switch-group">
                 <div>
@@ -1264,25 +2020,64 @@ export default function EditEvent(params) {
                   </div>
                 </div>
 
-                {/* add toggle switch here */}
+                <div
+                  className={`edit-event__inner__card2__switch-group__switch ${
+                    boostEventActive &&
+                    "edit-event__inner__card2__switch-group__switch-active"
+                  }`}
+                  onClick={() => setBoostEventActive(!boostEventActive)}
+                >
+                  <div className="edit-event__inner__card2__switch-group__switch__ball"></div>
+                </div>
               </div>
-              <div className="edit-event__inner__card2__mini-title">
-                Venue entry points
+
+
+              {boostEventActive && <>
+                <div className="edit-event__inner__card2__mini-title">
+                Ad placement
               </div>
               <div className="edit-event__inner__card2__mini-subtitle">
                 Select your preferred ad placement.
               </div>
 
               <div className="edit-event__inner__card2__tabs">
-                <div className="edit-event__inner__card2__tabs__active">
+                <div
+                  className={
+                    boostType === "daily" &&
+                    "edit-event__inner__card2__tabs__active"
+                  }
+                  onClick={() => setBoostType("daily")}
+                >
                   Daily
                 </div>
-                <div>Weekly</div>
-                <div>Monthly</div>
+                <div
+                  className={
+                    boostType === "Weekly" &&
+                    "edit-event__inner__card2__tabs__active"
+                  }
+                  onClick={() => setBoostType("weekly")}
+                >
+                  Weekly
+                </div>
+                <div
+                  className={
+                    boostType === "monthly" &&
+                    "edit-event__inner__card2__tabs__active"
+                  }
+                  onClick={() => setBoostType("monthly")}
+                >
+                  Monthly
+                </div>
               </div>
 
               <div className="edit-event__inner__card2__cards">
-                <div className="edit-event__inner__card2__cards__card">
+                <div
+                  className={`edit-event__inner__card2__cards__card ${
+                    boostPage === "Home page" &&
+                    "edit-event__inner__card2__cards__card-active"
+                  }`}
+                  onClick={() => setBoostPage("Home page")}
+                >
                   <div className="edit-event__inner__card2__cards__card__title">
                     <div>Home page</div>
                     <div>₦100,000</div>
@@ -1291,7 +2086,13 @@ export default function EditEvent(params) {
                     1440x560 banner size
                   </div>
                 </div>
-                <div className="edit-event__inner__card2__cards__card edit-event__inner__card2__cards__card-active">
+                <div
+                  className={`edit-event__inner__card2__cards__card ${
+                    boostPage === "Events page" &&
+                    "edit-event__inner__card2__cards__card-active"
+                  }`}
+                  onClick={() => setBoostPage("Events page")}
+                >
                   <div className="edit-event__inner__card2__cards__card__title">
                     <div>Events page</div>
                     <div>₦100,000</div>
@@ -1300,7 +2101,13 @@ export default function EditEvent(params) {
                     320x880 banner size
                   </div>
                 </div>
-                <div className="edit-event__inner__card2__cards__card">
+                <div
+                  className={`edit-event__inner__card2__cards__card ${
+                    boostPage === "Trending events" &&
+                    "edit-event__inner__card2__cards__card-active"
+                  }`}
+                  onClick={() => setBoostPage("Trending events")}
+                >
                   <div className="edit-event__inner__card2__cards__card__title">
                     <div>Trending events</div>
                     <div>₦100,000</div>
@@ -1309,7 +2116,13 @@ export default function EditEvent(params) {
                     400x260 banner size
                   </div>
                 </div>
-                <div className="edit-event__inner__card2__cards__card">
+                <div
+                  className={`edit-event__inner__card2__cards__card ${
+                    boostPage === "Other ads" &&
+                    "edit-event__inner__card2__cards__card-active"
+                  }`}
+                  onClick={() => setBoostPage("Other ads")}
+                >
                   <div className="edit-event__inner__card2__cards__card__title">
                     <div>Other ads</div>
                     <div>₦100,000</div>
@@ -1321,120 +2134,143 @@ export default function EditEvent(params) {
               </div>
 
               <div className="edit-event__inner__card2__mini-title">
-                Venue entry points
+                Upload ad banner
               </div>
               <div className="edit-event__inner__card2__mini-subtitle">
-                Select your preferred ad placement.
+                Please make sure you’re uploading the banner with the correct
+                size.
               </div>
 
-              <div className="edit-event__inner__card2__upload">
-                <svg
-                  width="44"
-                  height="44"
-                  viewBox="0 0 44 44"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_d_2529_9332)">
-                    <path
-                      d="M2.5 9C2.5 4.85786 5.85786 1.5 10 1.5H34C38.1421 1.5 41.5 4.85786 41.5 9V33C41.5 37.1421 38.1421 40.5 34 40.5H10C5.85786 40.5 2.5 37.1421 2.5 33V9Z"
-                      stroke="#EAEBEA"
-                      shape-rendering="crispEdges"
-                    />
-                    <path
-                      d="M18.666 24.3333L21.9993 21M21.9993 21L25.3327 24.3333M21.9993 21V28.5M28.666 24.9524C29.6839 24.1117 30.3327 22.8399 30.3327 21.4167C30.3327 18.8854 28.2807 16.8333 25.7493 16.8333C25.5673 16.8333 25.3969 16.7383 25.3044 16.5814C24.2177 14.7374 22.2114 13.5 19.916 13.5C16.4642 13.5 13.666 16.2982 13.666 19.75C13.666 21.4718 14.3622 23.0309 15.4885 24.1613"
-                      stroke="#565856"
-                      stroke-width="1.66667"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_d_2529_9332"
-                      x="0"
-                      y="0"
-                      width="44"
-                      height="44"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="1" />
-                      <feGaussianBlur stdDeviation="1" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0 0.156863 0 0 0 0.05 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="BackgroundImageFix"
-                        result="effect1_dropShadow_2529_9332"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_dropShadow_2529_9332"
-                        result="shape"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-
-                <div className="edit-event__inner__card2__upload__title">
-                  <span>Click to upload</span> or drag and drop your image here
-                </div>
-                <div className="edit-event__inner__card2__upload__subtitle">
-                  PNG or JPG • 1600 x 1200px (4:3) recommended, up to 10MB.
-                </div>
-              </div>
-
-              <div className="edit-event__inner__card2__file-upload">
-                <div className="edit-event__inner__card2__file-upload__icon">
+              {!boostImage && (
+                <label className="edit-event__inner__card2__upload">
+                    {loading ? <div className="edit-event__inner__card2__upload__title">
+                    <span>Loading</span>
+                  </div> : <>
                   <svg
-                    width="32"
-                    height="40"
-                    viewBox="0 0 32 40"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 44 44"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M0.75 4C0.75 2.20508 2.20508 0.75 4 0.75H20C20.1212 0.75 20.2375 0.798159 20.3232 0.883885L31.1161 11.6768C31.2018 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4Z"
-                      stroke="#D5D8D5"
-                      stroke-width="1.5"
-                    />
-                    <path
-                      d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5"
-                      stroke="#D5D8D5"
-                      stroke-width="1.5"
-                    />
+                    <g filter="url(#filter0_d_2529_9332)">
+                      <path
+                        d="M2.5 9C2.5 4.85786 5.85786 1.5 10 1.5H34C38.1421 1.5 41.5 4.85786 41.5 9V33C41.5 37.1421 38.1421 40.5 34 40.5H10C5.85786 40.5 2.5 37.1421 2.5 33V9Z"
+                        stroke="#EAEBEA"
+                        shape-rendering="crispEdges"
+                      />
+                      <path
+                        d="M18.666 24.3333L21.9993 21M21.9993 21L25.3327 24.3333M21.9993 21V28.5M28.666 24.9524C29.6839 24.1117 30.3327 22.8399 30.3327 21.4167C30.3327 18.8854 28.2807 16.8333 25.7493 16.8333C25.5673 16.8333 25.3969 16.7383 25.3044 16.5814C24.2177 14.7374 22.2114 13.5 19.916 13.5C16.4642 13.5 13.666 16.2982 13.666 19.75C13.666 21.4718 14.3622 23.0309 15.4885 24.1613"
+                        stroke="#565856"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <filter
+                        id="filter0_d_2529_9332"
+                        x="0"
+                        y="0"
+                        width="44"
+                        height="44"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feColorMatrix
+                          in="SourceAlpha"
+                          type="matrix"
+                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha"
+                        />
+                        <feOffset dy="1" />
+                        <feGaussianBlur stdDeviation="1" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix
+                          type="matrix"
+                          values="0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0 0.156863 0 0 0 0.05 0"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in2="BackgroundImageFix"
+                          result="effect1_dropShadow_2529_9332"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_dropShadow_2529_9332"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
                   </svg>
 
-                  <div>JPEG</div>
+                  <div className="edit-event__inner__card2__upload__title">
+                    <span>Click to upload</span> or drag and drop your image
+                    here
+                  </div>
+                  <div className="edit-event__inner__card2__upload__subtitle">
+                    PNG or JPG • 1600 x 1200px (4:3) recommended, up to 10MB.
+                  </div>
+
+                  <input
+                    type="file"
+                    name=""
+                    id=""
+                    hidden
+                    ref={mediaRef}
+                    accept="image/*"
+                    onChange={(e) => handleUploadImage(e, "boost")}
+                  />
+                  </>}
+                </label>
+              )}
+
+              {boostImage && (
+                <div className="edit-event__inner__card2__file-upload">
+                  <div className="edit-event__inner__card2__file-upload__icon">
+                    <svg
+                      width="32"
+                      height="40"
+                      viewBox="0 0 32 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.75 4C0.75 2.20508 2.20508 0.75 4 0.75H20C20.1212 0.75 20.2375 0.798159 20.3232 0.883885L31.1161 11.6768C31.2018 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4Z"
+                        stroke="#D5D8D5"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5"
+                        stroke="#D5D8D5"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+
+                    <div>{boostImageType}</div>
+                  </div>
+
+                  <div className="edit-event__inner__card2__file-upload__group">
+                    <div className="edit-event__inner__card2__file-upload__group__title">
+                      {boostImageTitle}
+                    </div>
+                    <div className="edit-event__inner__card2__file-upload__group__subtitle">
+                      3.6 MB
+                    </div>
+
+                    <div className="edit-event__inner__card2__file-upload__group__progress">
+                      <div></div>
+
+                      <div>100%</div>
+                    </div>
+                  </div>
                 </div>
-
-                <div className="edit-event__inner__card2__file-upload__group">
-                  <div className="edit-event__inner__card2__file-upload__group__title">
-                    DavidoLiveInConcertAdBanner.jpeg
-                  </div>
-                  <div className="edit-event__inner__card2__file-upload__group__subtitle">
-                    3.6 MB
-                  </div>
-
-                  <div className="edit-event__inner__card2__file-upload__group__progress">
-                    <div></div>
-
-                    <div>100%</div>
-                  </div>
-                </div>
-              </div>
+              )}
 
               <div className="edit-event__inner__card2__mini-title">
                 Ad placement preview
@@ -1475,6 +2311,9 @@ Pay now
                   Download receipt
                 </button>
               </div>
+              </>}
+
+
               <div className="edit-event__inner__card2__switch-group">
                 <div>
                   <div>Early bird pricing</div>
@@ -1483,42 +2322,99 @@ Pay now
                   </div>
                 </div>
 
-                {/* add toggle switch here */}
-              </div>
-              <div className="edit-event__inner__card2__mini-title">
-                Venue entry points
-              </div>
-
-              <div className="edit-event__inner__card2__radio-group">
-                <div>
-                  <input type="radio" name="" id="" />
-                  <div>Percentage discount</div>
-                </div>
-                <div>
-                  <input type="radio" name="" id="" />
-                  <div>Fixed amount discount</div>
+                <div
+                  className={`edit-event__inner__card2__switch-group__switch ${
+                    earlyBirdActive &&
+                    "edit-event__inner__card2__switch-group__switch-active"
+                  }`}
+                  onClick={() => setEarlyBirdActive(!earlyBirdActive)}
+                >
+                  <div className="edit-event__inner__card2__switch-group__switch__ball"></div>
                 </div>
               </div>
 
-              <div className="edit-event__inner__card2__form__input-group">
-                <label htmlFor="">Discount amount</label>
-                <input type="text" />
-              </div>
-              <div className="edit-event__inner__card2__form__input-group">
-                <label htmlFor="">Ticket quantity</label>
-                <input type="text" />
-              </div>
-              <div className="edit-event__inner__card2__form__input-grid">
-                <div>
-                  <label htmlFor="">Start date</label>
-                  <input type="date" name="" id="" />
-                </div>
-                <div>
-                  <label htmlFor="">End date</label>
-                  <input type="date" name="" id="" />
-                </div>
-              </div>
+              {earlyBirdActive && (
+                <>
+                  <div className="edit-event__inner__card2__mini-title">
+                    Discount value type
+                  </div>
 
+                  <div className="edit-event__inner__card2__radio-group">
+                    <div>
+                      <input
+                        type="radio"
+                        onClick={() => setEarlyBirdType("percentage")}
+                        name=""
+                        id=""
+                        checked={earlyBirdType === "percentage"}
+                      />
+                      <div>Percentage discount</div>
+                    </div>
+                    <div>
+                      <input
+                        type="radio"
+                        onClick={() => setEarlyBirdType("fixed amount")}
+                        name=""
+                        id=""
+                        checked={earlyBirdType === "fixed amount"}
+                      />
+                      <div>Fixed amount discount</div>
+                    </div>
+                  </div>
+
+                  {earlyBirdType === "percentage" && (
+                    <div className="edit-event__inner__card2__form__input-group">
+                      <label htmlFor="">Percentage off</label>
+                      <input
+                        type="number"
+                        value={percentage}
+                        onChange={(e) => setPercentage(e.target.value)}
+                      />
+                    </div>
+                  )}
+                  {earlyBirdType === "fixed amount" && (
+                    <div className="edit-event__inner__card2__form__input-group">
+                      <label htmlFor="">Discount amount</label>
+                      <input
+                        type="number"
+                        placeholder="₦0.00"
+                        value={discountAmount}
+                        onChange={(e) => setDiscountAmount(e.target.value)}
+                      />
+                    </div>
+                  )}
+                  <div className="edit-event__inner__card2__form__input-group">
+                    <label htmlFor="">Ticket quantity</label>
+                    <input
+                      type="number"
+                      value={ticketQuantity}
+                      onChange={(e) => setTicketQuantity(e.target.value)}
+                    />
+                  </div>
+                  <div className="edit-event__inner__card2__form__input-grid">
+                    <div>
+                      <label htmlFor="">Start date</label>
+                      <input
+                        type="date"
+                        name=""
+                        id=""
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="">End date</label>
+                      <input
+                        type="date"
+                        name=""
+                        id=""
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
               <div className="edit-event__inner__card2__switch-group">
                 <div>
                   <div>Discounted offer</div>
@@ -1528,38 +2424,99 @@ Pay now
                   </div>
                 </div>
 
-                {/* add toggle switch here */}
-              </div>
-
-              <div className="edit-event__inner__card2__radio-group">
-                <div>
-                  <input type="radio" name="" id="" />
-                  <div>Percentage discount</div>
-                </div>
-                <div>
-                  <input type="radio" name="" id="" />
-                  <div>Fixed amount discount</div>
+                <div
+                  className={`edit-event__inner__card2__switch-group__switch ${
+                    discountActive &&
+                    "edit-event__inner__card2__switch-group__switch-active"
+                  }`}
+                  onClick={() => setDiscountActive(!discountActive)}
+                >
+                  <div className="edit-event__inner__card2__switch-group__switch__ball"></div>
                 </div>
               </div>
 
-              <div className="edit-event__inner__card2__form__input-group">
-                <label htmlFor="">Percentage off</label>
-                <input type="text" />
-              </div>
-              <div className="edit-event__inner__card2__form__input-group">
-                <label htmlFor="">Discount conditions</label>
-                <select name="" id=""></select>
-              </div>
-              <div className="edit-event__inner__card2__form__input-grid">
-                <div>
-                  <label htmlFor="">Start date</label>
-                  <input type="date" name="" id="" />
-                </div>
-                <div>
-                  <label htmlFor="">End date</label>
-                  <input type="date" name="" id="" />
-                </div>
-              </div>
+              {discountActive && (
+                <>
+                  <div className="edit-event__inner__card2__mini-title">
+                    Discount value type
+                  </div>
+
+                  <div className="edit-event__inner__card2__radio-group">
+                    <div>
+                      <input
+                        type="radio"
+                        onClick={() => setDiscountType("percentage")}
+                        name=""
+                        id=""
+                        checked={discountType === "percentage"}
+                      />
+                      <div>Percentage discount</div>
+                    </div>
+                    <div>
+                      <input
+                        type="radio"
+                        onClick={() => setDiscountType("fixed amount")}
+                        name=""
+                        id=""
+                        checked={discountType === "fixed amount"}
+                      />
+                      <div>Fixed amount discount</div>
+                    </div>
+                  </div>
+
+                  {discountType === "percentage" && (
+                    <div className="edit-event__inner__card2__form__input-group">
+                      <label htmlFor="">Percentage off</label>
+                      <input
+                        type="text"
+                        value={discountPercentage}
+                        onChange={(e) => setDiscountPercentage(e.target.value)}
+                      />
+                    </div>
+                  )}
+                  {discountType === "fixed amount" && (
+                    <div className="edit-event__inner__card2__form__input-group">
+                      <label htmlFor="">Discount amount</label>
+                      <input
+                        type="text"
+                        placeholder="₦0.00"
+                        value={discountDiscountAmount}
+                        onChange={(e) => setDiscountDiscountAmount(e.target.value)}
+                      />
+                    </div>
+                  )}
+                  <div className="edit-event__inner__card2__form__input-group">
+                    <label htmlFor="">Ticket quantity</label>
+                    <input
+                      type="text"
+                      value={discountTicketQuantity}
+                      onChange={(e) => setDiscountTicketQuantity(e.target.value)}
+                    />
+                  </div>
+                  <div className="edit-event__inner__card2__form__input-grid">
+                    <div>
+                      <label htmlFor="">Start date</label>
+                      <input
+                        type="date"
+                        name=""
+                        id=""
+                        value={discountStartDate}
+                        onChange={(e) => setDiscountStartDate(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="">End date</label>
+                      <input
+                        type="date"
+                        name=""
+                        id=""
+                        value={discountEndDate}
+                        onChange={(e) => setDiscountEndDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
 
               <div className="edit-event__inner__card2__switch-group">
                 <div>
@@ -1753,7 +2710,9 @@ Pay now
               </div>
 
               <div className="edit-event__inner__card2__add-ticket">
-                <button>Add question and answer</button>
+                <button
+                onClick={() => setFaqModal(true)}
+                >Add question and answer</button>
               </div>
             </>
           )}
@@ -1901,7 +2860,11 @@ Pay now
         <div></div>
       </div>
       <div className="edit-event__footer">
-        <button onClick={() => window.location.href ="/business/dashboard/events"}>Cancel</button>
+        <button
+          onClick={() => (window.location.href = "/business/dashboard/events")}
+        >
+          Cancel
+        </button>
         <button onClick={handleStageChange}>
           {loading ? "Loading..." : "Next"}
         </button>
@@ -1922,7 +2885,7 @@ Pay now
 
       {faqModal && (
         <div className="edit-event__faq-modal">
-          <div className="edit-event__faq-modal__inner">
+          <form className="edit-event__faq-modal__inner" onSubmit={handleEventFaq}>
             <div className="edit-event__faq-modal__inner__title">
               <div>Add question and answer</div>
               <svg
@@ -1949,14 +2912,14 @@ Pay now
             </div>
 
             <label>Question</label>
-            <input type="text" />
+            <input type="text" value={question} onChange={(e) => setQuestion(e.target.value)} />
             <label>Answer</label>
-            <textarea name="" id=""></textarea>
+            <textarea name="" id="" value={answer} onChange={(e) => setAnswer(e.target.value)}></textarea>
             <div className="edit-event__faq-modal__inner__button-group">
-              <button>Cancel</button>
-              <button>Add</button>
+              <button type="button" onClick={() => setFaqModal(false)} disabled={loading}>Cancel</button>
+              <button type="submit" disabled={loading}>{loading ? "Loading..." : "Add"}</button>
             </div>
-          </div>
+          </form>
         </div>
       )}
 

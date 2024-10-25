@@ -1,6 +1,7 @@
 .user-home {
   background: #f9fafa;
   padding-bottom: 96px;
+  scroll-behavior: smooth !important;
 
   &__hero {
     width: 100%;
@@ -155,6 +156,7 @@
       padding: 16px;
       height: 100%;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     &__active {
@@ -785,6 +787,7 @@ background: var(--Component-colors-Utility-Brand-utility-brand-50, #EEFCF5);
             @extend %title-16;
             padding: 16px;
             font-weight: 600;
+            cursor: pointer;
           }
 
           &__active {

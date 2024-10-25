@@ -1,17 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { picksData } from "../components/userComponents/picksForMe/picksData";
 import { PicksItems } from "../components/userComponents/picksForMe/PicksItems";
 import Image from "next/image";
 import Footer from "../components/footer";
 import HomeHeader from "../components/home/header";
+import { adminGetEvents } from "../apis/events";
+import { useSelector } from "react-redux";
 
 export default function UserHome() {
+    const auth = useSelector((state) => state.auth);
   const [list, setList] = useState(3);
   const [selectedFilter, setSelectedFilter] = useState("");
+  const [events, setEvents] = useState([]);
 
   const slicedData = picksData.slice(0, list);
+
+  const handleGetEvents = async () => {
+      const response = await adminGetEvents(auth?.token);
+    console.log("response from API", response);
+    if (response?.status === 200) {
+      setEvents(response?.data);
+    } else {
+      alert(response?.data?.message);
+    }
+  };
+
+
+
+  useEffect(() => {
+    handleGetEvents();
+  }, []);
+
 
   return (
     <>
@@ -258,8 +279,8 @@ export default function UserHome() {
             </div>
 
             <div className="user-home__grid__picks__card1__grid">
-              {slicedData.map((data) => {
-                return <PicksItems key={data.id} {...data} />;
+              {events?.slice(0, 3)?.map((event) => {
+                return <PicksItems key={event._id} event={event} />;
               })}
             </div>
           </div>
@@ -336,8 +357,8 @@ export default function UserHome() {
             </div>
 
             <div className="user-home__grid__picks__card1__grid">
-              {slicedData.map((data) => {
-                return <PicksItems key={data.id} {...data} />;
+               {events?.slice(0, 3)?.map((event) => {
+                return <PicksItems key={event._id} event={event} />;
               })}
             </div>
           </div>
@@ -440,8 +461,8 @@ export default function UserHome() {
             </div>
 
             <div className="user-home__grid__picks__card1__grid">
-              {slicedData.map((data) => {
-                return <PicksItems key={data.id} {...data} />;
+               {events?.slice(0, 3)?.map((event) => {
+                return <PicksItems key={event._id} event={event} />;
               })}
             </div>
           </div>

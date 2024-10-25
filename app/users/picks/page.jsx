@@ -1,16 +1,59 @@
 "use client";
+import { adminGetEvents } from "@/app/apis/events";
 import Footer from "@/app/components/footer";
 import HomeHeader from "@/app/components/home/header";
 import { PicksItems } from "@/app/components/userComponents/picksForMe/PicksItems";
 import { picksData } from "@/app/components/userComponents/picksForMe/picksData";
+import { filterEvents } from "@/app/utils/filterEvents";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+
 
 export default function HomePicks() {
+  const auth = useSelector((state) => state.auth);
   const [list, setList] = useState(9);
   const [selectedFilter, setSelectedFilter] = useState("");
-
+  const [events, setEvents] = useState([]);
+  const [activeFilters, setActiveFilters] = useState({});
   const slicedData = picksData.slice(0, list);
+
+  const handleGetEvents = async (filters = {}) => {
+    console.log('known filters', filters);
+    
+    try {
+      const response = await adminGetEvents(auth?.token);
+      if (response?.status === 200) {
+        const allEvents = response?.data;
+        const filteredEvents = filterEvents(allEvents, filters);
+        console.log('filteredEvents', filteredEvents);
+
+        setEvents(filteredEvents);
+      } else {
+        alert(response?.data?.message);
+      }
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      alert("Error fetching events");
+    }
+  };
+
+  const handleFilterChange = (newFilters) => {
+    console.log('hello');
+    
+    // const updatedFilters = { ...activeFilters, ...newFilters };
+    const updatedFilters = { ...newFilters };
+    console.log('updatedFilters', updatedFilters);
+
+    setActiveFilters(updatedFilters);
+    handleGetEvents(updatedFilters);
+  };
+
+  // Initial load
+  useEffect(() => {
+    handleGetEvents();
+  }, []);
 
   return (
     <>
@@ -35,7 +78,7 @@ export default function HomePicks() {
                   stroke-linejoin="round"
                 />
               </svg>
-              Our Top Picks
+              Our top picks
             </div>
 
             <h1 className="home-picks__hero__title">Our top picks</h1>
@@ -92,7 +135,7 @@ export default function HomePicks() {
                 />
               </svg>
 
-              <input type="date" />
+              <input type="date" onChange={(e) => handleFilterChange({ date: e.target.value })} />
               <svg
                 width="20"
                 height="20"
@@ -110,98 +153,127 @@ export default function HomePicks() {
               </svg>
             </div>
 
-          
-           
-            <button 
-              className={selectedFilter === "All Dates" ? "home-picks__filter__button home-picks__filter__button-active" : "home-picks__filter__button"}
-              onClick={() => setSelectedFilter("All Dates")}>All Dates</button>
-              <button 
-              className={selectedFilter === "Today" ? "home-picks__filter__button home-picks__filter__button-active" : "home-picks__filter__button"}
-              onClick={() => setSelectedFilter("Today")}>Today</button>
-              <button 
-              className={selectedFilter === "This Weekend" ? "home-picks__filter__button home-picks__filter__button-active" : "home-picks__filter__button"}
-              onClick={() => setSelectedFilter("This Weekend")}>This Weekend</button>
-              <button 
-              className={selectedFilter === "This Week" ? "home-picks__filter__button home-picks__filter__button-active" : "home-picks__filter__button"}
-              onClick={() => setSelectedFilter("This Week")}>This Week</button>
-              <button 
-              className={selectedFilter === "This Month" ? "home-picks__filter__button home-picks__filter__button-active" : "home-picks__filter__button"}
-              onClick={() => setSelectedFilter("This Month")}>This Month</button>
-              <button 
-              className={selectedFilter === "Next 30 Days" ? "home-picks__filter__button home-picks__filter__button-active" : "home-picks__filter__button"}
-              onClick={() => setSelectedFilter("Next 30 Days")}>Next 30 Days</button>
+            <button
+              className={
+                selectedFilter === "All Dates"
+                  ? "home-picks__filter__button home-picks__filter__button-active"
+                  : "home-picks__filter__button"
+              }
+              onClick={() => {
+                setSelectedFilter("All Dates")
+                handleFilterChange({})
+              }}
+            >
+              All Dates
+            </button>
+            <button
+              className={
+                selectedFilter === "Today"
+                  ? "home-picks__filter__button home-picks__filter__button-active"
+                  : "home-picks__filter__button"
+              }
+              onClick={() => {setSelectedFilter("Today")
+                handleFilterChange({ today: true })
+              }}
+            >
+              Today
+            </button>
+            <button
+              className={
+                selectedFilter === "This Weekend"
+                  ? "home-picks__filter__button home-picks__filter__button-active"
+                  : "home-picks__filter__button"
+              }
+              onClick={() => {setSelectedFilter("This Weekend")
+                handleFilterChange({ thisWeekend: true })
+              }}
+            >
+              This Weekend
+            </button>
+            <button
+              className={
+                selectedFilter === "This Week"
+                  ? "home-picks__filter__button home-picks__filter__button-active"
+                  : "home-picks__filter__button"
+              }
+              onClick={() => {
+                setSelectedFilter("This Week")
+                // handleFilterChange({ thisWeek: true })
+              }}
+            >
+              This Week
+            </button>
+            <button
+              className={
+                selectedFilter === "This Month"
+                  ? "home-picks__filter__button home-picks__filter__button-active"
+                  : "home-picks__filter__button"
+              }
+              onClick={() => {setSelectedFilter("This Month")
+                handleFilterChange({ thisMonth: true })
+              }}
+            >
+              This Month
+            </button>
+            <button
+              className={
+                selectedFilter === "Next 30 Days"
+                  ? "home-picks__filter__button home-picks__filter__button-active"
+                  : "home-picks__filter__button"
+              }
+              onClick={() => {
+                setSelectedFilter("Next 30 Days")
+                handleFilterChange({ next30Days: true })
+              }}
+            >
+              Next 30 Days
+            </button>
           </div>
 
           <div className="user-home__grid">
-        <div>
-        <div className="user-home__grid__picks">
-          <div className="user-home__grid__picks__card1">
-          
+            <div>
+              <div className="user-home__grid__picks">
+                <div className="user-home__grid__picks__card1">
+                  
 
-            <div className="user-home__grid__picks__card1__filter">
-              <button 
-              className={selectedFilter === "All Dates" ? "user-home__grid__picks__card1__filter-active" : ""}
-              onClick={() => setSelectedFilter("All Dates")}>All Dates</button>
-              <button 
-              className={selectedFilter === "Today" ? "user-home__grid__picks__card1__filter-active" : ""}
-              onClick={() => setSelectedFilter("Today")}>Today</button>
-              <button 
-              className={selectedFilter === "This Weekend" ? "user-home__grid__picks__card1__filter-active" : ""}
-              onClick={() => setSelectedFilter("This Weekend")}>This Weekend</button>
-              <button 
-              className={selectedFilter === "This Week" ? "user-home__grid__picks__card1__filter-active" : ""}
-              onClick={() => setSelectedFilter("This Week")}>This Week</button>
-              <button 
-              className={selectedFilter === "This Month" ? "user-home__grid__picks__card1__filter-active" : ""}
-              onClick={() => setSelectedFilter("This Month")}>This Month</button>
-              <button 
-              className={selectedFilter === "Next 30 Days" ? "user-home__grid__picks__card1__filter-active" : ""}
-              onClick={() => setSelectedFilter("Next 30 Days")}>Next 30 Days</button>
+                  <div className="user-home__grid__picks__card1__grid">
+                    {events?.map((event) => {
+                      return <PicksItems key={event._id} event={event} />;
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              <button className="home-picks__more">
+                See more
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="#929692"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
             </div>
-
-            <div className="user-home__grid__picks__card1__grid">
-              {slicedData.map((data) => {
-                return <PicksItems key={data.id} {...data} />;
-              })}
+            <div className="user-home__grid__card2">
+              <div className="user-home__grid__card2__banner">
+                Advertisement Banner
+              </div>
+              <div className="user-home__grid__card2__banner">
+                Advertisement Banner
+              </div>
             </div>
           </div>
-        </div>
-
-        <button className="home-picks__more">
-See more
-
-<svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 7.5L10 12.5L15 7.5"
-                  stroke="#929692"
-                  stroke-width="1.66667"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-</button>
-        </div>
-        <div className="user-home__grid__card2">
-            <div className="user-home__grid__card2__banner">
-            Advertisement Banner
-            </div>
-            <div className="user-home__grid__card2__banner">
-            Advertisement Banner
-            </div>
-        </div>
-       </div>
-
-      
-          
         </main>
       </div>
-
       <Footer />
     </>
   );
